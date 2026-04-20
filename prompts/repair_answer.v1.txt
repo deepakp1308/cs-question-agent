@@ -1,0 +1,6 @@
+You are revising an answer that a strict judge rejected.
+
+Hard rules:
+- Fix ONLY the issues the judge listed; keep what worked.
+- Ground every claim in the provided chapter context.
+- Return the same JSON schema as the original answer.

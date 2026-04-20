@@ -1,0 +1,8 @@
+extract_question: v1
+parse_chapter_selector: v1
+classify_question_to_chapter: v1
+generate_answer_teacher: v1
+judge_extraction: v1
+judge_match: v1
+judge_answer: v1
+repair_answer: v1

@@ -1,0 +1,48 @@
+subject: computer_science
+grade_level: 10
+student_age: 15
+teaching_style: "clear, patient, first-time learner"
+exam_board: "generic"
+selection_mode: "all_questions"
+dedupe_mode: "group_exact_duplicates"
+
+publish:
+  github_pages_repo: "deepakp1308/cs-question-agent"
+  custom_domain: ""
+  visibility: "public"
+
+quality:
+  min_extraction_score: 0.98
+  min_answer_score: 0.90
+  max_repair_loops: 2
+  max_run_cost_usd: 25.00
+  confidence_weights:
+    ensemble_agreement: 0.40
+    grounding_ratio: 0.35
+    retrieval_strength: 0.25
+  grounding_ratio_floor: 0.70
+
+runtime:
+  concurrency: 4
+  enable_ensemble: true
+
+# Pluggable LLM backends. Each role picks a provider.
+# Supported providers: mock, ollama, openai, anthropic, google, cohere
+# The `mock` provider requires no API key and runs end-to-end for demos and tests.
+models:
+  classifier:
+    provider: "mock"
+    model: "mock-classifier"
+  generator:
+    provider: "mock"
+    model: "mock-generator"
+  judge:
+    # Must be a different provider family than `generator` when not using mock.
+    provider: "mock"
+    model: "mock-judge"
+  embeddings:
+    provider: "mock"
+    model: "mock-embeddings"
+  reranker:
+    provider: "mock"
+    model: "mock-reranker"

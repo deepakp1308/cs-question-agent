@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{{ subject|replace("_"," ")|title }} — Worked Answers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif; max-width: 780px; margin: 2em auto; padding: 0 1em; color: #111; line-height: 1.5; }
+    h1 { border-bottom: 2px solid #444; padding-bottom: 10px; }
+    .meta { color: #666; font-size: 0.9em; }
+    ul { list-style: none; padding: 0; }
+    li { padding: 12px 14px; margin: 10px 0; background: #f6f7f9; border-left: 4px solid #2c5282; border-radius: 4px; }
+    a { color: #2c5282; text-decoration: none; font-weight: 600; }
+    a:hover { text-decoration: underline; }
+    .count { color: #555; font-size: 0.85em; margin-left: 8px; }
+    .audit { margin-top: 2em; padding-top: 1em; border-top: 1px solid #ccc; }
+  </style>
+</head>
+<body>
+  <h1>{{ subject|replace("_"," ")|title }} — Worked Answers</h1>
+  <div class="meta">Run {{ run_id }} &middot; {{ generated_at }}</div>
+  <ul>
+    {% for ch in chapters %}
+      <li>
+        <a href="./chapter_{{ ch.chapter_id }}.pdf">{{ ch.title }}</a>
+        <span class="count">{{ ch.question_count }} question{{ 's' if ch.question_count != 1 else '' }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="audit">
+    <a href="./audit.html">Audit / QA report &rarr;</a>
+  </div>
+</body>
+</html>

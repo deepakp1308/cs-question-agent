@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Audit Report — Run {{ run_id }}</title>
+  <meta name="robots" content="noindex">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; max-width: 1100px; margin: 2em auto; padding: 0 1em; color: #111; }
+    h1, h2 { border-bottom: 1px solid #ccc; padding-bottom: 6px; }
+    table { border-collapse: collapse; width: 100%; font-size: 0.9em; }
+    th, td { border: 1px solid #ddd; padding: 6px 8px; text-align: left; vertical-align: top; }
+    th { background: #f2f2f2; position: sticky; top: 0; }
+    tr.quarantine { background: #fff5f5; }
+    tr.gated_publish { background: #fffbea; }
+    tr.auto_publish { background: #f0fdf4; }
+    code { background: #f2f2f2; padding: 1px 4px; border-radius: 3px; }
+    .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 0.75em; }
+    .pill.ok { background: #c6f6d5; color: #22543d; }
+    .pill.warn { background: #fef3c7; color: #92400e; }
+    .pill.bad { background: #fed7d7; color: #742a2a; }
+    .filters { margin: 1em 0; }
+    .filters input, .filters select { padding: 4px 8px; margin-right: 6px; }
+    .models { font-size: 0.8em; color: #666; }
+  </style>
+</head>
+<body>
+  <h1>Audit Report</h1>
+  <p><code>run_id: {{ run_id }}</code> &middot; generated {{ generated_at }}</p>
+  <h2>Summary</h2>
+  <ul>
+    <li>Questions: {{ summary.total }}</li>
+    <li>Auto-publish: {{ summary.auto_publish }}</li>
+    <li>Gated publish: {{ summary.gated_publish }}</li>
+    <li>Quarantined: {{ summary.quarantine }}</li>
+    <li>Total cost: ${{ "%.4f"|format(summary.cost_usd) }}</li>
+  </ul>
+  <div class="filters">
+    <label>Filter: <input id="q" placeholder="text / chapter / tier"></label>
+    <label>Tier:
+      <select id="tier">
+        <option value="">all</option>
+        <option>auto_publish</option>
+        <option>gated_publish</option>
+        <option>quarantine</option>
+      </select>
+    </label>
+  </div>
+  <table id="rows">
+    <thead>
+      <tr>
+        <th>Q-id</th><th>Chapter</th><th>Text</th>
+        <th>Composite</th><th>Grounding</th><th>Ensemble</th>
+        <th>Tier</th><th>Extraction</th><th>Answer judge</th><th>Actions</th><th>Models</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for r in rows %}
+      <tr class="{{ r.tier }}" data-tier="{{ r.tier }}">
+        <td><code>{{ r.question.question_id }}</code></td>
+        <td>{{ r.chapter or '—' }}</td>
+        <td>{{ r.question.verbatim_text[:160] }}{% if r.question.verbatim_text|length > 160 %}…{% endif %}</td>
+        <td>{{ "%.2f"|format(r.answer.confidence.composite) if r.answer else '—' }}</td>
+        <td>{{ "%.2f"|format(r.answer.confidence.grounding_ratio) if r.answer else '—' }}</td>
+        <td>{{ "%.2f"|format(r.answer.confidence.ensemble_agreement) if r.answer else '—' }}</td>
+        <td>
+          <span class="pill {% if r.tier=='auto_publish' %}ok{% elif r.tier=='gated_publish' %}warn{% else %}bad{% endif %}">{{ r.tier }}</span>
+        </td>
+        <td>{% if r.extraction %}{{ "%.2f"|format(r.extraction.score) }}{% if r.extraction.pass_ %} <span class="pill ok">pass</span>{% else %} <span class="pill bad">fail</span>{% endif %}{% endif %}</td>
+        <td>{% if r.answer_judge %}{{ "%.2f"|format(r.answer_judge.score) }}{% if r.answer_judge.pass_ %} <span class="pill ok">pass</span>{% else %} <span class="pill bad">fail</span>{% endif %}{% endif %}</td>
+        <td><a href="#">accept</a> &middot; <a href="#">reject</a> &middot; <a href="#">edit</a></td>
+        <td class="models">{{ r.models or '' }}</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+  <script>
+    const q = document.getElementById('q');
+    const tier = document.getElementById('tier');
+    const rows = document.querySelectorAll('#rows tbody tr');
+    function apply() {
+      const needle = q.value.toLowerCase();
+      const t = tier.value;
+      rows.forEach(r => {
+        const matchQ = !needle || r.innerText.toLowerCase().includes(needle);
+        const matchT = !t || r.dataset.tier === t;
+        r.style.display = (matchQ && matchT) ? '' : 'none';
+      });
+    }
+    q.addEventListener('input', apply);
+    tier.addEventListener('change', apply);
+  </script>
+</body>
+</html>
