@@ -56,21 +56,158 @@ pytest -q
 
 ## Architecture
 
-```
-File discovery
-  -> PyMuPDF layout-aware parsing
-  -> Regex-first question extractor (structural fields: OR / duplicates / continuation / code blocks)
-  -> Hybrid BM25 + dense retrieval store (chapter sources + mark schemes)
-  -> Chapter matcher (retrieval fusion + LLM classifier)
-  -> Retrieval-grounded answer generator (optional ensemble)
-  -> Two-stage extraction judge + chapter-match judge + answer judge
-  -> Repair loop (bounded by project.yaml)
-  -> Composite confidence tiering (auto_publish / gated_publish / quarantine)
-  -> Renderer (per-chapter PDFs + master index + audit HTML)
-  -> Publisher (public GitHub Pages / private signed-URL)
+The pipeline is a **deterministic resumable DAG** with model-assisted steps. Every stage is idempotent, writes a typed JSON record keyed by a stable id, and is skipped on subsequent runs if the input hash is unchanged.
+
+### Pipeline flow
+
+```mermaid
+flowchart TD
+    classDef io fill:#edf2f7,stroke:#4a5568,color:#1a202c
+    classDef deterministic fill:#f6f8fb,stroke:#2c5282,color:#1a365d
+    classDef llm fill:#fff5f5,stroke:#c53030,color:#742a2a
+    classDef hybrid fill:#fffbea,stroke:#d69e2e,color:#744210
+    classDef gate fill:#f0fdf4,stroke:#276749,color:#22543d
+    classDef sink fill:#ebf8ff,stroke:#2c5282,color:#1a365d
+
+    InputPapers["/input/papers/*.pdf"]:::io
+    InputSelectors["/input/chapter_selectors"]:::io
+    InputSources["/input/chapter_sources"]:::io
+    InputMarkschemes["/input/markschemes (optional)"]:::io
+    ProjectYaml["/input/project.yaml"]:::io
+
+    Ingest["1. Ingest — file discovery + hashing + manifest"]:::deterministic
+    Extract["2. Extract — PyMuPDF layout parse + regex rules + QuestionRecord"]:::deterministic
+    Retrieval["3. Retrieval store — heading-aware chunker + BM25 + dense embeddings + reciprocal-rank fusion"]:::hybrid
+    Match["4. Chapter match — retrieval candidates + LLM classifier"]:::hybrid
+    Generate["5. Answer generator — grounded, optional ensemble, cleans dot leaders"]:::llm
+    JudgeE["6a. Extraction judge — Stage 1 deterministic diff + Stage 2 LLM"]:::hybrid
+    JudgeM["6b. Match judge — LLM"]:::llm
+    JudgeA["6c. Answer judge — LLM, uses mark schemes when present"]:::llm
+    Repair["7. Repair loop (bounded by max_repair_loops)"]:::llm
+    Tier["8. Composite confidence tiering"]:::gate
+    Render["9. Render — Jinja + WeasyPrint/ReportLab → per-chapter PDFs + audit HTML"]:::deterministic
+    Publish["10. Publish — GitHub Pages or private signed-URL"]:::deterministic
+
+    StudentPdfs["site/runs/run_id/chapter_x.pdf"]:::sink
+    Audit["site/runs/run_id/audit.html"]:::sink
+    Quarantine["runs/run_id/quarantine/x.json"]:::sink
+    Metrics["runs/run_id/metrics.json + REPORT.md"]:::sink
+
+    InputPapers --> Ingest
+    InputSelectors --> Match
+    InputSources --> Retrieval
+    InputMarkschemes --> Retrieval
+    ProjectYaml -. config .-> Ingest
+    ProjectYaml -. config .-> Generate
+    ProjectYaml -. config .-> Tier
+
+    Ingest --> Extract
+    Extract --> Match
+    Retrieval --> Match
+    Match --> Generate
+    Retrieval --> Generate
+    Generate --> JudgeA
+    Extract --> JudgeE
+    Match --> JudgeM
+    JudgeE --> Tier
+    JudgeM --> Tier
+    JudgeA -->|pass| Tier
+    JudgeA -->|fail| Repair
+    Repair --> JudgeA
+    Tier -->|auto or gated| Render
+    Tier -->|quarantine| Quarantine
+    Render --> Publish
+    Publish --> StudentPdfs
+    Publish --> Audit
+    Tier --> Metrics
 ```
 
-Every stage writes to `runs/<run_id>/stage_outputs/<stage>/<id>.json` with an input hash. A second run with the same inputs skips every cached stage — the resumable DAG is built in.
+**Legend.** Blue = deterministic Python. Red = LLM call. Amber = hybrid (retrieval-backed LLM). Green = gate / decision.
+
+### Component layout
+
+```mermaid
+flowchart LR
+    classDef pkg fill:#f6f8fb,stroke:#2c5282,color:#1a365d
+    classDef crosscut fill:#fffbea,stroke:#d69e2e,color:#744210
+    classDef adapter fill:#fff5f5,stroke:#c53030,color:#742a2a
+    classDef output fill:#f0fdf4,stroke:#276749,color:#22543d
+
+    subgraph CLI [app/cli.py]
+        CLIRun["cs-agent run"]:::pkg
+        CLIPromote["cs-agent promote-golden"]:::pkg
+    end
+
+    subgraph Core [app/orchestrator.py]
+        Orch["Resumable DAG orchestrator"]:::pkg
+    end
+
+    subgraph Stages [Stage packages]
+        IngestPkg["app/ingest"]:::pkg
+        ExtractPkg["app/extract (PyMuPDF + regex)"]:::pkg
+        RetrievalPkg["app/retrieval (chunker + BM25 + dense)"]:::pkg
+        ChaptersPkg["app/chapters"]:::pkg
+        AnswerPkg["app/answer (generator + grounding + repair)"]:::pkg
+        JudgePkg["app/judge (extraction/match/answer + aggregator)"]:::pkg
+        RenderPkg["app/render (WeasyPrint / ReportLab)"]:::pkg
+        PublishPkg["app/publish (GitHub Pages / signed-URL)"]:::pkg
+    end
+
+    subgraph Adapters [app/adapters — pluggable LLM + embeddings]
+        Mock[mock]:::adapter
+        Replay[replay — canned transcripts]:::adapter
+        Ollama[ollama — local free]:::adapter
+        OpenAI[openai]:::adapter
+        Anthropic[anthropic]:::adapter
+        Google[google]:::adapter
+        Cohere[cohere]:::adapter
+    end
+
+    subgraph Crosscut [Cross-cutting]
+        Config["app/config (project.yaml + independence check)"]:::crosscut
+        Models["app/models (Pydantic schemas)"]:::crosscut
+        Hashing["app/hashing"]:::crosscut
+        Cache["app/cache (stage_outputs idempotent cache)"]:::crosscut
+        Telemetry["app/telemetry (metrics.json + cost cap)"]:::crosscut
+        Prompts["prompts/ + manifest.yaml (versioned)"]:::crosscut
+    end
+
+    subgraph Outputs [Output artifacts]
+        RunArtifacts["runs/run_id/ — stage_outputs + metrics + REPORT + quarantine"]:::output
+        SiteArtifacts["site/runs/run_id/ — per-chapter PDFs + audit.html + index"]:::output
+    end
+
+    CLIRun --> Orch
+    Orch --> IngestPkg
+    Orch --> ExtractPkg
+    Orch --> RetrievalPkg
+    Orch --> ChaptersPkg
+    Orch --> AnswerPkg
+    Orch --> JudgePkg
+    Orch --> RenderPkg
+    Orch --> PublishPkg
+
+    ChaptersPkg --> Adapters
+    AnswerPkg --> Adapters
+    JudgePkg --> Adapters
+    RetrievalPkg --> Adapters
+
+    Orch -. uses .-> Config
+    Orch -. uses .-> Models
+    Orch -. uses .-> Hashing
+    Orch -. uses .-> Cache
+    Orch -. uses .-> Telemetry
+    AnswerPkg -. uses .-> Prompts
+    JudgePkg -. uses .-> Prompts
+
+    Orch --> RunArtifacts
+    RenderPkg --> SiteArtifacts
+    PublishPkg --> SiteArtifacts
+```
+
+### Resumable DAG contract
+
+Every stage writes to `runs/<run_id>/stage_outputs/<stage>/<id>.json` with the hash of its inputs. On a repeat run the orchestrator skips any stage whose inputs are unchanged. Failures are captured in `runs/<run_id>/errors/<stage>/<id>.error.json` and never block unrelated questions.
 
 ---
 
