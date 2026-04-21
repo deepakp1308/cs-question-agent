@@ -1,0 +1,513 @@
+# Chapter 3 — Hardware
+# Questions drawn from Cambridge IGCSE (0478) topical papers 1.3.1 through 1.3.5.
+
+title: "Chapter 3 — Hardware (Cambridge IGCSE 0478)"
+subject: computer_science
+grade_level: 10
+
+questions:
+
+  # =========================================================================
+  # CPU BASICS
+  # =========================================================================
+
+  - number: 1
+    marks: 2
+    topic: "Role of the CPU"
+    question: "Describe the role of the central processing unit (CPU) in a computer."
+    answer_direct: "The CPU fetches each program instruction from main memory, decodes what it means, and executes it. It is the part of the computer that actually does the processing."
+    working:
+      - "The CPU continuously runs the fetch-decode-execute cycle, one instruction at a time."
+      - "Arithmetic and logic operations (add, subtract, compare) are carried out in the ALU."
+      - "The Control Unit coordinates everything and sends control signals to memory, registers, and I/O devices."
+    common_mistake: "Calling the CPU the 'memory'. The CPU USES memory; it is not itself storage."
+
+  - number: 2
+    marks: 3
+    topic: "Von Neumann components"
+    question: "State three components of a CPU that follows the Von Neumann architecture."
+    answer_direct: "Arithmetic Logic Unit (ALU), Control Unit (CU), and registers (for example the PC, MAR, MDR, accumulator)."
+    working:
+      - "ALU — performs arithmetic (add, subtract, multiply, divide) and logic (AND, OR, NOT, comparisons)."
+      - "Control Unit — decodes each instruction and sends control signals."
+      - "Registers — tiny fast storage cells inside the CPU used during an instruction."
+      - "Buses (address, data, control) connect the CPU to main memory."
+    common_mistake: "Listing 'RAM' as a CPU component. RAM is MAIN MEMORY, outside the CPU, connected via the buses."
+
+  - number: 3
+    marks: 4
+    topic: "Fetch-decode-execute cycle"
+    question: "Describe the fetch-decode-execute cycle."
+    answer_direct: "(1) Fetch — the CPU copies the next instruction from main memory into the CPU. (2) Decode — the Control Unit works out what the instruction means. (3) Execute — the operation is carried out, typically by the ALU."
+    working:
+      - "Fetch: the address in the Program Counter (PC) is copied into the MAR. The instruction at that address is read from memory into the MDR, then transferred into the CIR. The PC is incremented so it points to the next instruction."
+      - "Decode: the Control Unit interprets the bit pattern in the CIR and identifies the operation and operands."
+      - "Execute: the Control Unit sends signals so the operation happens. Arithmetic runs in the ALU; data is read or written; a result is stored in a register or memory."
+      - "The cycle repeats, one instruction at a time."
+    common_mistake: "Leaving out incrementing the PC. Without that, the CPU would re-fetch the same instruction forever."
+
+  # =========================================================================
+  # REGISTERS
+  # =========================================================================
+
+  - number: 4
+    marks: 2
+    topic: "Program Counter"
+    question: "Describe the role of the Program Counter (PC)."
+    answer_direct: "The PC holds the memory address of the NEXT instruction to be fetched. After each fetch it is incremented so it automatically points to the next instruction."
+    working:
+      - "At the start of fetch, the address in the PC is copied into the MAR."
+      - "Once the instruction has been fetched, the PC is incremented (usually by one memory word)."
+      - "A jump or branch instruction overwrites the PC with a new address."
+    common_mistake: "Thinking the PC holds the current instruction. The CIR holds the current instruction; the PC holds the ADDRESS of the next one."
+
+  - number: 5
+    marks: 3
+    topic: "MDR"
+    question: "Describe the role of the Memory Data Register (MDR)."
+    answer_direct: "The MDR temporarily holds data that is being transferred between main memory and the CPU — either an instruction being fetched or a value being read or written."
+    working:
+      - "On a read: data from the memory address in the MAR arrives in the MDR."
+      - "On a write: the CPU places the value to be stored in the MDR, then the memory hardware copies it to the address in the MAR."
+      - "The MDR is also used during fetch: the instruction is copied from memory into the MDR, then from the MDR into the CIR."
+    common_mistake: "Confusing MDR with MAR. The MAR holds the ADDRESS being accessed; the MDR holds the DATA at that address."
+
+  - number: 6
+    marks: 2
+    topic: "Accumulator"
+    question: "Describe the role of the accumulator."
+    answer_direct: "The accumulator is a register inside the ALU that holds the current result of arithmetic or logic operations."
+    working:
+      - "A value is loaded into the accumulator from memory."
+      - "Arithmetic instructions (such as ADD) operate on the accumulator and write the result back into it."
+      - "The final value can then be stored back to memory using a STORE instruction."
+    common_mistake: "Saying the accumulator stores the entire program. It holds only ONE value at a time — the current working value."
+
+  - number: 7
+    marks: 3
+    topic: "Identify three registers"
+    question: "Identify three registers that may be used in the CPU."
+    answer_direct: "Program Counter (PC), Memory Address Register (MAR), Memory Data Register (MDR)."
+    working:
+      - "PC — holds the address of the next instruction."
+      - "MAR — holds the address currently being accessed."
+      - "MDR — holds the data read from or written to that address."
+      - "Other valid answers: CIR (current instruction), accumulator (ALU result), status / flag register."
+    common_mistake: "Listing RAM or the ALU as a register. Registers are specific, tiny named storage locations inside the CPU."
+
+  # =========================================================================
+  # BUSES
+  # =========================================================================
+
+  - number: 8
+    marks: 3
+    topic: "Buses"
+    question: "Describe the three main buses in a Von Neumann computer."
+    answer_direct: "Address bus — carries memory addresses from the CPU to memory. Data bus — carries data between the CPU and memory (both directions). Control bus — carries control signals such as read, write, clock, interrupt."
+    working:
+      - "Address bus — unidirectional (CPU to memory); its width limits how much memory can be addressed."
+      - "Data bus — bidirectional; its width affects how many bits can be transferred in one operation."
+      - "Control bus — carries timing and control signals such as read/write enable, clock tick, interrupt request."
+    common_mistake: "Saying the address bus carries data. It carries ADDRESSES only; the data bus carries the data."
+
+  # =========================================================================
+  # EMBEDDED SYSTEMS
+  # =========================================================================
+
+  - number: 9
+    marks: 2
+    topic: "Embedded system"
+    question: "Explain what is meant by an embedded system."
+    answer_direct: "An embedded system is a dedicated computer built into a larger device to perform a specific task — for example a washing machine controller, a microwave, or a car engine ECU."
+    working:
+      - "The program is usually fixed in ROM and cannot easily be changed by the user."
+      - "Embedded systems have limited memory and processing power, because they only need to do one job."
+      - "They are cheaper, more reliable, and use less power than a general-purpose computer."
+    common_mistake: "Saying embedded systems are small computers. They can be small, but the defining feature is being PART of a larger device and running a FIXED program."
+
+  - number: 10
+    marks: 3
+    topic: "Embedded devices examples"
+    question: "State three devices that contain an embedded system."
+    answer_direct: "A washing machine, a microwave oven, a car engine management unit. (Accept any fixed-function device: traffic lights, digital cameras, smart thermostats, ATMs, fitness trackers.)"
+    working:
+      - "Each of these contains a small computer dedicated to controlling ONE device."
+      - "The program is burned into ROM at the factory and rarely updated."
+    common_mistake: "Saying 'a laptop' or 'a PC'. Those are GENERAL-PURPOSE computers, not embedded systems."
+
+  # =========================================================================
+  # INPUT / OUTPUT DEVICES
+  # =========================================================================
+
+  - number: 11
+    marks: 2
+    topic: "Input vs output device"
+    question: "Define an input device and an output device."
+    answer_direct: "An input device sends data FROM the outside world INTO the computer (for example a keyboard). An output device sends data FROM the computer OUT to the user or environment (for example a monitor)."
+    working:
+      - "Input — keyboard, mouse, microphone, camera, barcode scanner, touch screen, sensors."
+      - "Output — monitor, speakers, printer, actuators, motors, lights."
+      - "Some devices are both (for example a touch screen displays AND receives touches)."
+    common_mistake: "Calling a CPU an input or output device. The CPU is a PROCESSING device."
+
+  - number: 12
+    marks: 4
+    topic: "Capacitive touch screen"
+    question: "Describe how a capacitive touch screen registers a user's touch."
+    answer_direct: "The screen has a grid of conductive layers holding a small electric charge. A finger is also conductive, so touching the screen distorts the charge at that point; the controller measures where the change happened and reports the touch location."
+    working:
+      - "A capacitive touch screen has an insulating layer (glass) coated with a transparent conductor that stores charge across the surface."
+      - "When a finger touches the glass, a small amount of charge transfers to the finger."
+      - "Sensors at the corners detect the change in charge distribution."
+      - "The controller calculates the coordinates of the touch and passes them to the operating system as an input event."
+    common_mistake: "Confusing capacitive with resistive. Resistive responds to pressure from ANY object; capacitive needs electrical conductivity, so gloved fingers usually do not register."
+
+  - number: 13
+    marks: 2
+    topic: "Capacitive screen with gloves"
+    question: "Explain why a capacitive touch screen does not register a touch when the user is wearing ordinary gloves."
+    answer_direct: "Ordinary gloves are electrical insulators, so they prevent charge from transferring between the screen and the finger; the screen sees no change in charge and records no touch."
+    working:
+      - "Capacitive screens rely on small charge transfer to a conductive finger."
+      - "Wool or fabric gloves are insulators — the charge cannot flow through them."
+      - "Without a detectable change in charge, the controller reports nothing."
+    common_mistake: "Saying the screen is broken. It is working — the input (the gloved finger) is not being detected because it is an insulator."
+
+  - number: 14
+    marks: 2
+    topic: "Using capacitive screen with gloves"
+    question: "Suggest how a user could operate a capacitive touch screen while still wearing gloves."
+    answer_direct: "Use conductive (capacitive-compatible) gloves — gloves with conductive thread woven into the fingertips — or use a capacitive stylus."
+    working:
+      - "Conductive gloves have metal-thread fingertips that complete the electrical circuit like bare skin."
+      - "A capacitive stylus has a soft conductive tip connected to a conductive body; when held, the user's hand provides the path for charge."
+    common_mistake: "Suggesting 'press harder'. Capacitive screens do not respond to pressure."
+
+  # =========================================================================
+  # SENSORS
+  # =========================================================================
+
+  - number: 15
+    marks: 3
+    topic: "Sensors"
+    question: "Describe the purpose of a sensor and give three examples."
+    answer_direct: "A sensor is an input device that measures a physical quantity and converts it to a signal the computer can read. Examples: temperature sensor, light sensor, pressure sensor."
+    working:
+      - "Sensors produce an analogue signal that varies with the quantity being measured."
+      - "An analogue-to-digital converter (ADC) turns the continuous signal into discrete binary values the computer can process."
+      - "Other examples: moisture / humidity sensor, infrared / motion sensor, pH sensor, gas sensor, sound sensor."
+    common_mistake: "Confusing a sensor with an actuator. A sensor INPUTS data; an actuator is an OUTPUT device (for example a motor that responds to a control signal)."
+
+  - number: 16
+    marks: 3
+    topic: "ADC"
+    question: "Explain why an analogue-to-digital converter (ADC) is needed with most sensors."
+    answer_direct: "Sensors produce continuous analogue signals (for example a voltage that varies smoothly with temperature). Computers can only process discrete digital values, so an ADC is needed to convert each sample of the analogue signal into a binary number."
+    working:
+      - "The ADC samples the analogue signal at regular intervals."
+      - "Each sample is compared to a scale (for example 0–5 V maps to 0–1023 on a 10-bit ADC)."
+      - "The result is a binary number that the CPU can store and process."
+      - "Higher sample rate and more bits per sample give a more accurate digital representation, at the cost of more data."
+    common_mistake: "Saying the ADC increases sensor accuracy. It converts — it does not improve the underlying sensor. Higher-quality sensors give better data; the ADC just digitises whatever the sensor produces."
+
+  # =========================================================================
+  # RAM AND ROM
+  # =========================================================================
+
+  - number: 17
+    marks: 3
+    topic: "RAM role"
+    question: "Describe the role of Random Access Memory (RAM)."
+    answer_direct: "RAM is main memory — it holds the programs and data that the CPU is currently using. It is fast, read/write, and volatile (its contents are lost when power is removed)."
+    working:
+      - "When you open a program, it is loaded from secondary storage into RAM."
+      - "The CPU reads instructions and data from RAM during the fetch-decode-execute cycle."
+      - "RAM is volatile: switching off the computer erases it."
+      - "More RAM lets the computer run more or larger programs at once without having to move data back to slower storage."
+    common_mistake: "Confusing RAM with the hard disk. RAM is main memory inside the computer; the hard disk is secondary storage. RAM is much faster and smaller."
+
+  - number: 18
+    marks: 2
+    topic: "ROM role"
+    question: "Describe the role of Read Only Memory (ROM)."
+    answer_direct: "ROM stores data that must not be lost when power is removed and that is not normally changed — most commonly the bootstrap / BIOS program that starts the computer when it is switched on."
+    working:
+      - "ROM is non-volatile: contents persist without power."
+      - "It is read-only in normal use; the data was written at manufacture (or firmware-flash time)."
+      - "The BIOS or bootloader lives here because the computer must be able to find it and run it BEFORE the operating system has loaded."
+    common_mistake: "Saying ROM is used to store the operating system. The OS is stored on the hard disk / SSD; only the SMALL bootloader that finds and loads the OS lives in ROM."
+
+  - number: 19
+    marks: 4
+    topic: "RAM vs ROM comparison"
+    question: "Compare RAM and ROM."
+    answer_direct: "RAM is volatile, read/write, and holds the programs and data currently in use. ROM is non-volatile, read-only, and holds firmware such as the BIOS."
+    working:
+      - "Volatility — RAM loses its contents when power is removed; ROM does not."
+      - "Access — RAM can be read AND written; ROM in normal use can only be read."
+      - "Purpose — RAM holds running programs and data; ROM holds boot / firmware code."
+      - "Size — a typical PC has 8–64 GB of RAM but only a few MB of ROM."
+    common_mistake: "Saying RAM is faster than ROM as a blanket truth. Access speed depends on the specific chips; the defining differences are VOLATILITY and WRITABILITY."
+
+  # =========================================================================
+  # SECONDARY STORAGE
+  # =========================================================================
+
+  - number: 20
+    marks: 2
+    topic: "Secondary storage purpose"
+    question: "Explain why a computer needs secondary storage in addition to main memory."
+    answer_direct: "Main memory (RAM) is volatile and loses its contents when power is removed. Secondary storage is non-volatile, so it keeps programs and user files safely for the long term, even when the computer is switched off."
+    working:
+      - "Programs that are not running and user files such as documents and photos need to survive shutdowns."
+      - "Secondary storage also provides far more capacity than RAM, at much lower cost per gigabyte."
+      - "When a program is needed, the OS copies it from secondary storage into RAM to be run."
+    common_mistake: "Saying secondary storage is faster than RAM. It is not — RAM is much faster. The reason for having secondary storage is PERSISTENCE and CAPACITY."
+
+  - number: 21
+    marks: 3
+    topic: "Magnetic storage"
+    question: "Describe how a magnetic hard disk drive (HDD) stores data."
+    answer_direct: "An HDD has spinning metal platters coated with a magnetic material. A moving read/write head magnetises tiny regions of the surface in one direction for a 1 and the opposite direction for a 0, storing data as patterns of magnetism."
+    working:
+      - "The platter surface is divided into tracks and sectors."
+      - "The head floats just above the surface on a cushion of air."
+      - "Writing: the head generates a magnetic field that sets each region's polarity."
+      - "Reading: the head detects the magnetic polarity and converts it back to bits."
+    common_mistake: "Confusing an HDD with an SSD. HDDs are magnetic and have moving parts; SSDs are solid-state with no moving parts."
+
+  - number: 22
+    marks: 3
+    topic: "Solid-state storage"
+    question: "Describe how a solid-state drive (SSD) stores data."
+    answer_direct: "An SSD stores data in flash memory chips made of NAND gates that trap electrons. A trapped electron represents a 1, no trapped electron a 0; values can be read, written, and erased electrically with no moving parts."
+    working:
+      - "Flash memory uses transistors with a floating gate that can hold an electric charge."
+      - "Charge present = one value, charge absent = the other."
+      - "Writing applies a voltage that pushes electrons onto the floating gate; erasing applies an opposite voltage."
+      - "No moving parts — SSDs are faster, silent, and more shock-resistant than HDDs."
+    common_mistake: "Thinking SSDs have unlimited write cycles. Flash cells WEAR OUT after many erase cycles; modern SSDs use wear-levelling but still have a finite write lifetime."
+
+  - number: 23
+    marks: 2
+    topic: "Optical storage"
+    question: "Describe how optical storage such as a CD or DVD holds data."
+    answer_direct: "A laser reads pits and lands pressed or burned into the reflective surface of the disc. Where the laser reflects brightly (a land) and where it is scattered (a pit) encode the binary data."
+    working:
+      - "The disc surface has a spiral track of pits and lands."
+      - "The drive shines a laser on the track; a photodetector measures the reflected light."
+      - "Transitions between pit and land (or land and pit) are read as 1s; unchanged regions are 0s."
+      - "CDs hold ~700 MB, DVDs ~4.7 GB, Blu-ray up to ~50 GB on a dual layer."
+    common_mistake: "Saying optical storage is magnetic. Optical uses LIGHT (a laser), not magnetism."
+
+  - number: 24
+    marks: 3
+    topic: "Choose storage for backup of 150 GB"
+    question: "A user needs to create a backup of 150 GB of data. Justify a suitable storage medium."
+    answer_direct: "An external hard disk drive (HDD) is suitable: it has plenty of capacity (typically 1 TB+ for under twenty dollars), is cheap per gigabyte, and is easy to disconnect and store offline for safety."
+    working:
+      - "Capacity: 150 GB easily fits on a modest external HDD."
+      - "Cost per GB: HDDs are cheaper than SSDs of the same size, which matters for large backups."
+      - "Portability: external HDDs can be unplugged and stored in a separate location."
+    common_mistake: "Suggesting a CD or DVD. A CD (~700 MB) or DVD (~4.7 GB) could not fit 150 GB even across many discs; that would be far too slow and error-prone."
+
+  - number: 25
+    marks: 2
+    topic: "Storage for tablet apps"
+    question: "Justify a suitable storage medium for storing applications on a tablet device."
+    answer_direct: "A solid-state drive (SSD) — tablets use flash storage because it is small, fast, silent, shock-resistant, and low-power; all essential for a thin battery-powered device that gets moved around."
+    working:
+      - "No moving parts — survives drops and vibration."
+      - "Low power — long battery life."
+      - "Fast — apps open quickly."
+      - "Compact — fits inside a thin tablet case."
+    common_mistake: "Suggesting an HDD. HDDs have moving parts, are heavier, use more power, and cannot survive being dropped — unsuitable for a tablet."
+
+  - number: 26
+    marks: 2
+    topic: "Storage for distributed movie"
+    question: "A company has a 1200 MB high-definition movie to give to interested customers as a promotional item. Justify a suitable storage medium."
+    answer_direct: "A DVD — it has more than enough capacity (4.7 GB single-layer), is cheap in bulk, can be pressed quickly, and is portable and easy to mail."
+    working:
+      - "Capacity: a 1200 MB file fits easily on a 4.7 GB DVD."
+      - "Cost: DVDs are a few cents each when ordered in bulk."
+      - "Distribution: easy to post; recipients can play them on any PC or DVD player."
+    common_mistake: "Suggesting an external hard disk. Hard disks are far more expensive per unit than DVDs and are overkill for a single 1.2 GB movie."
+
+  # =========================================================================
+  # VIRTUAL MEMORY
+  # =========================================================================
+
+  - number: 27
+    marks: 3
+    topic: "Virtual memory"
+    question: "Explain what is meant by virtual memory and how it works."
+    answer_direct: "Virtual memory is an area of secondary storage set aside by the operating system to be used as extra RAM. When RAM is full, the OS moves (pages) data that isn't currently being used out to disk, freeing real RAM for what the CPU needs now."
+    working:
+      - "If a program tries to use more memory than the physical RAM holds, the OS pauses the program, writes some currently-unused pages from RAM to the paging file on disk, and loads the pages actually needed."
+      - "The CPU can then run programs larger than physical RAM would allow."
+      - "Disk access is much slower than RAM, so heavy paging (thrashing) makes the computer noticeably slower."
+    common_mistake: "Thinking virtual memory is a kind of faster memory. It uses the HARD DISK or SSD — slower than RAM, not faster."
+
+  - number: 28
+    marks: 2
+    topic: "Why virtual memory helps"
+    question: "Explain one benefit and one drawback of using virtual memory."
+    answer_direct: "Benefit: the computer can run programs larger than physical RAM can hold. Drawback: accessing pages on disk is far slower than accessing RAM, so heavy paging slows the computer noticeably."
+    working:
+      - "Benefit — programs no longer fail simply because there isn't enough physical RAM."
+      - "Drawback — disk access can be 1000x slower than RAM access, so performance degrades when many pages swap in and out."
+      - "Adding more physical RAM usually fixes the slowdown."
+    common_mistake: "Saying virtual memory is free. It consumes disk space and wears SSD cells; and a slow HDD used for paging can make the whole computer feel unresponsive."
+
+  # =========================================================================
+  # CLOUD STORAGE
+  # =========================================================================
+
+  - number: 29
+    marks: 3
+    topic: "Cloud storage advantages"
+    question: "State three advantages of cloud storage compared with storing files only on a local hard disk."
+    answer_direct: "Files are accessible from any device with an internet connection, the provider handles backups and hardware failures, and storage can be scaled up easily without buying new disks."
+    working:
+      - "Access — log in from any device anywhere; no need to carry a drive."
+      - "Reliability — the provider keeps multiple copies across data centres."
+      - "Scalability — pay for more space when you need it, shrink when you don't."
+      - "Sharing — easy to give links to other users."
+    common_mistake: "Saying cloud storage is always faster. It depends entirely on your internet speed; a local SSD is much faster than downloading from the cloud."
+
+  - number: 30
+    marks: 2
+    topic: "Cloud storage disadvantages"
+    question: "State two disadvantages of cloud storage."
+    answer_direct: "You need a reliable internet connection to access files, and the privacy and security of your data depend on trusting the cloud provider."
+    working:
+      - "No internet, no access — if connectivity is down, files are unreachable."
+      - "Privacy — data sits on someone else's servers; a provider breach exposes your data."
+      - "Ongoing cost — subscription fees add up, unlike a one-off purchase of a hard disk."
+      - "Transfer speed — uploading large files can be slow on a typical home connection."
+    common_mistake: "Saying cloud storage is always more expensive. It can be cheaper than buying and backing up multiple local drives yourself; cost depends on scale."
+
+  # =========================================================================
+  # LOGIC GATES
+  # =========================================================================
+
+  - number: 31
+    marks: 3
+    topic: "AND gate"
+    question: "Describe the AND logic gate and give its truth table."
+    answer_direct: "An AND gate outputs 1 only if BOTH inputs are 1; otherwise it outputs 0."
+    working:
+      - "0 AND 0 = 0."
+      - "0 AND 1 = 0."
+      - "1 AND 0 = 0."
+      - "1 AND 1 = 1."
+    common_mistake: "Thinking AND outputs 1 when at least one input is 1. That is OR, not AND."
+
+  - number: 32
+    marks: 3
+    topic: "OR gate"
+    question: "Describe the OR logic gate and give its truth table."
+    answer_direct: "An OR gate outputs 1 if AT LEAST ONE input is 1; it outputs 0 only when all inputs are 0."
+    working:
+      - "0 OR 0 = 0."
+      - "0 OR 1 = 1."
+      - "1 OR 0 = 1."
+      - "1 OR 1 = 1."
+    common_mistake: "Thinking OR is exclusive — that the output is 1 only when exactly one input is 1. That is XOR, not OR."
+
+  - number: 33
+    marks: 2
+    topic: "NOT gate"
+    question: "Describe the NOT logic gate."
+    answer_direct: "A NOT gate (inverter) has one input and outputs the opposite: 0 becomes 1, and 1 becomes 0."
+    working:
+      - "NOT 0 = 1."
+      - "NOT 1 = 0."
+    common_mistake: "Describing NOT as needing two inputs. NOT is the only single-input gate on the IGCSE list."
+
+  - number: 34
+    marks: 3
+    topic: "NAND gate"
+    question: "Describe the NAND gate."
+    answer_direct: "A NAND gate outputs 0 only when BOTH inputs are 1; in every other case it outputs 1. It is an AND followed by a NOT."
+    working:
+      - "0 NAND 0 = 1."
+      - "0 NAND 1 = 1."
+      - "1 NAND 0 = 1."
+      - "1 NAND 1 = 0."
+    common_mistake: "Getting the output backwards: NAND gives 1 MOST of the time (whenever at least one input is 0) and only gives 0 when both inputs are 1."
+
+  - number: 35
+    marks: 3
+    topic: "XOR gate"
+    question: "Describe the XOR (exclusive OR) gate."
+    answer_direct: "An XOR gate outputs 1 when the two inputs are DIFFERENT, and 0 when they are the same."
+    working:
+      - "0 XOR 0 = 0."
+      - "0 XOR 1 = 1."
+      - "1 XOR 0 = 1."
+      - "1 XOR 1 = 0."
+      - "XOR is used for comparisons, parity calculations, and the bit-level sum in an adder."
+    common_mistake: "Thinking XOR is the same as OR. XOR rules OUT the case where both inputs are 1."
+
+  - number: 36
+    marks: 3
+    topic: "Draw a logic circuit"
+    question: "Draw a logic circuit for the statement X = 1 if (A is 1 AND B is 1) OR (C is NOT 1)."
+    answer_direct: "Use a NOT gate on C to get NOT C. Feed A and B into an AND gate to get A AND B. Feed (A AND B) and (NOT C) into an OR gate. The output of the OR gate is X."
+    working:
+      - "Break it down: P = A AND B, Q = NOT C, X = P OR Q."
+      - "Gate 1: AND with inputs A and B → output P."
+      - "Gate 2: NOT with input C → output Q."
+      - "Gate 3: OR with inputs P and Q → output X."
+      - "Check: if A=1, B=1, C=0 → P=1, Q=1, X=1 ✓."
+    common_mistake: "Forgetting the NOT on C. 'C is NOT 1' means apply NOT before C enters the OR."
+
+  # =========================================================================
+  # NETWORKING ADDRESSES
+  # =========================================================================
+
+  - number: 37
+    marks: 2
+    topic: "IP address"
+    question: "Describe what is meant by an Internet Protocol (IP) address."
+    answer_direct: "An IP address is a logical numerical address given to each device on a network, so data can be sent to the right destination. IPv4 addresses are 32 bits long, written as four decimal numbers 0–255 separated by dots (e.g., 192.168.1.10)."
+    working:
+      - "Assigned by the network (often by a DHCP server) when the device joins."
+      - "Can change when the device moves to a different network."
+      - "IPv4 is running out of addresses; IPv6 uses 128 bits for vastly more addresses, written as eight groups of hex digits separated by colons."
+    common_mistake: "Confusing an IP address with a MAC address. An IP is LOGICAL and changes between networks; a MAC is PHYSICAL and baked into the hardware."
+
+  - number: 38
+    marks: 2
+    topic: "MAC address"
+    question: "Describe what is meant by a MAC address."
+    answer_direct: "A MAC address is a 48-bit physical (hardware) address built into a network interface card. It is written as 12 hexadecimal digits, usually in six pairs separated by colons or hyphens (e.g., 00:1A:2B:3C:4D:5E)."
+    working:
+      - "Assigned by the manufacturer when the network card is made; stays the same for the life of the device."
+      - "Unique worldwide for each card — the first half identifies the manufacturer, the second half is a serial number."
+      - "Used by switches to forward frames WITHIN a network; once frames leave the local network, routers use IP addresses instead."
+    common_mistake: "Thinking MAC addresses change when you move. They do not — they are tied to the network card hardware."
+
+  - number: 39
+    marks: 2
+    topic: "MAC vs IP"
+    question: "Explain the difference between a MAC address and an IP address."
+    answer_direct: "MAC addresses are PHYSICAL — burned into the network card and constant. IP addresses are LOGICAL — assigned by the network and can change when the device joins a different network."
+    working:
+      - "Scope: MAC is used within a local network; IP is used to route between networks."
+      - "Format: MAC = 48 bits in hex; IPv4 = 32 bits in decimal dotted notation."
+      - "Stability: MAC stays the same for the life of the hardware; IP can change."
+    common_mistake: "Saying MAC addresses are used on the internet to identify your computer. They are not — only your IP is visible outside your local network; routers rewrite or strip MACs at each hop."
+
+  - number: 40
+    marks: 3
+    topic: "Switch vs router"
+    question: "Explain the difference between a switch and a router."
+    answer_direct: "A switch forwards data WITHIN a single network using MAC addresses. A router forwards data BETWEEN different networks using IP addresses."
+    working:
+      - "Switch — learns which MAC addresses are on which of its ports, and sends each incoming frame only to the port of the intended receiver."
+      - "Router — sits at the edge of a network and decides, using IP addresses, which network should receive the packet next."
+      - "In a home: the Wi-Fi box typically contains both a switch (for the internal devices) and a router (to reach the internet)."
+    common_mistake: "Using the words 'switch' and 'router' interchangeably. Switches work at the LOCAL level with MAC; routers work at the NETWORK level with IP."

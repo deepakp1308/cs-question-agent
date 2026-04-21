@@ -2,35 +2,68 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>cs-question-agent — runs</title>
+  <title>IGCSE 0478 — Worked Answer PDFs</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body { font-family: system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif; max-width: 780px; margin: 2em auto; padding: 0 1em; color: #111; line-height: 1.5; }
-    h1 { border-bottom: 2px solid #444; padding-bottom: 10px; }
-    .meta { color: #666; font-size: 0.9em; }
-    ul { list-style: none; padding: 0; }
-    li { padding: 14px 16px; margin: 12px 0; background: #f6f7f9; border-left: 4px solid #2c5282; border-radius: 4px; }
-    a { color: #2c5282; text-decoration: none; font-weight: 600; }
-    a:hover { text-decoration: underline; }
-    .note { color: #555; font-size: 0.9em; }
+    body { font-family: system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif; max-width: 820px; margin: 2em auto; padding: 0 1em; color: #111; line-height: 1.55; }
+    h1 { border-bottom: 2px solid #2c5282; padding-bottom: 10px; color: #1a365d; }
+    .meta { color: #666; font-size: 0.9em; margin-bottom: 24px; }
+    .section-title { margin-top: 30px; color: #1a365d; }
+    .chapter { padding: 14px 16px; margin: 12px 0; background: #f6f8fb; border-left: 4px solid #2c5282; border-radius: 4px; }
+    .chapter a { color: #2c5282; text-decoration: none; font-weight: 600; font-size: 1.05em; }
+    .chapter a:hover { text-decoration: underline; }
+    .chapter .row { margin-top: 6px; font-size: 0.9em; }
+    .chapter .row a { font-size: 0.9em; font-weight: 500; margin-right: 12px; }
+    .note { color: #555; font-size: 0.9em; margin-top: 4px; }
+    .repo { margin-top: 32px; padding: 14px 16px; background: #f0fdf4; border-left: 4px solid #276749; border-radius: 4px; }
+    .repo a { color: #276749; }
   </style>
 </head>
 <body>
-  <h1>cs-question-agent — published runs</h1>
-  <p class="meta">Automated student-friendly worked-answer PDFs. See the <a href="https://github.com/deepakp1308/cs-question-agent">source on GitHub</a>.</p>
-  <ul>
-    <li>
-      <a href="./runs/igcse-ch1-curated/index.html">IGCSE Chapter 1 — Data representation (curated)</a>
-      <div class="note">38 hand-written worked answers for a 15-year-old first-time learner. Binary/hex conversion, shifts, character sets, images, sound, compression. No mock filler.</div>
-    </li>
-    <li>
-      <a href="./runs/igcse-ch4/index.html">IGCSE Chapters 1–4 (earlier replay run)</a>
-      <div class="note">Full pipeline across all 4 chapters using the replay adapter. The 23 Chapter-4-scope questions have real hand-written answers; the other questions fall back to the mock adapter. Superseded by the curated Chapter 1 link above.</div>
-    </li>
-    <li>
-      <a href="./runs/demo/index.html">Synthetic demo (self-generated paper)</a>
-      <div class="note">Built by CI on every push: generates a small sample paper, runs the full pipeline with the mock adapter, and publishes.</div>
-    </li>
-  </ul>
+  <h1>IGCSE Computer Science 0478 — Worked Answer PDFs</h1>
+  <div class="meta">Curated answers in the voice of an expert teacher for a Grade 10 first-time learner. Cambridge IGCSE 0478 style. Every question hand-written, no mock filler.</div>
+
+  <h2 class="section-title">Chapters</h2>
+
+  <div class="chapter">
+    <a href="./runs/igcse-ch1-curated/index.html">Chapter 1 — Data representation</a>
+    <div class="note">38 questions · 17 pages · Binary ↔ denary, hexadecimal, shifts, character sets, images, sound, file sizes, compression.</div>
+    <div class="row">
+      <a href="./runs/igcse-ch1-curated/chapter1-data-representation.pdf">Download PDF</a>
+      <a href="./runs/igcse-ch1-curated/index.html">Chapter index</a>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <a href="./runs/igcse-ch2-curated/index.html">Chapter 2 — Data transmission</a>
+    <div class="note">38 questions · 19 pages · Packets, transmission methods, USB, errors and error detection (parity, checksum, echo, ARQ), encryption (symmetric, asymmetric, TLS), HTML, security threats.</div>
+    <div class="row">
+      <a href="./runs/igcse-ch2-curated/chapter2-data-transmission.pdf">Download PDF</a>
+      <a href="./runs/igcse-ch2-curated/index.html">Chapter index</a>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <a href="./runs/igcse-ch3-curated/index.html">Chapter 3 — Hardware</a>
+    <div class="note">40 questions · 20 pages · CPU, Von Neumann, fetch-decode-execute, registers, buses, embedded systems, sensors, RAM/ROM, secondary storage, virtual memory, cloud, logic gates, IP/MAC addresses.</div>
+    <div class="row">
+      <a href="./runs/igcse-ch3-curated/chapter3-hardware.pdf">Download PDF</a>
+      <a href="./runs/igcse-ch3-curated/index.html">Chapter index</a>
+    </div>
+  </div>
+
+  <div class="chapter">
+    <a href="./runs/igcse-ch4-curated/index.html">Chapter 4 — Software</a>
+    <div class="note">24 questions · 12 pages · System vs application software, operating system functions, interrupts, high/low-level languages, translators (compiler / interpreter / assembler), IDE features, software ethics.</div>
+    <div class="row">
+      <a href="./runs/igcse-ch4-curated/chapter4-software.pdf">Download PDF</a>
+      <a href="./runs/igcse-ch4-curated/index.html">Chapter index</a>
+    </div>
+  </div>
+
+  <div class="repo">
+    <strong>Source code:</strong> <a href="https://github.com/deepakp1308/cs-question-agent">github.com/deepakp1308/cs-question-agent</a>
+    — pluggable-adapter agent that produced these PDFs. Edit the YAML in <code>igcse_input/qa_curated/</code> and re-run <code>scripts/render_curated.py</code> to regenerate any chapter.
+  </div>
 </body>
 </html>

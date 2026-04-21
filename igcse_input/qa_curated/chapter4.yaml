@@ -1,0 +1,308 @@
+# Chapter 4 — Software
+# Questions from Cambridge IGCSE (0478) topical papers 1.3.6 (Operating systems)
+# and 1.3.7 (High- and low-level languages + translators).
+
+title: "Chapter 4 — Software (Cambridge IGCSE 0478)"
+subject: computer_science
+grade_level: 10
+
+questions:
+
+  # =========================================================================
+  # TYPES OF SOFTWARE
+  # =========================================================================
+
+  - number: 1
+    marks: 2
+    topic: "System vs application software"
+    question: "State the two main types of software and give one example of each."
+    answer_direct: "System software (example: an operating system such as Windows or Linux) and application software (example: a word processor such as Microsoft Word)."
+    working:
+      - "System software controls the hardware and provides a platform for other software to run. Examples: operating system, device drivers, compilers, utilities."
+      - "Application software performs tasks for the user. Examples: word processor, spreadsheet, web browser, game, media player."
+    common_mistake: "Calling the OS an application. The OS is SYSTEM software — it runs UNDER application software and manages the hardware beneath."
+
+  - number: 2
+    marks: 3
+    topic: "System software role"
+    question: "Describe what system software does."
+    answer_direct: "System software manages the computer's hardware and resources, provides a consistent environment for application programs to run, and shields applications from hardware details."
+    working:
+      - "Talks to the hardware directly (via device drivers) so applications do not need to."
+      - "Provides services such as file storage, networking, memory management, and security."
+      - "Presents a stable interface (system calls, APIs) that applications rely on even as hardware changes."
+    common_mistake: "Thinking system software is only the operating system. Drivers, compilers, and utilities are also system software."
+
+  # =========================================================================
+  # OPERATING SYSTEM
+  # =========================================================================
+
+  - number: 3
+    marks: 4
+    topic: "Operating system functions"
+    question: "Describe four functions of an operating system."
+    answer_direct: "(1) Manages memory — decides which programs and data are in RAM. (2) Manages processes — schedules which process runs on the CPU next. (3) Manages files — organises data on secondary storage. (4) Manages input and output — handles communication with devices via drivers."
+    working:
+      - "Memory management — loads programs into RAM, frees memory when programs close, uses virtual memory when RAM is full."
+      - "Process management — timeslicing between running processes so several programs appear to run at once."
+      - "File management — tree of folders and files, permissions, reading and writing to disk."
+      - "I/O management — device drivers translate OS requests into hardware commands."
+      - "Other valid functions: user interface (GUI/CLI), security (user accounts, passwords), error handling."
+    common_mistake: "Listing 'runs applications' as a function. The OS PROVIDES the environment; applications themselves are not part of the OS."
+
+  - number: 4
+    marks: 2
+    topic: "Why an OS is needed"
+    question: "Explain why a general-purpose computer needs an operating system."
+    answer_direct: "Without an OS, the user or each application would have to talk directly to every hardware device. The OS acts as a bridge between user, applications, and hardware — it makes the computer usable and lets many programs share the same machine."
+    working:
+      - "Hardware differs between machines; the OS hides these differences behind a consistent interface."
+      - "The OS enforces security so one program cannot accidentally overwrite another's memory."
+      - "It provides common services (file system, network, graphics) so every application doesn't have to re-implement them."
+    common_mistake: "Saying an OS is only needed to 'look nice'. The graphical user interface is only ONE of its functions."
+
+  - number: 5
+    marks: 2
+    topic: "Interrupt"
+    question: "Explain what is meant by an interrupt."
+    answer_direct: "An interrupt is a signal sent to the CPU by a device or software event asking the CPU to pause its current task, run a specific interrupt-handling routine, and then resume where it left off."
+    working:
+      - "Hardware interrupts come from devices (a key pressed, a timer tick, a disk finishing a read)."
+      - "Software interrupts come from programs (system calls, exceptions)."
+      - "The CPU finishes the current instruction, saves its state, jumps to the handler, then returns."
+    common_mistake: "Thinking an interrupt cancels a task permanently. It is a TEMPORARY pause — the interrupted task resumes after the handler runs."
+
+  - number: 6
+    marks: 3
+    topic: "Devices that use interrupts"
+    question: "Identify three devices that make use of interrupts and explain briefly."
+    answer_direct: "Keyboard (each key press raises an interrupt), mouse (clicks and movement), printer (paper jam, out of paper, job complete). Timers and network cards also use interrupts."
+    working:
+      - "Input devices cannot be polled quickly enough by the CPU, so they interrupt when they have data."
+      - "Output devices interrupt when they need more data or report a fault."
+      - "Timers generate regular interrupts that the OS uses to switch between running processes."
+    common_mistake: "Naming the CPU itself or RAM as devices using interrupts. Interrupts come FROM devices TO the CPU; RAM does not generate interrupts."
+
+  # =========================================================================
+  # HIGH- vs LOW-LEVEL LANGUAGES
+  # =========================================================================
+
+  - number: 7
+    marks: 2
+    topic: "High-level language"
+    question: "Explain what is meant by a high-level programming language."
+    answer_direct: "A high-level language is designed to be easy for humans to read and write. It uses English-like keywords and can run on different CPUs once translated. Examples: Python, Java, C#, JavaScript."
+    working:
+      - "One high-level statement often represents many machine instructions."
+      - "High-level code is portable — the same source can be translated for different CPU architectures."
+      - "It shields the programmer from hardware-specific details such as registers and memory addresses."
+    common_mistake: "Thinking the CPU runs high-level code directly. The CPU only runs machine code; a compiler or interpreter translates the high-level source first."
+
+  - number: 8
+    marks: 3
+    topic: "High-level language benefits"
+    question: "Give three reasons why a programmer would choose to write a program in a high-level language rather than a low-level language."
+    answer_direct: "(1) Easier and faster to write, read, and maintain. (2) Portable — the same source can be compiled for different CPUs. (3) Built-in libraries and safer memory handling make large programs practical."
+    working:
+      - "Readability — English-like syntax is easier to debug and for another programmer to take over."
+      - "Portability — write once, translate for whichever CPU you target."
+      - "Productivity — libraries, data structures, error checking all come out of the box."
+      - "Team work — most large codebases are high-level; collaboration is easier with readable code."
+    common_mistake: "Claiming high-level languages run FASTER than low-level. They usually run slightly SLOWER; the benefits are in development speed, safety, and portability."
+
+  - number: 9
+    marks: 2
+    topic: "Low-level language benefits"
+    question: "Give two reasons why a programmer would choose to write code in a low-level language."
+    answer_direct: "(1) Direct control over specific hardware features and memory addresses — essential for drivers and operating-system kernels. (2) Very fast, small executables — useful for embedded systems with limited resources and real-time code."
+    working:
+      - "Direct hardware access — you can read or write particular registers or I/O ports."
+      - "Performance — hand-tuned assembly can be faster and use less memory than compiled high-level code."
+      - "Footprint — essential for microcontrollers with only a few kilobytes of memory."
+      - "Predictability — exact instruction timing for real-time systems."
+    common_mistake: "Saying low-level is easier. It is usually MUCH harder — longer programs, no libraries, architecture-specific."
+
+  - number: 10
+    marks: 3
+    topic: "Classify code examples"
+    question: "Three examples of code are given: (a) print('Hello'); (b) MOV AX, 5; (c) 10110000 00000101. Classify each as high-level, assembly, or machine code."
+    answer_direct: "(a) high-level language (Python); (b) assembly language (the MOV mnemonic is an assembly instruction); (c) machine code (a raw stream of binary digits)."
+    working:
+      - "Look for English-like keywords and named variables → high-level."
+      - "Look for short mnemonics (MOV, ADD, JMP) with register names (AX, R1) → assembly."
+      - "Look for pure binary or hex bytes with no words → machine code."
+    common_mistake: "Confusing assembly with machine code. Assembly uses human-readable mnemonics; machine code is the actual binary."
+
+  # =========================================================================
+  # TRANSLATORS
+  # =========================================================================
+
+  - number: 11
+    marks: 2
+    topic: "Why translate"
+    question: "A program written in a high-level language is translated into machine code. Explain why this is needed."
+    answer_direct: "The CPU only understands machine code (binary instructions). Any high-level source code must first be translated into machine code before the CPU can run it."
+    working:
+      - "The CPU is hardware; it responds to specific binary patterns on the data and control buses."
+      - "High-level code is text with English-like keywords — meaningless to the CPU."
+      - "A translator converts the source into a form the CPU can execute."
+    common_mistake: "Thinking the CPU runs code in any language directly. It runs only one thing: machine code for its specific architecture."
+
+  - number: 12
+    marks: 2
+    topic: "Types of translator"
+    question: "State two types of translator that can be used for a high-level program."
+    answer_direct: "A compiler and an interpreter (assembler is also a translator, but it handles assembly language)."
+    working:
+      - "Compiler — translates the whole program into machine code once, producing an executable file."
+      - "Interpreter — translates and executes one statement at a time at run time."
+      - "Assembler — translates assembly-language mnemonics into machine code."
+    common_mistake: "Naming 'debugger' or 'IDE' as a translator. A debugger and an IDE contain a translator, but they are not themselves translators."
+
+  - number: 13
+    marks: 3
+    topic: "Compiler description"
+    question: "Describe how a compiler works."
+    answer_direct: "A compiler translates the ENTIRE source program into machine code in one go, producing an executable file. The executable can be run many times without re-translating."
+    working:
+      - "The compiler reads all of the source, checks for syntax errors, and produces a list of errors at the end if any."
+      - "If the source is valid, the compiler generates machine-code output — an executable file."
+      - "The executable can be distributed and run without the compiler or the source code being present."
+      - "Programs typically run faster than interpreted ones because translation happens ahead of time."
+    common_mistake: "Saying the compiler runs the program. It does not — it produces an executable; the USER then runs the executable."
+
+  - number: 14
+    marks: 3
+    topic: "Interpreter description"
+    question: "Describe how an interpreter works."
+    answer_direct: "An interpreter reads one statement of source code at a time, translates it, and executes it immediately. It does not produce a standalone executable."
+    working:
+      - "Source is translated line-by-line at run time."
+      - "The interpreter stops at the first error it meets, making debugging easier."
+      - "No executable file is produced — you need the interpreter present every time the program runs."
+      - "Execution is slower than compiled code because translation happens during execution, not beforehand."
+    common_mistake: "Saying the interpreter translates the whole program first. That is a COMPILER. An interpreter processes one line at a time."
+
+  - number: 15
+    marks: 4
+    topic: "Compiler vs interpreter"
+    question: "Compare a compiler and an interpreter."
+    answer_direct: "A compiler translates the whole program once and produces an executable file; an interpreter translates and runs the program one line at a time. Compiled code runs faster; interpreted code is easier to debug and needs the interpreter present."
+    working:
+      - "Compilation time vs run time — compiler does all work before execution; interpreter works during execution."
+      - "Executable — compiler produces one; interpreter does not."
+      - "Error reporting — compiler reports all errors after full analysis; interpreter stops at the first."
+      - "Speed — compiled programs are typically much faster than interpreted ones."
+      - "Distribution — compiled executables can be shared without the source; interpreted programs need source + interpreter."
+    common_mistake: "Mixing up which does what. Compiler = ALL at once, produces .exe. Interpreter = ONE at a time, no .exe."
+
+  - number: 16
+    marks: 4
+    topic: "Why use both"
+    question: "Explain why a programmer would use BOTH an interpreter and a compiler for the same program."
+    answer_direct: "An interpreter during development gives instant feedback and fast debugging; a compiler for the release version produces a fast, standalone executable that can be distributed without the source code."
+    working:
+      - "During development: the interpreter runs each change immediately, stops at the first error, makes iteration fast."
+      - "For release: the compiler produces a single executable that runs much faster, does not depend on the interpreter being installed, and hides the source."
+      - "This split gets the best of both — rapid development plus a distributable production build."
+    common_mistake: "Claiming only professional programmers use both. Many languages (for example Java, Python) use both internally: compile to bytecode once, then interpret the bytecode."
+
+  - number: 17
+    marks: 2
+    topic: "Assembler"
+    question: "Describe the role of an assembler."
+    answer_direct: "An assembler translates assembly-language source code into machine code. Each assembly mnemonic (such as MOV, ADD, JMP) maps almost one-to-one to a CPU instruction."
+    working:
+      - "Assembly is a low-level language — short mnemonics instead of English."
+      - "The assembler converts each mnemonic into its binary machine-code equivalent."
+      - "Assemblers are used to write drivers, boot code, and performance-critical routines."
+    common_mistake: "Confusing an assembler with a compiler. Compilers translate HIGH-level languages; assemblers translate ASSEMBLY (low-level)."
+
+  # =========================================================================
+  # IDE
+  # =========================================================================
+
+  - number: 18
+    marks: 4
+    topic: "IDE features"
+    question: "Describe four features that an integrated development environment (IDE) typically provides."
+    answer_direct: "(1) A code editor with syntax highlighting. (2) Autocomplete / code completion. (3) A built-in compiler or interpreter so programs can be run with one click. (4) A debugger for stepping through code and inspecting variable values."
+    working:
+      - "Syntax highlighting — colours keywords, strings, comments so errors stand out."
+      - "Autocomplete — suggests variable and function names as the programmer types, reducing typos and look-ups."
+      - "Integrated run button — runs the program without leaving the editor."
+      - "Debugger — lets you pause execution at breakpoints and see the value of every variable."
+      - "Error reporting — underlines syntax errors live as code is typed."
+    common_mistake: "Calling the IDE itself a language. An IDE is a TOOL; the language is what you write inside it."
+
+  - number: 19
+    marks: 2
+    topic: "IDE benefit"
+    question: "Explain how an IDE helps a programmer write code faster and with fewer errors."
+    answer_direct: "An IDE combines an editor, a translator, and a debugger in one application. Syntax highlighting and autocomplete reduce typos; live error underlines catch mistakes immediately; the built-in debugger makes bugs easy to trace without leaving the editor."
+    working:
+      - "Typing mistakes get caught before the program even runs."
+      - "Running and testing is one button press away."
+      - "The debugger replaces scattered print statements with precise step-by-step inspection."
+      - "Version control, refactoring tools, and terminal access are usually built in too."
+    common_mistake: "Thinking an IDE writes the code for you. It only HELPS — the programmer still writes and designs everything."
+
+  # =========================================================================
+  # ETHICS / RELATED SOFTWARE TOPICS
+  # =========================================================================
+
+  - number: 20
+    marks: 2
+    topic: "Software plagiarism"
+    question: "A student copies someone else's computer program and claims it as his own. State what this is called."
+    answer_direct: "This is plagiarism."
+    working:
+      - "Plagiarism = taking someone else's work or ideas and presenting them as your own."
+      - "For software this includes copying and submitting code written by another person."
+      - "It is an academic and ethical offence; in professional life it also usually breaches copyright."
+    common_mistake: "Calling it 'piracy'. Piracy is illegal copying for distribution. Plagiarism is specifically CLAIMING someone else's work as your own."
+
+  - number: 21
+    marks: 2
+    topic: "Copyright"
+    question: "The legal protection that an author obtains against their work being stolen. State what this is called."
+    answer_direct: "This is copyright."
+    working:
+      - "Copyright is an automatic legal right granted to the creator of an original work."
+      - "It covers books, music, art, and ORIGINAL computer programs (source code)."
+      - "The copyright holder decides who may copy, adapt, or distribute the work."
+      - "Duration varies by country but typically lasts at least 50–70 years after the creator's death."
+    common_mistake: "Confusing copyright with patents. Patents require a formal application and protect INVENTIONS; copyright protects EXPRESSION of original work and arises automatically."
+
+  - number: 22
+    marks: 1
+    topic: "Freeware"
+    question: "Software that the owner still holds copyright for, but distributes free of charge. State what this type of software is called."
+    answer_direct: "Freeware."
+    working:
+      - "Freeware is distributed at no cost but the author retains copyright."
+      - "Users may install and use it, but usually may NOT modify or redistribute it without permission."
+      - "Example: many small utilities and browser plugins are freeware."
+    common_mistake: "Confusing freeware with free / open-source software. Open-source (FOSS) allows modification and redistribution; freeware typically does not."
+
+  - number: 23
+    marks: 1
+    topic: "Shareware"
+    question: "A trial version of a full piece of software that a user can pay to upgrade. State what this type of software is called."
+    answer_direct: "Shareware."
+    working:
+      - "Shareware lets you use the software for a limited time or with limited features for free."
+      - "To unlock the full version (or continue using it after the trial expires) you pay a fee."
+      - "The owner retains copyright; sharing copies of the paid version without permission is not allowed."
+    common_mistake: "Confusing shareware with freeware. Shareware expects payment for full use; freeware is free to use indefinitely."
+
+  - number: 24
+    marks: 1
+    topic: "Free / open-source software"
+    question: "Software that users are free to run, copy, change, adapt, and pass on. State what this type of software is called."
+    answer_direct: "Free / open-source software (FOSS)."
+    working:
+      - "'Free' here means FREEDOM, not just price."
+      - "The source code is available; users may study, modify, and redistribute it."
+      - "Examples: Linux, Firefox, LibreOffice, Python."
+    common_mistake: "Saying FOSS has no restrictions. Most FOSS licences (for example GPL) DO impose conditions — for example that modified copies must also be released under the same licence."

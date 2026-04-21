@@ -1,0 +1,479 @@
+# Chapter 2 — Data transmission
+# Questions from Cambridge IGCSE (0478) topical papers 1.2.1 (Data transmission),
+# 1.2.2 (Security aspects), 1.2.3 (Internet principles of operation).
+
+title: "Chapter 2 — Data transmission (Cambridge IGCSE 0478)"
+subject: computer_science
+grade_level: 10
+
+questions:
+
+  # =========================================================================
+  # PACKETS
+  # =========================================================================
+
+  - number: 1
+    marks: 2
+    topic: "What is a packet"
+    question: "Explain what is meant by a data packet."
+    answer_direct: "A data packet is a small, fixed-size chunk of a larger message that is sent separately across a network and reassembled at the destination."
+    working:
+      - "When data is sent over a network, it is broken into many small packets rather than sent as one big stream."
+      - "Each packet can take a different route to the destination and carries enough information (addresses, a sequence number) to be reassembled in the correct order."
+      - "Typical packet sizes are a few kilobytes."
+    common_mistake: "Calling a packet a single bit. A packet contains hundreds or thousands of bits arranged in a header, payload, and trailer."
+
+  - number: 2
+    marks: 3
+    topic: "Parts of a packet"
+    question: "Describe the three parts of a data packet."
+    answer_direct: "A packet has a header, a payload, and a trailer."
+    working:
+      - "Header — contains the sender's IP address, the receiver's IP address, the packet number (so the receiver can reassemble them in order), and the total number of packets in the message."
+      - "Payload — the actual data being carried (a chunk of the original file or message)."
+      - "Trailer — contains an error-detection value such as a checksum or CRC, and a marker indicating the end of the packet."
+    common_mistake: "Saying the payload contains the sender's address. Addresses go in the HEADER; the payload is just the raw data being carried."
+
+  - number: 3
+    marks: 3
+    topic: "Header contents"
+    question: "State three pieces of information that are stored in a packet header."
+    answer_direct: "Sender's IP address, receiver's IP address, and the packet sequence number (plus the total number of packets)."
+    working:
+      - "Sender IP — so the receiver knows where it came from and where to send replies."
+      - "Receiver IP — so routers along the way know which direction to forward the packet."
+      - "Packet sequence number — so the receiver can reassemble packets in the correct order even if they arrive out of sequence."
+      - "Total number of packets — so the receiver knows when the message is complete."
+    common_mistake: "Listing the payload itself as a header field. The payload is a separate part of the packet."
+
+  - number: 4
+    marks: 4
+    topic: "Why use packets"
+    question: "Explain why data is broken down into packets when transmitted over a network."
+    answer_direct: "Packets let data travel more efficiently and reliably: they can take different routes, congestion on one path does not stop the whole transfer, and only missing or damaged packets need to be resent."
+    working:
+      - "Different routes — each packet can take the fastest available path, so transfers are not blocked by a single congested link."
+      - "Error recovery — if a packet is lost or damaged, the receiver only asks for THAT packet to be resent, not the whole file."
+      - "Sharing the network — packets from many users can interleave on the same cable, making far better use of the bandwidth than one-message-at-a-time."
+      - "Known sizes — small fixed-size chunks are easier for routers and switches to process quickly."
+    common_mistake: "Saying packets make data safer from attackers. Packets help with reliability and efficiency; for security you need encryption on top."
+
+  - number: 5
+    marks: 2
+    topic: "Packet reassembly"
+    question: "Describe how the receiving computer reassembles a message from its packets."
+    answer_direct: "The receiver uses the sequence number in each packet's header to place the packets in the correct order, then joins their payloads to rebuild the original message."
+    working:
+      - "The receiver holds arriving packets in a buffer and reads each one's sequence number."
+      - "If packets arrive out of order, it waits and re-sorts them using the sequence numbers before reassembly."
+      - "If a packet is missing or the trailer's error check fails, the receiver asks the sender to resend that specific packet."
+      - "Once all expected packets are present and correct, their payloads are concatenated to rebuild the original file."
+    common_mistake: "Assuming packets arrive in the same order they were sent. They often don't — they can take different routes and overtake each other."
+
+  # =========================================================================
+  # TRANSMISSION METHODS
+  # =========================================================================
+
+  - number: 6
+    marks: 2
+    topic: "Simplex"
+    question: "Describe simplex data transmission and give one example."
+    answer_direct: "Simplex transmission sends data in one direction only — never in the opposite direction. Example: a computer sending data to a basic printer, or a broadcast TV signal."
+    working:
+      - "Only one of the two devices can send; the other can only receive."
+      - "Used when no acknowledgement or feedback is needed."
+    common_mistake: "Saying simplex is 'one at a time'. That is half-duplex. Simplex is strictly one-way — data never flows back."
+
+  - number: 7
+    marks: 2
+    topic: "Half-duplex"
+    question: "Describe half-duplex data transmission and give one example."
+    answer_direct: "Half-duplex sends data in both directions but only one direction at a time. Example: a walkie-talkie — you press and speak, then release and listen."
+    working:
+      - "Both devices can send and receive, but they must take turns."
+      - "Only one direction of the link is used at any instant."
+    common_mistake: "Confusing half-duplex with full-duplex. In half-duplex, only one side transmits at a time; in full-duplex, both do simultaneously."
+
+  - number: 8
+    marks: 2
+    topic: "Full-duplex"
+    question: "Describe full-duplex data transmission and give one example."
+    answer_direct: "Full-duplex sends data in both directions simultaneously. Example: a telephone call — both people can speak and hear at the same time."
+    working:
+      - "Each device can send and receive at the same instant."
+      - "Typical in modern networks: Ethernet, most Wi-Fi links, USB 3 and above."
+    common_mistake: "Confusing full-duplex with parallel transmission. Duplex describes DIRECTION of data flow; serial vs parallel describes how many bits travel side by side."
+
+  - number: 9
+    marks: 3
+    topic: "Serial transmission"
+    question: "Describe serial transmission."
+    answer_direct: "Serial transmission sends data one bit at a time, one after another, over a single wire or channel."
+    working:
+      - "Only one data line is needed (plus usually a ground)."
+      - "Slower per-wire than parallel, but the signals stay in sync reliably even over long distances."
+      - "Standard for USB, Ethernet, SATA, and most modern high-speed interfaces."
+    common_mistake: "Assuming serial is always slower than parallel. Modern serial links (USB 3, Ethernet) run at GHz rates and beat old parallel links because they avoid skew."
+
+  - number: 10
+    marks: 3
+    topic: "Parallel transmission"
+    question: "Describe parallel transmission."
+    answer_direct: "Parallel transmission sends several bits at the same time, one bit per wire."
+    working:
+      - "Multiple wires carry bits side-by-side; an 8-bit byte can travel on 8 wires in one step."
+      - "Very fast over short distances (inside a computer)."
+      - "Over longer cables, the signals on different wires can arrive at slightly different times (skew), which causes errors."
+    common_mistake: "Saying parallel is always faster. Over long distances serial is faster because parallel suffers from skew."
+
+  - number: 11
+    marks: 4
+    topic: "Serial vs parallel comparison"
+    question: "Compare serial and parallel transmission, stating when each is most suitable."
+    answer_direct: "Serial uses one wire and is best over long distances because it avoids skew; parallel uses many wires and is best inside a computer where the distance is tiny."
+    working:
+      - "Serial: one wire, one bit at a time, cheaper cabling, no skew, reliable at long distance."
+      - "Parallel: multiple wires, many bits at once, very fast over short distances, but bits can go out of sync over long cables (skew)."
+      - "Use serial for: USB cables, Ethernet, connecting devices outside the computer."
+      - "Use parallel for: internal buses connecting CPU to RAM, chip-to-chip links on a motherboard."
+    common_mistake: "Saying parallel transmission is obsolete. It is still used extensively INSIDE computers — RAM buses are parallel."
+
+  - number: 12
+    marks: 2
+    topic: "Why serial is preferred over long distance"
+    question: "Explain why serial transmission is preferred over parallel for long-distance data transfer."
+    answer_direct: "Over long distances the bits on different parallel wires arrive at slightly different times (skew); serial transmission uses one wire, so there is no skew to worry about."
+    working:
+      - "Each wire in a parallel cable has a slightly different length and electrical property, so bits drift out of alignment."
+      - "The receiver cannot tell which bit belongs to which byte once they are skewed."
+      - "With serial, there is only one stream so ordering is guaranteed."
+    common_mistake: "Blaming the speed of the wire. Skew is about TIMING differences between parallel wires, not about absolute speed."
+
+  # =========================================================================
+  # USB
+  # =========================================================================
+
+  - number: 13
+    marks: 3
+    topic: "Advantages of USB"
+    question: "State three advantages of using a USB connection."
+    answer_direct: "USB uses a standardised connector that is hard to plug in incorrectly, devices are detected automatically and the correct driver loaded, and USB supplies power so many devices do not need a separate power supply."
+    working:
+      - "Standard connector — one shape fits all USB devices, preventing mis-connection."
+      - "Plug-and-play — the operating system detects the device and loads its driver automatically."
+      - "Power supply — USB cables carry up to 5 V, enough to run phones, keyboards, mice, and small drives."
+      - "Backward compatibility — newer USB versions still work with older devices."
+    common_mistake: "Saying USB is the fastest interface. It is fast, but not always the fastest — Thunderbolt and PCIe are faster for specialist uses."
+
+  - number: 14
+    marks: 2
+    topic: "Limitations of USB"
+    question: "State two limitations of a USB connection."
+    answer_direct: "USB cables are limited to about 5 m for USB 2 (longer cables need a powered hub), and older USB versions (1.1, 2.0) are slower than specialised alternatives."
+    working:
+      - "Cable length — signal quality degrades over long cables; the standard limit is 5 m for USB 2.0 and 3 m for USB 3.0 without an active extender."
+      - "Older versions are slow — USB 2 maxes out at 480 Mbit/s, much slower than internal buses."
+      - "Not all USB ports supply the same power — some devices may not charge on older ports."
+    common_mistake: "Saying USB cannot carry power. It CAN — that's one of its advantages. The limitation is how MUCH power (varies by USB version)."
+
+  # =========================================================================
+  # ERRORS DURING TRANSMISSION
+  # =========================================================================
+
+  - number: 15
+    marks: 3
+    topic: "Why errors happen"
+    question: "State three reasons why errors can occur when data is transmitted."
+    answer_direct: "Electrical interference from nearby equipment, a damaged or low-quality cable, and skew on a parallel link."
+    working:
+      - "Interference — nearby motors, power cables, or radio signals can induce voltage spikes that flip bits."
+      - "Cable issues — a damaged, very long, or poorly insulated cable can distort the signal."
+      - "Skew — on parallel cables, bits on different wires arrive slightly out of alignment."
+      - "Signal loss (attenuation) — the signal weakens over distance until it can no longer be read reliably."
+    common_mistake: "Saying errors happen because the sender is faulty. Most transmission errors happen to the signal while it travels, not at the endpoints."
+
+  # =========================================================================
+  # PARITY
+  # =========================================================================
+
+  - number: 16
+    marks: 4
+    topic: "Parity check"
+    question: "Describe how a parity check detects transmission errors."
+    answer_direct: "An extra bit, called a parity bit, is added to each byte so the total number of 1s matches an agreed rule (odd parity or even parity). When the byte arrives, the receiver counts the 1s; if the count does not match, an error is reported."
+    working:
+      - "Sender and receiver agree in advance on odd or even parity."
+      - "Before sending, the sender sets the parity bit so the total number of 1s in the byte (including the parity bit) matches the rule."
+      - "On arrival, the receiver recounts the 1s; a mismatch means at least one bit has flipped."
+      - "The receiver can then ask for the byte to be resent."
+    common_mistake: "Thinking parity can correct the error. It can only DETECT (some) errors, not fix them."
+
+  - number: 17
+    marks: 2
+    topic: "Odd vs even parity"
+    question: "Explain the difference between odd parity and even parity."
+    answer_direct: "Odd parity requires the total number of 1s in the byte to be odd; even parity requires it to be even. The parity bit is set so the byte meets the agreed rule."
+    working:
+      - "Even parity: total 1s (including the parity bit) must be even."
+      - "Odd parity: total 1s (including the parity bit) must be odd."
+      - "Choose one or the other — sender and receiver must both use the same rule."
+    common_mistake: "Thinking odd parity means the BIT is 1 and even parity means it is 0. It depends on how many 1s are already in the data — the parity bit flips to whatever is needed."
+
+  - number: 18
+    marks: 2
+    topic: "Parity — calculate parity bit"
+    question: "A system uses even parity. Give the parity bit for each of the following 7-bit values: 1100110 and 0000001."
+    answer_direct: "1100110 → parity bit 0 (already has four 1s, which is even). 0000001 → parity bit 1 (one 1, needs a second to become even)."
+    working:
+      - "Count the 1s in each 7-bit value."
+      - "1100110 has four 1s (an even count). To keep the total even, the parity bit is 0. Full byte: 11001100."
+      - "0000001 has one 1 (odd). To make the total even, the parity bit is 1. Full byte: 00000011."
+    common_mistake: "Counting the parity bit twice. The rule applies to the 1s in the FULL byte; set the parity bit so the total is correct."
+
+  - number: 19
+    marks: 2
+    topic: "Parity limitation"
+    question: "Describe a situation in which a parity check cannot detect that a byte has been transmitted incorrectly."
+    answer_direct: "If an even number of bits flip in the same byte, the parity stays correct and the error is undetected."
+    working:
+      - "Parity only checks whether the total number of 1s is odd or even."
+      - "If two bits flip (say 0→1 and 1→0), the count stays the same, so parity is still valid."
+      - "Any even number of flipped bits (2, 4, 6, 8) goes undetected."
+    common_mistake: "Saying parity catches every error. It does not — it misses any even number of flips."
+
+  # =========================================================================
+  # OTHER ERROR DETECTION METHODS
+  # =========================================================================
+
+  - number: 20
+    marks: 3
+    topic: "Checksum"
+    question: "Describe how a checksum is used to detect transmission errors."
+    answer_direct: "The sender performs a calculation (for example adding up all the bytes in a block) to produce a checksum, and sends it with the data. The receiver repeats the calculation on the received data; if the two checksums differ, an error is reported."
+    working:
+      - "Before sending, the sender applies an agreed algorithm to the data to produce a small value (the checksum)."
+      - "The checksum is appended to the data block and transmitted."
+      - "The receiver performs the same algorithm on the received data."
+      - "If the computed checksum equals the received checksum the data is assumed correct; otherwise a resend is requested."
+    common_mistake: "Confusing checksum with parity. Parity protects one byte; a checksum protects a whole block."
+
+  - number: 21
+    marks: 3
+    topic: "Echo check"
+    question: "Describe how an echo check is used to detect transmission errors."
+    answer_direct: "After the data is sent, the receiver sends the data back to the sender. The sender compares the returned copy with the original — if they differ, an error is reported and the data is resent."
+    working:
+      - "Sender transmits the data."
+      - "Receiver echoes exactly what it received back to the sender."
+      - "Sender compares the echoed data byte-by-byte with the original."
+      - "Any difference indicates a transmission error and the original is retransmitted."
+    common_mistake: "Forgetting that echo check roughly doubles network traffic. It is simple but wastes bandwidth, so it is not used for large transfers."
+
+  - number: 22
+    marks: 2
+    topic: "Check digit"
+    question: "Explain what a check digit is and give an example of where it is used."
+    answer_direct: "A check digit is an extra digit added to a number and calculated from the other digits using a fixed algorithm. It catches typing or scanning mistakes. Examples: the last digit of an ISBN on a book, a barcode, or a credit-card number."
+    working:
+      - "When a number is entered or scanned, the check-digit algorithm is rerun on the other digits."
+      - "If the computed check digit matches the one present in the number, the number is valid."
+      - "If not, the system rejects the number and asks the user to try again."
+    common_mistake: "Confusing a check digit with a password. A check digit protects against typos and scanner errors, not against malicious access."
+
+  - number: 23
+    marks: 3
+    topic: "ARQ"
+    question: "Describe how Automatic Repeat reQuest (ARQ) detects and recovers from errors."
+    answer_direct: "The receiver sends an acknowledgement (ACK) for each correctly-received packet or a negative acknowledgement (NAK) if the packet fails an error check. If the sender gets a NAK, or no ACK within a set time, it retransmits the packet."
+    working:
+      - "Each packet includes an error-detection field (for example a CRC) in its trailer."
+      - "On arrival the receiver runs the check; it sends ACK if OK, NAK if not."
+      - "If the sender receives NAK, or sees no ACK before a timeout, it retransmits the packet automatically."
+      - "The cycle continues until the packet is acknowledged or a retry limit is reached."
+    common_mistake: "Thinking ARQ is a form of compression. ARQ is about ERROR RECOVERY through retransmission — not reducing size."
+
+  # =========================================================================
+  # ENCRYPTION
+  # =========================================================================
+
+  - number: 24
+    marks: 3
+    topic: "Why encrypt"
+    question: "Explain why data is encrypted when transmitted over the internet."
+    answer_direct: "Encryption protects the confidentiality of data while it travels over networks that anyone could be eavesdropping on. Even if an attacker intercepts the data, they cannot read it without the key."
+    working:
+      - "The internet is a shared, open network — packets can be intercepted by routers, Wi-Fi sniffers, or other computers along the way."
+      - "Encryption converts readable plaintext into scrambled ciphertext that only the intended receiver can decrypt."
+      - "Without the key, even if the attacker captures every packet, they see only random-looking bytes."
+      - "This protects passwords, bank details, private messages, and corporate data."
+    common_mistake: "Thinking encryption makes data impossible to read. A strong enough attacker with enough time could still attempt to brute-force it — but modern algorithms make this impractical in any reasonable time."
+
+  - number: 25
+    marks: 2
+    topic: "Plaintext vs ciphertext"
+    question: "Define plaintext and ciphertext."
+    answer_direct: "Plaintext is the original, readable data before encryption. Ciphertext is the scrambled, unreadable output after encryption."
+    working:
+      - "Plaintext: human-readable (or machine-readable) original data — for example 'Hello'."
+      - "Ciphertext: the encrypted form — for example 'Xg3$aPq'. Looks random; cannot be understood without the key."
+      - "Decryption reverses encryption and turns ciphertext back into plaintext."
+    common_mistake: "Calling any encoded text 'ciphertext'. Ciphertext specifically means the output of an encryption algorithm with a key, not just any encoding (such as ASCII)."
+
+  - number: 26
+    marks: 3
+    topic: "Symmetric encryption"
+    question: "Describe how symmetric encryption works."
+    answer_direct: "Symmetric encryption uses a single shared secret key to both encrypt and decrypt data. The sender and receiver must both know the same key and keep it secret."
+    working:
+      - "The sender applies the key plus an encryption algorithm to the plaintext, producing ciphertext."
+      - "The ciphertext is sent over the network."
+      - "The receiver applies the SAME key plus the decryption algorithm, turning ciphertext back into plaintext."
+      - "Speed is the main strength — symmetric algorithms (for example AES) are fast enough for encrypting large files."
+    common_mistake: "Saying the receiver uses a different key. In SYMMETRIC encryption the key is the SAME for both sides — that is what 'symmetric' means."
+
+  - number: 27
+    marks: 2
+    topic: "Symmetric — key distribution problem"
+    question: "Explain a weakness of symmetric encryption."
+    answer_direct: "The shared secret key must be sent to the other party somehow — and if it is intercepted during that delivery, all future encrypted messages are exposed."
+    working:
+      - "The strength of symmetric encryption depends entirely on the key staying secret."
+      - "You cannot send the key unencrypted — an eavesdropper would grab it."
+      - "But you also cannot encrypt the key with the same key — the receiver has no way to decrypt it."
+      - "This 'key distribution problem' is solved by asymmetric encryption in real systems such as HTTPS."
+    common_mistake: "Thinking the weakness is the algorithm itself. The algorithm is fine; the weakness is how you get the key to the other side securely."
+
+  - number: 28
+    marks: 4
+    topic: "Asymmetric encryption"
+    question: "Describe how asymmetric (public-key) encryption works."
+    answer_direct: "Asymmetric encryption uses a pair of mathematically-linked keys: a public key that anyone can have, and a private key that only the owner has. Data encrypted with the public key can only be decrypted with the matching private key."
+    working:
+      - "Each user generates a key pair (public + private) and publishes the public key openly."
+      - "To send someone a message, you encrypt with THEIR public key."
+      - "Only their private key can decrypt it, so even you cannot read the message back after sending."
+      - "This solves the key-distribution problem — no shared secret ever has to travel across the network."
+    common_mistake: "Thinking the public key is used to decrypt. No — the public key encrypts; the PRIVATE key decrypts."
+
+  - number: 29
+    marks: 2
+    topic: "Asymmetric weakness"
+    question: "State one disadvantage of asymmetric encryption compared with symmetric."
+    answer_direct: "Asymmetric encryption is much slower than symmetric and uses more computing power, so it is not practical for encrypting large amounts of data."
+    working:
+      - "Asymmetric algorithms (for example RSA) are mathematically more complex than symmetric ones."
+      - "Encrypting a large file with pure asymmetric encryption would be very slow."
+      - "In practice, systems use asymmetric only to safely exchange a symmetric session key, then use fast symmetric encryption for the bulk data (HTTPS does this)."
+    common_mistake: "Saying asymmetric is less secure. It is typically MORE secure per key bit; the disadvantage is speed."
+
+  - number: 30
+    marks: 3
+    topic: "SSL/TLS uses both"
+    question: "Explain why HTTPS (TLS) uses both asymmetric and symmetric encryption together."
+    answer_direct: "TLS uses asymmetric encryption at the start of the connection to safely exchange a fresh symmetric session key, then uses fast symmetric encryption with that key for all the actual data."
+    working:
+      - "Handshake — the client uses the server's public key to send it a random session key."
+      - "Only the server can decrypt it (with its private key), so the session key reaches the server securely."
+      - "Session — both sides now share a symmetric key and use fast symmetric encryption (for example AES) for the rest of the connection."
+      - "Best of both — secure key distribution from asymmetric, speed from symmetric."
+    common_mistake: "Saying TLS uses only one type. It deliberately combines both to get secure key exchange AND fast bulk encryption."
+
+  # =========================================================================
+  # INTERNET PRINCIPLES (brief — expanded into Ch3 Hardware for addresses)
+  # =========================================================================
+
+  - number: 31
+    marks: 2
+    topic: "HTML"
+    question: "Explain what is meant by HTML."
+    answer_direct: "HTML (HyperText Markup Language) is the language used to write web pages. It uses tags to describe structure and content such as headings, paragraphs, links, images, and forms."
+    working:
+      - "An HTML document is plain text marked up with tags like &lt;h1&gt;, &lt;p&gt;, &lt;a&gt;."
+      - "The web browser reads the HTML and renders it as a visible page."
+      - "HTML describes STRUCTURE; CSS describes PRESENTATION (look); JavaScript describes BEHAVIOUR."
+    common_mistake: "Calling HTML a programming language. It is a MARKUP language — it describes content, it does not contain logic or loops."
+
+  - number: 32
+    marks: 2
+    topic: "HTML structure vs presentation"
+    question: "HTML uses both structure and presentation. Describe what is meant by each term."
+    answer_direct: "Structure describes WHAT the content is (a heading, a paragraph, a list); presentation describes HOW it looks (colour, font, size, layout)."
+    working:
+      - "Structure — tags like &lt;h1&gt;, &lt;p&gt;, &lt;ul&gt;, &lt;table&gt; tell the browser what role each piece of text plays."
+      - "Presentation — styling like colour, font-family, borders, and spacing; today almost always written in CSS, not in the HTML itself."
+      - "Keeping them separate lets you change the look without changing the content, and vice versa."
+    common_mistake: "Writing &lt;font&gt; tags or inline styles as the 'right way' to style pages. Modern HTML keeps structure in HTML and presentation in CSS."
+
+  - number: 33
+    marks: 3
+    topic: "Web browser role"
+    question: "Explain the function of a web browser."
+    answer_direct: "A web browser requests web pages from web servers, receives the HTML (and CSS, JavaScript, images) in response, and renders them as visible, interactive pages for the user."
+    working:
+      - "The user types a URL; the browser asks DNS for the server's IP address."
+      - "The browser sends an HTTP or HTTPS request to that IP address."
+      - "The server returns HTML, CSS, JavaScript, images, and other resources."
+      - "The browser parses and renders the HTML, applies the CSS, runs the JavaScript, and displays the result."
+    common_mistake: "Saying a browser 'is the internet'. The browser is only a CLIENT APPLICATION that talks to servers; the internet is the wider network."
+
+  # =========================================================================
+  # SECURITY THREATS
+  # =========================================================================
+
+  - number: 34
+    marks: 3
+    topic: "Spyware"
+    question: "Describe how spyware could be used to find out a user's username and password."
+    answer_direct: "Spyware is software secretly installed on a victim's computer that records what the user does — typically using a keylogger to capture every keystroke, including usernames and passwords, and then transmits the data to the attacker."
+    working:
+      - "Spyware is usually installed without the user's knowledge — bundled with free software, pushed through a malicious email attachment, or via a dodgy website."
+      - "A keylogger inside the spyware records every keystroke typed on the keyboard."
+      - "When the user logs into a website, the spyware captures the username and password as they are typed."
+      - "The collected data is sent to the attacker's server over the internet."
+    common_mistake: "Confusing spyware with a virus. Spyware spies; viruses typically damage or replicate. Some malware does both."
+
+  - number: 35
+    marks: 2
+    topic: "Secure login without typing"
+    question: "Give two ways a user could log in securely without typing a password."
+    answer_direct: "Use biometrics (fingerprint or face scan) or a physical security key (USB token or one-time code from an authenticator app)."
+    working:
+      - "Biometric — fingerprint, face ID, iris scan. A keylogger cannot capture what is never typed."
+      - "Hardware key — for example a FIDO2 USB key or smart card that the user plugs in."
+      - "Authenticator app — generates a fresh one-time code each minute so captured codes expire."
+    common_mistake: "Saying 'a longer password'. A keylogger still captures a long password as it is typed."
+
+  - number: 36
+    marks: 2
+    topic: "Denial of service"
+    question: "Explain what is meant by a denial of service (DoS) attack."
+    answer_direct: "A DoS attack floods a server with so many fake requests that it cannot respond to legitimate users, making the service unavailable."
+    working:
+      - "The attacker sends many thousands of requests per second to a target server."
+      - "The server's resources (CPU, bandwidth, memory) are overwhelmed and it cannot process real requests."
+      - "Legitimate users see timeouts or error pages."
+      - "A Distributed Denial of Service (DDoS) attack uses a botnet of many compromised computers to generate the flood from many different addresses."
+    common_mistake: "Thinking DoS steals data. It does not steal anything; it blocks access."
+
+  - number: 37
+    marks: 3
+    topic: "Preventing accidental data loss"
+    question: "Explain three ways of preventing accidental loss or corruption of data."
+    answer_direct: "(1) Keep regular backups in a separate location. (2) Use a UPS (uninterruptible power supply) to protect against power cuts. (3) Implement access controls so only authorised users can change critical files."
+    working:
+      - "Regular backups — scheduled copies to an external drive or cloud service, so if a file is deleted or corrupted, the previous version can be restored."
+      - "UPS / power protection — a battery that gives the computer time to shut down cleanly during a power cut, preventing data corruption in half-written files."
+      - "Access controls — user accounts with appropriate permissions so one user cannot accidentally overwrite shared files."
+      - "Other valid answers: RAID for disk redundancy; version control for documents; read-only file attributes on important files."
+    common_mistake: "Naming 'anti-virus' as prevention for accidental loss. Anti-virus helps against MALICIOUS loss, not accidental loss."
+
+  - number: 38
+    marks: 4
+    topic: "TLS protocol"
+    question: "Data is sent over the internet using Transport Layer Security (TLS) protocol. Name the two layers that make up TLS and describe the role of each."
+    answer_direct: "The Record layer (handles the actual encryption and transport of data) and the Handshake layer (agrees the encryption method and exchanges the session keys at the start of a connection)."
+    working:
+      - "Handshake layer — runs once at the start of a connection. It authenticates the server (via its certificate), negotiates which cipher to use, and safely exchanges a session key using asymmetric cryptography."
+      - "Record layer — runs for every subsequent message. It encrypts the data using the symmetric session key, adds an integrity check, and hands the ciphertext to TCP for delivery."
+      - "The two layers together give both secure key exchange and fast bulk encryption."
+    common_mistake: "Naming 'http' and 'https' as the two layers. TLS sits below HTTP, and its internal layers are Handshake and Record."
