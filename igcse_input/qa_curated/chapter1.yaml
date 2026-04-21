@@ -1,0 +1,502 @@
+# Chapter 1 — Data representation
+# Every question is taken from the real Cambridge IGCSE (0478) topical papers
+# 1.1.1-Binary-systems, 1.1.2-Hexadecimal, and 1.1.3-Data-storage.
+# Questions have been cleaned of paper-number junk and answer-space dots.
+# Answers are written for a 15-year-old seeing each topic for the first time,
+# in Cambridge mark-scheme style (direct answer first, worked steps, example,
+# common mistake). No mock filler.
+
+title: "Chapter 1 — Data representation (Cambridge IGCSE 0478)"
+subject: computer_science
+grade_level: 10
+
+questions:
+
+  # =========================================================================
+  # BINARY - DENARY CONVERSION
+  # =========================================================================
+
+  - number: 1
+    marks: 1
+    topic: "Binary ↔ denary conversion"
+    question: "Convert the denary number 107 to binary."
+    answer_direct: "107 in binary is 1101011."
+    working:
+      - "Write the 8-bit place values: 128, 64, 32, 16, 8, 4, 2, 1."
+      - "Largest power of 2 that fits into 107 is 64. Put a 1 in the 64 column. Remainder: 107 − 64 = 43."
+      - "Largest power of 2 that fits into 43 is 32. Put a 1 in the 32 column. Remainder: 43 − 32 = 11."
+      - "16 does not fit into 11, so put 0. 8 fits, so 1. Remainder: 11 − 8 = 3."
+      - "4 does not fit into 3, so 0. 2 fits, so 1. Remainder: 3 − 2 = 1. 1 fits, so 1."
+      - "Read the columns left to right: 0 1 1 0 1 0 1 1 → 1101011 (or 01101011 if 8-bit padding is required)."
+    check: "Check by adding back: 64 + 32 + 8 + 2 + 1 = 107 ✓"
+    common_mistake: "Reading the place values in the wrong order. The leftmost bit is 128, not 1."
+
+  - number: 2
+    marks: 2
+    topic: "Binary ↔ denary conversion with padding"
+    question: "Represent the denary number 300 as it would be stored in a 12-bit binary register."
+    answer_direct: "300 in a 12-bit register is 000100101100."
+    working:
+      - "12-bit place values, left to right: 2048, 1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1."
+      - "Largest that fits 300 is 256. Put 1 in 256. Remainder 44."
+      - "128 and 64 do not fit. 32 fits. Put 1 in 32. Remainder 12."
+      - "16 does not fit. 8 fits. Put 1 in 8. Remainder 4. 4 fits. Put 1. Remainder 0."
+      - "All other columns are 0. Read: 0 0 0 1 0 0 1 0 1 1 0 0."
+    check: "256 + 32 + 8 + 4 = 300 ✓"
+    common_mistake: "Padding zeros on the WRONG side. For an N-bit register the value is right-aligned and the LEFT side is padded with zeros."
+
+  - number: 3
+    marks: 2
+    topic: "Binary → denary (two-column table)"
+    question: "Convert these 10-bit binary values to denary: 0001001110, 0110110111, 1000000001."
+    answer_direct: "0001001110 = 78, 0110110111 = 439, 1000000001 = 513."
+    working:
+      - "Place values for 10 bits: 512, 256, 128, 64, 32, 16, 8, 4, 2, 1."
+      - "0001001110 → 64 + 8 + 4 + 2 = 78."
+      - "0110110111 → 256 + 128 + 32 + 16 + 4 + 2 + 1 = 439."
+      - "1000000001 → 512 + 1 = 513."
+    common_mistake: "Losing your place in a long binary string. Split it into nibbles (4-bit groups) to stay aligned with the place values."
+
+  - number: 4
+    marks: 1
+    topic: "Binary → denary"
+    question: "Give the denary value of the 8-bit binary number 00110100."
+    answer_direct: "00110100 in denary is 52."
+    working:
+      - "Place values: 128 64 32 16 8 4 2 1."
+      - "Bits set: 32, 16, 4."
+      - "32 + 16 + 4 = 52."
+    common_mistake: "Forgetting the leading zero bits contribute 0 (not nothing). The count of digits must match the register width."
+
+  - number: 5
+    marks: 2
+    topic: "Convert denary to 8-bit binary for ASCII values"
+    question: "The word BUS has the denary ASCII values B=66, U=85, S=83. Convert the denary values into 8-bit binary."
+    answer_direct: "B = 01000010, U = 01010101, S = 01010011."
+    working:
+      - "B (66) = 64 + 2 → bits in 64 and 2 columns → 01000010."
+      - "U (85) = 64 + 16 + 4 + 1 → 01010101."
+      - "S (83) = 64 + 16 + 2 + 1 → 01010011."
+    common_mistake: "Missing the leading 0. ASCII values 0–127 always start with 0 when written in 8 bits."
+
+  - number: 6
+    marks: 4
+    topic: "Binary vs denary explanation"
+    question: "Explain the differences between the binary number system and the denary number system."
+    answer_direct: "Binary is base 2 (digits 0 and 1, each place value a power of 2). Denary is base 10 (digits 0–9, each place value a power of 10)."
+    working:
+      - "Base: binary has 2 digits (0, 1); denary has 10 digits (0–9)."
+      - "Place values: binary columns are 1, 2, 4, 8, 16 …; denary columns are 1, 10, 100, 1000 …."
+      - "Use: computers use binary because electronic components have two stable states (on/off); humans use denary because we have 10 fingers."
+      - "Same number, different notation: 19 in denary = 10011 in binary = the same quantity, written differently."
+    common_mistake: "Saying binary numbers are ‘smaller’. They aren’t smaller; they are the same values written with a different alphabet of digits."
+
+  - number: 7
+    marks: 5
+    topic: "Binary → denary process"
+    question: "Explain the process of converting the binary number 1010 into a denary number."
+    answer_direct: "1010 in denary is 10. You find the place value of every 1 and add them up."
+    working:
+      - "Write the place values above each bit from right to left: 8, 4, 2, 1."
+      - "Align with the bits: 1 → 8 column; 0 → 4 column; 1 → 2 column; 0 → 1 column."
+      - "Take only the columns with a 1: 8 and 2."
+      - "Add them: 8 + 2 = 10."
+    common_mistake: "Reading the bits left-to-right but the place values right-to-left. Write the place values down FIRST, then line up the bits underneath."
+
+  # =========================================================================
+  # HEXADECIMAL
+  # =========================================================================
+
+  - number: 8
+    marks: 2
+    topic: "Denary → hexadecimal"
+    question: "Convert the denary number 179 to hexadecimal."
+    answer_direct: "179 in hexadecimal is B3."
+    working:
+      - "Convert 179 to 8-bit binary first: 128 + 32 + 16 + 2 + 1 = 179 → 10110011."
+      - "Split the binary into 4-bit nibbles from the right: 1011 | 0011."
+      - "1011 in hex = B (11). 0011 in hex = 3."
+      - "Combine: B3."
+    check: "B3 = 11 × 16 + 3 = 176 + 3 = 179 ✓"
+    common_mistake: "Writing 11 instead of B. In hex, 10–15 are the letters A–F."
+
+  - number: 9
+    marks: 2
+    topic: "Binary register → hexadecimal"
+    question: "A register contains 00111010. Convert the binary integer to hexadecimal."
+    answer_direct: "00111010 in hexadecimal is 3A."
+    working:
+      - "Split 00111010 into 4-bit nibbles: 0011 | 1010."
+      - "0011 = 3 (it has 2 + 1 set)."
+      - "1010 = 10 = A (it has 8 + 2 set)."
+      - "Combine: 3A."
+    common_mistake: "Splitting from the LEFT. Always group from the right; if the total bits aren’t a multiple of 4, pad with zeros on the left."
+
+  - number: 10
+    marks: 3
+    topic: "Hexadecimal → denary (three values)"
+    question: "Give the denary values for the hexadecimal numbers 15, 102, and A9."
+    answer_direct: "15₁₆ = 21, 102₁₆ = 258, A9₁₆ = 169."
+    working:
+      - "Hex place values from the right: 1, 16, 256, 4096 …."
+      - "15₁₆ = 1×16 + 5×1 = 21."
+      - "102₁₆ = 1×256 + 0×16 + 2×1 = 258."
+      - "A9₁₆ = 10×16 + 9×1 = 169 (A stands for 10)."
+    common_mistake: "Reading 15₁₆ as ‘fifteen’. It is NOT 15 in denary — it is 21. Hex digits have to be multiplied by their place value."
+
+  - number: 11
+    marks: 4
+    topic: "Binary → hexadecimal (two 8-bit values)"
+    question: "Give the hexadecimal values for the 8-bit binary values 01010000 and 00111101."
+    answer_direct: "01010000 = 50 and 00111101 = 3D."
+    working:
+      - "01010000 → 0101 | 0000. 0101 = 5 (4 + 1). 0000 = 0. Combine: 50."
+      - "00111101 → 0011 | 1101. 0011 = 3 (2 + 1). 1101 = D (8 + 4 + 1 = 13). Combine: 3D."
+    common_mistake: "Mixing the nibble order. The LEFT nibble of the binary becomes the LEFT digit of the hex."
+
+  - number: 12
+    marks: 3
+    topic: "ASCII binary → hexadecimal"
+    question: "KEY has the 8-bit binary values K=01001011, E=01000101, Y=01011001. Convert each to hexadecimal."
+    answer_direct: "K = 4B, E = 45, Y = 59."
+    working:
+      - "K: 0100 | 1011 → 4 and B → 4B."
+      - "E: 0100 | 0101 → 4 and 5 → 45."
+      - "Y: 0101 | 1001 → 5 and 9 → 59."
+    common_mistake: "Splitting the byte somewhere other than the middle. Always split an 8-bit byte into 4+4 nibbles, never 3+5 or similar."
+
+  - number: 13
+    marks: 2
+    topic: "Why programmers prefer hex"
+    question: "Explain why computer programmers may choose to use hexadecimal instead of binary."
+    answer_direct: "Hexadecimal is much shorter and easier for humans to read, write, and copy accurately than long strings of binary digits."
+    working:
+      - "One hex digit stands for exactly 4 binary digits, so a byte becomes just 2 hex digits instead of 8 bits."
+      - "Shorter numbers are easier to memorise, say aloud, and type without mistakes."
+      - "Errors are easier to spot — in a 32-character binary string a flipped bit is almost invisible; in 8 hex digits it jumps out."
+      - "Hex maps cleanly to binary, so conversion is straightforward when debugging."
+    common_mistake: "Saying hex is ‘faster for the computer’. It is not — the computer still stores binary. Hex is only for humans."
+
+  - number: 14
+    marks: 3
+    topic: "Uses of hexadecimal"
+    question: "Give three uses of hexadecimal notation in computer science."
+    answer_direct: "MAC addresses, HTML colour codes, and memory addresses (or assembly-language instructions, error/debug codes, Unicode code points)."
+    working:
+      - "MAC addresses — 48-bit hardware IDs written as 12 hex digits in pairs, e.g., 00:1A:2B:3C:4D:5E."
+      - "HTML colour codes — six hex digits covering red, green, and blue, e.g., #FF8800 for orange."
+      - "Memory addresses in debugging / assembly — e.g., 0x7FFE8000."
+      - "Character codes — Unicode is often written in hex, e.g., U+00E9 for é."
+    common_mistake: "Saying ‘computers use hex’. Computers use BINARY. Programmers and documentation use hex to represent the underlying binary more readably."
+
+  - number: 15
+    marks: 2
+    topic: "Benefits of hexadecimal"
+    question: "State two benefits of using hexadecimal notation to represent binary values."
+    answer_direct: "(1) It is more compact — one hex digit replaces four binary digits. (2) It is easier to read, check, and communicate without transcription errors."
+    working:
+      - "Compactness: a 32-bit IP address is 32 binary digits but only 8 hex digits."
+      - "Readability: humans can compare two short hex values at a glance but struggle with two long binary strings."
+    common_mistake: "Saying hex is ‘more accurate’. Accuracy is identical — one hex digit and its four-bit binary form represent exactly the same value."
+
+  - number: 16
+    marks: 2
+    topic: "Instruction → hexadecimal"
+    question: "Convert the 16-bit machine instruction 0011 1010 0000 0101 into hexadecimal."
+    answer_direct: "0011 1010 0000 0101 in hex is 3A05."
+    working:
+      - "Already split into 4-bit nibbles. Convert each: 0011=3, 1010=A, 0000=0, 0101=5."
+      - "Concatenate in order: 3A05."
+    common_mistake: "Reordering the nibbles. Keep them left-to-right in the same order as the original binary."
+
+  - number: 17
+    marks: 2
+    topic: "Why read instructions in hex not binary"
+    question: "Explain why a programmer might prefer to read an instruction in hexadecimal rather than in binary."
+    answer_direct: "A hex instruction is 4 × shorter than the same binary instruction, so it is faster to read and far less error-prone when typed, copied, or compared."
+    working:
+      - "A 32-bit instruction is 32 binary digits — humans lose their place easily."
+      - "The same instruction is 8 hex digits — short enough to take in at a glance."
+      - "Typos are easier to spot in short hex than in long binary strings."
+    common_mistake: "Thinking the CPU reads hex. The CPU still executes the binary; hex is only a shorthand for humans."
+
+  - number: 18
+    marks: 3
+    topic: "Web-address hex encoding"
+    question: "Complete the conversion of the web address w w w . c i e . o r g . u k into URL-percent hexadecimal (use ASCII values for each character)."
+    answer_direct: "%77%77%77%2E%63%69%65%2E%6F%72%67%2E%75%6B"
+    working:
+      - "Each character is replaced by % followed by its two-digit hex ASCII code."
+      - "w = 119 = 0x77, . = 46 = 0x2E, c = 99 = 0x63, i = 105 = 0x69, e = 101 = 0x65."
+      - "o = 111 = 0x6F, r = 114 = 0x72, g = 103 = 0x67, u = 117 = 0x75, k = 107 = 0x6B."
+    common_mistake: "Using uppercase-letter hex codes for lowercase letters. ‘W’ (87=0x57) is NOT the same as ‘w’ (119=0x77)."
+
+  - number: 19
+    marks: 6
+    topic: "Hex → web address"
+    question: "Complete the web address from the hexadecimal codes %77%77%77%2E%72%6F%63%6B%69%63%74%2E%63%6F%6D"
+    answer_direct: "www.rockict.com"
+    working:
+      - "Split by %: 77, 77, 77, 2E, 72, 6F, 63, 6B, 69, 63, 74, 2E, 63, 6F, 6D."
+      - "Convert each hex pair to its denary ASCII code, then to its character."
+      - "77 = 119 = 'w' (×3). 2E = 46 = '.'. 72='r', 6F='o', 63='c', 6B='k'. Then 69='i', 63='c', 74='t'. Then 2E='.', 63='c', 6F='o', 6D='m'."
+    common_mistake: "Getting the case wrong: 6F is lowercase ‘o’; uppercase ‘O’ is 4F."
+
+  # =========================================================================
+  # BINARY SHIFTS
+  # =========================================================================
+
+  - number: 20
+    marks: 2
+    topic: "Binary shift — effect"
+    question: "A register contains 00110100. The register is shifted two places to the right. Give the new contents and its denary value."
+    answer_direct: "After a 2-place right shift the register contains 00001101 which is denary 13."
+    working:
+      - "Start: 00110100 = 52."
+      - "1 place right: 00011010 = 26."
+      - "2 places right: 00001101 = 13."
+      - "Right shift by n divides the value by 2ⁿ, ignoring any remainder. 52 ÷ 4 = 13 ✓."
+    common_mistake: "Shifting the bits without dropping the ones that fall off the end. Shifted-out bits are LOST. Empty positions are filled with zero."
+
+  - number: 21
+    marks: 1
+    topic: "Effect of right shift on denary value"
+    question: "State the effect of a two-place right shift on the denary value of the register."
+    answer_direct: "The denary value is divided by 4 (any remainder is discarded)."
+    working:
+      - "A right shift by n places divides by 2ⁿ."
+      - "Two places → divide by 2² = 4."
+      - "Bits that fall off the right are lost — so only the whole-number part of the division remains."
+    common_mistake: "Saying it halves the value twice and gets back to the same thing. Each shift halves the value; two shifts divide by 4, not by 2."
+
+  # =========================================================================
+  # ASCII / CHARACTER SETS
+  # =========================================================================
+
+  - number: 22
+    marks: 3
+    topic: "Character sets"
+    question: "Describe what a character set is and give one example."
+    answer_direct: "A character set is an agreed table that maps each character (letters, digits, punctuation, control codes) to a unique binary number so the computer can store and send text."
+    working:
+      - "Every character on the keyboard needs a binary code so the computer can represent it."
+      - "ASCII uses 7 bits (128 characters) and covers basic English letters, digits, and punctuation."
+      - "Extended ASCII uses 8 bits (256 characters) and adds accented letters and symbols."
+      - "Unicode uses up to 32 bits and covers every writing system in the world, including emoji."
+    common_mistake: "Confusing a character set with a font. A font is how characters LOOK; a character set is which binary code MEANS which character."
+
+  - number: 23
+    marks: 2
+    topic: "ASCII vs Unicode"
+    question: "State one advantage and one disadvantage of Unicode compared with ASCII."
+    answer_direct: "Advantage: Unicode covers every language and symbol in the world, not just basic English. Disadvantage: each character uses more bits, so the same text takes up more storage."
+    working:
+      - "ASCII is 7 bits and only encodes 128 characters — mostly English letters, digits, and punctuation."
+      - "Unicode can use up to 32 bits and encodes over a million characters, including emoji and Chinese, Arabic, Hindi scripts."
+      - "More bits per character means larger files and slightly more bandwidth when transmitting text."
+    common_mistake: "Saying Unicode is ‘slower’. It is not slower to process — it just uses more storage per character."
+
+  # =========================================================================
+  # IMAGES
+  # =========================================================================
+
+  - number: 24
+    marks: 3
+    topic: "How images are stored"
+    question: "Describe how a computer stores a bitmap (raster) image."
+    answer_direct: "The image is divided into a grid of pixels; each pixel’s colour is stored as a binary number. The whole image is a long sequence of those pixel values."
+    working:
+      - "Resolution = width × height in pixels (e.g., 1920 × 1080)."
+      - "Colour depth = number of bits used per pixel (1-bit = black/white, 8-bit = 256 colours, 24-bit ‘true colour’ = about 16.7 million colours)."
+      - "File size (in bits) = width × height × colour depth."
+      - "A higher resolution or greater colour depth gives more detail but a bigger file."
+    common_mistake: "Confusing resolution (how many pixels) with colour depth (how many bits per pixel). Both affect size independently."
+
+  - number: 25
+    marks: 3
+    topic: "Image file-size calculation"
+    question: "Calculate the file size in kilobytes of an uncompressed image that is 800 pixels wide, 600 pixels tall, with a colour depth of 24 bits per pixel."
+    answer_direct: "About 1406 kB (or 1.37 MB)."
+    working:
+      - "Total bits = 800 × 600 × 24 = 11 520 000 bits."
+      - "Convert to bytes: 11 520 000 ÷ 8 = 1 440 000 bytes."
+      - "Convert to kibibytes: 1 440 000 ÷ 1024 ≈ 1406 KiB."
+      - "In decimal kilobytes (÷ 1000): ≈ 1440 kB."
+    common_mistake: "Forgetting to divide by 8 when going from bits to bytes, or mixing decimal (kB = 1000) and binary (KiB = 1024) prefixes."
+
+  # =========================================================================
+  # SOUND
+  # =========================================================================
+
+  - number: 26
+    marks: 3
+    topic: "How sound is stored"
+    question: "Describe how a sound is captured and stored as a digital file."
+    answer_direct: "The analogue sound wave is measured (sampled) at regular intervals; each sample is stored as a binary number that represents the wave’s amplitude at that instant."
+    working:
+      - "Sample rate = how many samples per second, measured in hertz (e.g., 44 100 Hz for CD quality)."
+      - "Sample resolution (bit depth) = how many bits are used for each sample (e.g., 16-bit)."
+      - "A higher sample rate captures higher-pitched sounds accurately; higher bit depth captures softer details."
+      - "Both increase quality and file size."
+    common_mistake: "Thinking sound is stored as the wave itself. It is stored as a long list of NUMBERS, one per sample."
+
+  - number: 27
+    marks: 3
+    topic: "Sound file-size calculation"
+    question: "Calculate the file size in megabytes of a 3-minute stereo recording at a sample rate of 44 100 Hz and 16 bits per sample."
+    answer_direct: "About 30.3 MB (uncompressed)."
+    working:
+      - "Samples per second per channel = 44 100. Bits per sample = 16. Channels = 2 (stereo)."
+      - "Bit rate = 44 100 × 16 × 2 = 1 411 200 bits per second."
+      - "Over 3 minutes (180 s): 1 411 200 × 180 = 254 016 000 bits."
+      - "÷ 8 → 31 752 000 bytes → ÷ 1024 → ≈ 31 008 KiB → ÷ 1024 → ≈ 30.3 MiB."
+    common_mistake: "Forgetting to multiply by the number of channels, or mixing up seconds and minutes."
+
+  # =========================================================================
+  # FILE SIZE UNITS
+  # =========================================================================
+
+  - number: 28
+    marks: 2
+    topic: "File-size units"
+    question: "Arrange the following from smallest to largest: megabyte, kibibyte, gibibyte, byte."
+    answer_direct: "byte → kibibyte → megabyte → gibibyte."
+    working:
+      - "1 byte = 8 bits."
+      - "1 kibibyte (KiB) = 1024 bytes."
+      - "1 megabyte (MB) = 1 000 000 bytes (decimal) ≈ slightly bigger than 1 KiB × 1000."
+      - "1 gibibyte (GiB) = 1024 × 1024 × 1024 bytes ≈ 1.074 GB."
+    common_mistake: "Confusing the binary prefixes (KiB, MiB, GiB, 1024-based) with the decimal prefixes (kB, MB, GB, 1000-based)."
+
+  # =========================================================================
+  # COMPRESSION
+  # =========================================================================
+
+  - number: 29
+    marks: 4
+    topic: "Lossy compression of sound"
+    question: "Describe how lossy compression reduces the size of a sound file."
+    answer_direct: "Lossy compression permanently removes parts of the sound that humans are unlikely to notice — very quiet sounds masked by louder ones, and frequencies at the edges of human hearing — so the file becomes much smaller than the original."
+    working:
+      - "A perceptual model is applied that predicts what the human ear cannot easily distinguish."
+      - "Those masked or inaudible parts are discarded — not just compressed, but removed."
+      - "What remains is then encoded more compactly (quantisation, entropy coding)."
+      - "The file is typically 10 × smaller, but the ORIGINAL file cannot be recovered — it is lost forever."
+    common_mistake: "Saying lossy compression ‘shrinks’ the data without discarding any. It does discard data permanently — that’s the whole reason it shrinks so much."
+
+  - number: 30
+    marks: 3
+    topic: "Lossy vs lossless choice — program code"
+    question: "Which type of compression is suitable for downloading the code of a computer program? Explain your choice."
+    answer_direct: "Lossless compression. Program code must be identical after decompression; a single changed bit will cause the program to crash or misbehave."
+    working:
+      - "Lossless compression (e.g., ZIP) produces a byte-for-byte copy of the original after decompression."
+      - "Lossy compression permanently throws away data and cannot reproduce the original exactly."
+      - "Even one wrong byte in machine code is usually fatal, so lossy is never acceptable for programs."
+    common_mistake: "Choosing lossy because it’s smaller. For data where exactness matters (code, text, spreadsheets, medical images) exactness is always required."
+
+  - number: 31
+    marks: 4
+    topic: "Lossy vs lossless choice — video streaming"
+    question: "Which type of compression is suitable for streaming a video file? Explain your choice."
+    answer_direct: "Lossy compression. Video files are huge; lossy compression gives a large enough reduction in size to stream over normal internet speeds while keeping the picture and sound acceptable to the viewer."
+    working:
+      - "Uncompressed HD video can be hundreds of megabytes per second."
+      - "Lossy compression (e.g., MPEG, H.264) typically shrinks it by 50–100 × by discarding detail humans rarely notice."
+      - "Some quality is lost, but this is acceptable for entertainment viewing."
+      - "Lossless would not shrink the file enough to stream reliably over most home connections."
+    common_mistake: "Choosing lossless for streaming. It is not small enough. Viewers will not notice the loss, but they WILL notice buffering."
+
+  - number: 32
+    marks: 2
+    topic: "Why compress before sending"
+    question: "Explain why a user might compress a file before attaching it to an email."
+    answer_direct: "Compression reduces the file size, so the email sends faster and the attachment is more likely to fit under the email provider’s size limit."
+    working:
+      - "Email providers typically limit attachments to 25 MB or so."
+      - "Smaller files upload, transmit, and download faster — saves time on slow connections."
+      - "Saves bandwidth and storage for both sender and receiver."
+    common_mistake: "Saying compression makes the file ‘safer’. It doesn’t — compression is about SIZE, not security. Encryption is what protects content."
+
+  # =========================================================================
+  # DENARY → 12-BIT BINARY AND HEX (EXAMPLE FROM ENGINE ID)
+  # =========================================================================
+
+  - number: 33
+    marks: 2
+    topic: "Denary → 12-bit binary"
+    question: "Convert the denary number 954 into 12-bit binary format."
+    answer_direct: "954 in 12-bit binary is 001110111010."
+    working:
+      - "Place values: 2048, 1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1."
+      - "512 fits into 954. 1 in 512. Remainder 442."
+      - "256 fits. 1 in 256. Remainder 186."
+      - "128 fits. 1 in 128. Remainder 58."
+      - "64 does not fit. 0. 32 fits. 1. Remainder 26. 16 fits. 1. Remainder 10. 8 fits. 1. Remainder 2. 4 no. 0. 2 yes. 1. 1 no. 0."
+      - "Columns: 0 0 1 1 1 0 1 1 1 0 1 0."
+    check: "512 + 256 + 128 + 32 + 16 + 8 + 2 = 954 ✓."
+    common_mistake: "Writing fewer than 12 bits. A 12-bit register always has exactly 12 digits — pad with leading zeros."
+
+  - number: 34
+    marks: 3
+    topic: "Denary → hexadecimal"
+    question: "Show how 954 would be represented in hexadecimal."
+    answer_direct: "954 in hexadecimal is 3BA."
+    working:
+      - "Convert to binary first: 001110111010 (from Q33)."
+      - "Split into 4-bit nibbles from the right: 0011 | 1011 | 1010."
+      - "0011 = 3. 1011 = B (8+2+1=11). 1010 = A (8+2=10)."
+      - "Combine: 3BA."
+    check: "3 × 256 + 11 × 16 + 10 = 768 + 176 + 10 = 954 ✓."
+    common_mistake: "Grouping nibbles from the left. Always group from the RIGHT."
+
+  # =========================================================================
+  # REPRESENTING A TIME IN TWO REGISTERS (HH:MM)
+  # =========================================================================
+
+  - number: 35
+    marks: 2
+    topic: "Interpreting 8-bit registers"
+    question: "Registers A and B are 8-bit values. A = 00010010 and B = 00110101. They represent a time in HH:MM. Identify the time."
+    answer_direct: "The time is 18:53."
+    working:
+      - "A = 00010010 = 16 + 2 = 18 → hours."
+      - "B = 00110101 = 32 + 16 + 4 + 1 = 53 → minutes."
+      - "Combine: 18 hours : 53 minutes → 18:53."
+    common_mistake: "Reading the bits right-to-left. Binary most-significant bit is on the LEFT — same convention as denary."
+
+  - number: 36
+    marks: 2
+    topic: "Showing a time in two 8-bit registers"
+    question: "An alarm is set for 07:30. Show how 07:30 would be represented in two 8-bit registers (hours, minutes)."
+    answer_direct: "Hours register = 00000111. Minutes register = 00011110."
+    working:
+      - "7 = 4 + 2 + 1 → bits in 4, 2, 1 columns → 00000111."
+      - "30 = 16 + 8 + 4 + 2 → bits in 16, 8, 4, 2 columns → 00011110."
+    common_mistake: "Forgetting the leading zeros. Each register is 8 bits — always show all 8."
+
+  # =========================================================================
+  # FURTHER USES / APPLICATION
+  # =========================================================================
+
+  - number: 37
+    marks: 2
+    topic: "Other uses of a binary number in a register"
+    question: "Give two uses for a binary number stored in a register, other than a memory address."
+    answer_direct: "(1) An arithmetic value being added or compared by the ALU. (2) A character code (for example an ASCII code) representing a letter being processed."
+    working:
+      - "A register can hold any kind of binary value the CPU is currently using."
+      - "Examples include: arithmetic operands, the current instruction, a character code, a pixel colour value, a boolean flag, a counter value."
+    common_mistake: "Repeating ‘memory address’ in different words. The question explicitly asks for OTHER uses."
+
+  - number: 38
+    marks: 5
+    topic: "Draw lines: binary/hex → denary (matching)"
+    question: "Six binary or hexadecimal numbers are given alongside six denary values. Describe how to match them without making a mistake."
+    answer_direct: "Convert every binary and every hex number into denary using place values, then draw a line from each to the denary value that equals it. Cross each number off as you match it so you don’t pair one denary value with two inputs."
+    working:
+      - "Binary: write 128 64 32 16 8 4 2 1 above the digits and add the columns with 1. For 01001011: 64 + 8 + 2 + 1 = 75."
+      - "Hex: write place values 16 and 1. For 4B: 4 × 16 + 11 = 75."
+      - "Write your working on the paper — examiners award working marks even if the final match is wrong."
+      - "Match each input to exactly one denary value, and each denary value to exactly one input."
+    common_mistake: "Trying to match by eye. Always CONVERT first and write the denary next to every input before drawing lines."

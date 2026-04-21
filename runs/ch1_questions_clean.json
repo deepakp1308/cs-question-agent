@@ -1,0 +1,754 @@
+[
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "a2f35e203e3ada2feeb9d4b7",
+    "number": "d",
+    "marks": 3,
+    "raw": "Describe three tasks carried out by a firewall.\n1  ................................................................................................................................................\n .......................................................................................................",
+    "clean": "Describe three tasks carried out by a firewall. 1 2 3 9 In the following barcode, each binary number is made up of seven bars. Each bar is black or grey. A black bar is interpreted as a \u201c1\u201d and a grey bar is interpreted as a \u201c0\u201d."
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "4c5f41687205c88f7fa967e4",
+    "number": "a",
+    "marks": 2,
+    "raw": "Write the binary numbers that would be produced from this barcode:\n%LQDU\\\u0003QXPEHU\u0003$ %LQDU\\\u0003QXPEHU\u0003%\nBinary number A:\nBinary number B:",
+    "clean": "Write the binary numbers that would be produced from this barcode: %LQDU\\\u0003QXPEHU\u0003$ %LQDU\\\u0003QXPEHU\u0003% Binary number A: Binary number B"
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "2376ef8330a702bed2fd474f",
+    "number": "b",
+    "marks": 2,
+    "raw": "This barcode system uses odd parity.\nWrite the parity bit for each of the binary numbers in part (a):\nParity bit\n   Binary number A:\n   Binary number B:\n[2]\nQUESTION 2.\n5\n0478/12/M/J/17\n\u00a9 UCLES 2017\n[Turn over\n5",
+    "clean": "This barcode system uses odd parity. Write the parity bit for each of the binary numbers in part (a): Parity bit Binary number A: Binary number B: 5 5"
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "4c5f41687205c88f7fa967e4",
+    "number": "a",
+    "marks": 2,
+    "raw": "The denary number 57 is to be stored in two different computer registers.\nConvert 57 from denary to binary and show your working.\n\b\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\n\b\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd",
+    "clean": "The denary number 57 is to be stored in two different computer registers. Convert 57 from denary to binary and show your working. \b\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \b\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \b\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd"
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "2376ef8330a702bed2fd474f",
+    "number": "b",
+    "marks": 2,
+    "raw": "Show the binary number from part (a) as it would be stored in the following registers.\nRegister 1\nRegister 2",
+    "clean": "Show the binary number from part (a) as it would be stored in the following registers. Register 1 Register 2"
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "08f364567f0f7cd578b96658",
+    "number": "c",
+    "marks": 2,
+    "raw": "A binary number stored in a register can have many different uses, for example an address in\nmain memory.\nGive two other uses for a binary number stored in a register.\nUse 1 \b\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd",
+    "clean": "A binary number stored in a register can have many different uses, for example an address in main memory. Give two other uses for a binary number stored in a register. Use 1 \b\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd Use 2 \b\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd"
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "a2f35e203e3ada2feeb9d4b7",
+    "number": "d",
+    "marks": 4,
+    "raw": "A register in a computer contains binary digits.\n0\n0\n1\n1\n1\n0\n1\n0\nThe contents of the register represent a binary integer.\nConvert the binary integer to hexadecimal.\n.......................................................................................................................................",
+    "clean": "A register in a computer contains binary digits. 0 0 1 1 1 0 1 0 The contents of the register represent a binary integer. Convert the binary integer to hexadecimal. 3 3 The three binary numbers in the registers A, B and C have been transmitted from one computer to another. Parity bit Register A 1 0 0 1 1 0 0 0 Register B 0 1 1 0 0 1 1 1 Register C 1 0 0 1 1 0 0 1 One binary number has been transmitted incorrectly. This is identified through the use of a parity bit. Identify which register contai"
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "4c5f41687205c88f7fa967e4",
+    "number": "a",
+    "marks": 1,
+    "raw": "Convert the denary number 107 to binary.\n ..............................................................................................................................................",
+    "clean": "Convert the denary number 107 to binary."
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "2376ef8330a702bed2fd474f",
+    "number": "b",
+    "marks": 2,
+    "raw": "Represent the denary number 300 as it would be stored in a 12-bit binary register.\n ..............................................................................................................................................",
+    "clean": "Represent the denary number 300 as it would be stored in a 12-bit binary register."
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "08f364567f0f7cd578b96658",
+    "number": "c",
+    "marks": 2,
+    "raw": "Convert the denary number 179 to hexadecimal.\n .............................................................................................................................................. [2]\n6\nOne of the roles of an operating system is to deal with interrupts.",
+    "clean": "Convert the denary number 179 to hexadecimal. 6 One of the roles of an operating system is to deal with interrupts."
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "2376ef8330a702bed2fd474f",
+    "number": "b",
+    "marks": 3,
+    "raw": "Identify three devices that make use of interrupts.\nDevice 1  ....................................................................................................................................\nDevice 2  ...............................................................................................",
+    "clean": "Identify three devices that make use of interrupts. Device 1 Device 2 Device 3 7 7"
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "4c5f41687205c88f7fa967e4",
+    "number": "a",
+    "marks": null,
+    "raw": "Give the denary value of each of the three 12-bit binary values.",
+    "clean": "Give the denary value of each of the three 12-bit binary values."
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "2376ef8330a702bed2fd474f",
+    "number": "b",
+    "marks": 3,
+    "raw": "12-bit binary values can also be represented as hexadecimal values.\nGive the hexadecimal value of the 12-bit binary value.\n000011101001\n ............................................................................................................................................. [3]\nBuy O / A Level &",
+    "clean": "12-bit binary values can also be represented as hexadecimal values. Give the hexadecimal value of the 12-bit binary value. 000011101001 Call / WhatsApp: (0331-9977798) 2 1 Pradeep is reading hexadecimal values for a project he is working on."
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "4c5f41687205c88f7fa967e4",
+    "number": "a",
+    "marks": 3,
+    "raw": "The first three hexadecimal values he reads are 15, 102 and A9.\nGive the denary values for the three hexadecimal values.\n15  ..............................................................................................................................................\n102  ...........................",
+    "clean": "The first three hexadecimal values he reads are 15, 102 and A9. Give the denary values for the three hexadecimal values. 15 102 A9 Working space"
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "2376ef8330a702bed2fd474f",
+    "number": "b",
+    "marks": 4,
+    "raw": "Pradeep has two 8-bit binary values that he needs to convert to hexadecimal values for his\nproject.\nGive the hexadecimal values for the two 8-bit binary values.\n01010000  .................................................................................................................................",
+    "clean": "Pradeep has two 8-bit binary values that he needs to convert to hexadecimal values for his project. Give the hexadecimal values for the two 8-bit binary values. 01010000 00111101 Call / WhatsApp: (0331-9977798) 10 10 Characters can be represented in a computer by a numerical code. The following list shows 16 characters with their numerical codes in denary: a = 97 e = 101 k = 107 t = 116 b = 98 g = 103 m = 109 u = 117 c = 99 h = 104 o = 111 w = 119 d = 100 i = 105 r = 114 . = 46 (code for the ful"
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "4c5f41687205c88f7fa967e4",
+    "number": "a",
+    "marks": 3,
+    "raw": "Complete the conversion of the following web address into hexadecimal:\nw\nw\nw\n.\nc\ni\ne\n.\no\nr\ng\n.\nu\nk\n%77\n%77\n%77",
+    "clean": "Complete the conversion of the following web address into hexadecimal: w w w . c i e . o r g . u k %77 %77 %77"
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "2376ef8330a702bed2fd474f",
+    "number": "b",
+    "marks": 6,
+    "raw": "Complete the web address from the given hexadecimal codes:\n%77\n%77\n%77\n%2E\n%72\n%6F\n%63\n%6B\n%69\n%63\n%74\n%2E\n%63\n%6F\n%6D\nW\nW\nW\n[3]\n11 A passenger logs onto an airline website and types in the reference number for their flight. Once\nthe passenger accesses their account they can choose their seat and al",
+    "clean": "Complete the web address from the given hexadecimal codes: %77 %77 %77 %2E %72 %6F %63 %6B %69 %63 %74 %2E %63 %6F %6D W W W 11 A passenger logs onto an airline website and types in the reference number for their flight. Once the passenger accesses their account they can choose their seat and also print out a boarding pass which contains a unique barcode. This barcode is scanned at the airport check-in desk. Name one input and one output device found at the check-in desk and give a reason for yo"
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "4c5f41687205c88f7fa967e4",
+    "number": "a",
+    "marks": 4,
+    "raw": "Explain the differences between the binary number system and the denary number system.\n ...................................................................................................................................................\n ...............................................................",
+    "clean": "Explain the differences between the binary number system and the denary number system."
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "2376ef8330a702bed2fd474f",
+    "number": "b",
+    "marks": 5,
+    "raw": "Explain the process of converting the binary number 1010 into a denary number.\n ...................................................................................................................................................\n .......................................................................",
+    "clean": "Explain the process of converting the binary number 1010 into a denary number. 4 2"
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "4c5f41687205c88f7fa967e4",
+    "number": "a",
+    "marks": 5,
+    "raw": "Six binary or hexadecimal numbers and six denary conversions are given.\nDraw a line to connect each binary or hexadecimal number to the correct denary conversion.\n01001011\n75\nBinary or hexadecimal\nDenary\n4E\n11011010\n10011101\nA7\n19\n78\n157\n167\n25\n218",
+    "clean": "Six binary or hexadecimal numbers and six denary conversions are given. Draw a line to connect each binary or hexadecimal number to the correct denary conversion. 01001011 75 Binary or hexadecimal Denary 4E 11011010 10011101 A7 19 78 157 167 25 218"
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "2376ef8330a702bed2fd474f",
+    "number": "b",
+    "marks": 2,
+    "raw": "Hexadecimal is often used by computer programmers to represent binary values.\nExplain why computer programmers may choose to use hexadecimal.\n ...................................................................................................................................................\n ........",
+    "clean": "Hexadecimal is often used by computer programmers to represent binary values. Explain why computer programmers may choose to use hexadecimal. 2 1 Computers use a character set to convert text into binary. One character set that can be used is ASCII. Each letter in ASCII can also be represented as a denary value."
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "4c5f41687205c88f7fa967e4",
+    "number": "a",
+    "marks": 3,
+    "raw": "The word BUS has the denary values:\nB\nU\nS\n66\n85\n83\nConvert the denary values into 8-bit binary.\n66\n85\n83",
+    "clean": "The word BUS has the denary values: B U S 66 85 83 Convert the denary values into 8-bit binary. 66 85 83"
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "2376ef8330a702bed2fd474f",
+    "number": "b",
+    "marks": null,
+    "raw": "Each letter in ASCII can also be represented as a hexadecimal value.\nThe word KEY has the 8-bit binary values:\nK\nE\nY\n01001011\n01000101\n01011001",
+    "clean": "Each letter in ASCII can also be represented as a hexadecimal value. The word KEY has the 8-bit binary values: K E Y 01001011 01000101 01011001"
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "c6d3306dcabac40fc98dcd97",
+    "number": "b.i",
+    "marks": 3,
+    "raw": "Convert the three 8-bit binary values into hexadecimal.\n 01001011\n...............................................\n 01000101\n...............................................\n 01011001\n...............................................\n[3]\nQUESTION 11.\n3",
+    "clean": "Convert the three 8-bit binary values into hexadecimal. 01001011 01000101 01011001 3"
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "6f2acc4dcd36de1fd2f9401a",
+    "number": "b.i.ii",
+    "marks": 3,
+    "raw": "Give three other uses of hexadecimal notation in computer science.\n1 .........................................................................................................................................\n2 ...........................................................................................",
+    "clean": "Give three other uses of hexadecimal notation in computer science. 1 2 3"
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "edfa6fb9fae00300ebce496e",
+    "number": "b.i.iii",
+    "marks": 2,
+    "raw": "State two benefits of using hexadecimal notation to represent binary values.\nBenefit 1  ............................................................................................................................\n ......................................................................................",
+    "clean": "State two benefits of using hexadecimal notation to represent binary values. Benefit 1 Benefit 2 3 2 An electronic guessing game compares denary integer values input by a user with pre-stored values. The pre-stored values are held in 10-bit binary format."
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "4c5f41687205c88f7fa967e4",
+    "number": "a",
+    "marks": 3,
+    "raw": "Convert the binary values in the table to denary.\nBinary\nDenary\n0001001110\n0110110111\n1000000001",
+    "clean": "Convert the binary values in the table to denary. Binary Denary 0001001110 0110110111 1000000001"
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "2376ef8330a702bed2fd474f",
+    "number": "b",
+    "marks": 2,
+    "raw": "When planning the game, the designer decided to use hexadecimal notation to represent the\nbinary values.\nExplain why the designer used hexadecimal notation.\n ..............................................................................................................................................",
+    "clean": "When planning the game, the designer decided to use hexadecimal notation to represent the binary values. Explain why the designer used hexadecimal notation."
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "08f364567f0f7cd578b96658",
+    "number": "c",
+    "marks": 3,
+    "raw": "State the hexadecimal equivalent of the binary value 1010110101\n ............................................................................................................................................. [3]\n3\nA company has several offices. It uses the Internet to transfer data between offices. T",
+    "clean": "State the hexadecimal equivalent of the binary value 1010110101 3 A company has several offices. It uses the Internet to transfer data between offices. The company also makes payments to staff and suppliers using online banking. The company are concerned about spyware and other security aspects of using the Internet."
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "4c5f41687205c88f7fa967e4",
+    "number": "a",
+    "marks": 3,
+    "raw": "Explain what is meant by spyware and how it is used to obtain data.\n ...................................................................................................................................................\n ..................................................................................",
+    "clean": "Explain what is meant by spyware and how it is used to obtain data. Call / WhatsApp: (0331-9977798) 3 4 An 8-bit binary register contains the value: 0 0 1 1 0 1 0 0"
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "4c5f41687205c88f7fa967e4",
+    "number": "a",
+    "marks": 1,
+    "raw": "Convert the binary value to denary.\n ...................................................................................................................................................\n ..................................................................................................................",
+    "clean": "Convert the binary value to denary."
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "2376ef8330a702bed2fd474f",
+    "number": "b",
+    "marks": 1,
+    "raw": "The contents of the register shifted one place to the right would give the result:\n0\n0\n0\n1\n1\n0\n1\n0\nThe contents of the register shown at the start of question 4 are shifted two places to the left.\nShow the contents of the register after this shift has taken place.",
+    "clean": "The contents of the register shifted one place to the right would give the result: 0 0 0 1 1 0 1 0 The contents of the register shown at the start of are shifted two places to the left. Show the contents of the register after this shift has taken place."
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "08f364567f0f7cd578b96658",
+    "number": "c",
+    "marks": 1,
+    "raw": "State the effect this shift has on the denary value in part (a).\n ...................................................................................................................................................\n .....................................................................................",
+    "clean": "State the effect this shift has on the denary value in part (a). 5 Audrey wants to send a sound file to Nico using email. The file is too large to attach to an email so Audrey decides to compress the file. She uses lossy compression to reduce the size of the sound file."
+  },
+  {
+    "paper": "1.1.1-Binary-systems",
+    "qid": "4c5f41687205c88f7fa967e4",
+    "number": "a",
+    "marks": 4,
+    "raw": "Describe how lossy compression reduces the size of the sound file.\n ...................................................................................................................................................\n ...................................................................................",
+    "clean": "Describe how lossy compression reduces the size of the sound file. Call / WhatsApp: (0331-9977798)"
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "23493880591544edf2bd7813",
+    "number": "a",
+    "marks": 2,
+    "raw": "Convert the instruction into hexadecimal.\n ...................................................................................................................................................\n ............................................................................................................",
+    "clean": "Convert the instruction into hexadecimal."
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "c01ecd9cbf5bd82577fb4c8c",
+    "number": "b",
+    "marks": 2,
+    "raw": "Explain why a programmer might prefer to read the instruction in hexadecimal rather than in\nbinary.\n ...................................................................................................................................................\n ..................................................",
+    "clean": "Explain why a programmer might prefer to read the instruction in hexadecimal rather than in binary."
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "44b79c6d2c9943d2ad4bdf0b",
+    "number": "c",
+    "marks": 2,
+    "raw": "Give two other uses of hexadecimal.\nUse 1  ........................................................................................................................................\n .......................................................................................................................",
+    "clean": "Give two other uses of hexadecimal. Use 1 Use 2 2 Programmers can use a high-level language to write a computer program."
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "23493880591544edf2bd7813",
+    "number": "a",
+    "marks": 2,
+    "raw": "Explain what is meant by the term \u2018high-level language\u2019.\n ...................................................................................................................................................\n .............................................................................................",
+    "clean": "Explain what is meant by the term \u2018high-level language\u2019. 3"
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "c01ecd9cbf5bd82577fb4c8c",
+    "number": "b",
+    "marks": 1,
+    "raw": "A program written in a high-level language is translated into machine code. This is so that it\ncan be processed by a computer.\nName one type of translator that can be used.\n ..............................................................................................................................",
+    "clean": "A program written in a high-level language is translated into machine code. This is so that it can be processed by a computer. Name one type of translator that can be used."
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "44b79c6d2c9943d2ad4bdf0b",
+    "number": "c",
+    "marks": 3,
+    "raw": "Describe how your answer to part (b) translates this program.\n ...................................................................................................................................................\n ........................................................................................",
+    "clean": "Describe how your answer to part (b) translates this program. 5 5"
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "23493880591544edf2bd7813",
+    "number": "a",
+    "marks": 4,
+    "raw": "Describe how a capacitive touch screen registers Alexandra\u2019s touch.\n ...................................................................................................................................................\n ..................................................................................",
+    "clean": "Describe how a capacitive touch screen registers Alexandra\u2019s touch."
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "c01ecd9cbf5bd82577fb4c8c",
+    "number": "b",
+    "marks": null,
+    "raw": "Alexandra is wearing gloves because it is cold.\nShe presses an icon on her touch screen but her action is not registered.",
+    "clean": "Alexandra is wearing gloves because it is cold. She presses an icon on her touch screen but her action is not registered."
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "69698a345eddbbc18b44871e",
+    "number": "b.i",
+    "marks": 2,
+    "raw": "Explain why the touch screen will not register her touch.\n ...........................................................................................................................................\n ....................................................................................................",
+    "clean": "Explain why the touch screen will not register her touch."
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "107ccfef1a990d03e958139f",
+    "number": "b.i.ii",
+    "marks": 2,
+    "raw": "Alexandra does not want to remove her gloves.\n Explain how Alexandra could use her mobile device whilst still wearing gloves.\n ...........................................................................................................................................\n ................................",
+    "clean": "Alexandra does not want to remove her gloves. Explain how Alexandra could use her mobile device whilst still wearing gloves. 9"
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "c01ecd9cbf5bd82577fb4c8c",
+    "number": "b",
+    "marks": 3,
+    "raw": "Draw a logic circuit corresponding to this logic statement:\nX = 1 if (A is NOT 1) OR ((B is 1 OR C is 1) AND (B is NOT 1 OR A is NOT 1))\nA\nB\nC\nX\n[6]\n9\nThree types of translators are assemblers, compilers and interpreters.\nTick (\u2713) the appropriate boxes to show which statements apply to each type of ",
+    "clean": "Draw a logic circuit corresponding to this logic statement: X = 1 if (A is NOT 1) OR ((B is 1 OR C is 1) AND (B is NOT 1 OR A is NOT 1)) A B C X 9 Three types of translators are assemblers, compilers and interpreters. Tick (\u2713) the appropriate boxes to show which statements apply to each type of translator. Statement Assembler (\u2713) Compiler (\u2713) Interpreter (\u2713) Translates high- level language into machine code Provides error diagnostics Translates whole program to object code in one operation Trans"
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "23493880591544edf2bd7813",
+    "number": "a",
+    "marks": 3,
+    "raw": "Explain what is meant by HTML.\n ...................................................................................................................................................\n .......................................................................................................................",
+    "clean": "Explain what is meant by HTML."
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "c01ecd9cbf5bd82577fb4c8c",
+    "number": "b",
+    "marks": 2,
+    "raw": "HTML uses both structure and presentation.\nDescribe what is meant by the two terms.\nStructure ....................................................................................................................................\n ........................................................................",
+    "clean": "HTML uses both structure and presentation. Describe what is meant by the two terms. Structure Presentation"
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "44b79c6d2c9943d2ad4bdf0b",
+    "number": "c",
+    "marks": 3,
+    "raw": "Explain the function of a web browser.\n ...................................................................................................................................................\n ...............................................................................................................",
+    "clean": "Explain the function of a web browser. 8 4"
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "23493880591544edf2bd7813",
+    "number": "a",
+    "marks": null,
+    "raw": "Computer ethics involves a number of different topics.",
+    "clean": "Computer ethics involves a number of different topics."
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "6a115939a2a3e1c022fc8fa4",
+    "number": "a.i",
+    "marks": 1,
+    "raw": "A student made the following statement on an examination paper:\n \u201cIt allows a user to have the freedom to run, copy, change and adapt the software and\nthen pass it on to a colleague, friend or family member.\u201d\n Identify which computer term the student was describing.\n ................................",
+    "clean": "A student made the following statement on an examination paper: \u201cIt allows a user to have the freedom to run, copy, change and adapt the software and then pass it on to a colleague, friend or family member.\u201d Identify which computer term the student was describing."
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "9bd70d5c713ac2a987ef08f6",
+    "number": "a.i.ii",
+    "marks": 3,
+    "raw": "Explain what is meant by computer ethics.\n ...........................................................................................................................................\n ....................................................................................................................",
+    "clean": "Explain what is meant by computer ethics."
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "c01ecd9cbf5bd82577fb4c8c",
+    "number": "b",
+    "marks": 4,
+    "raw": "The four statements below refer to firewalls and proxy servers.\nStudy each statement.\nTick (9) the appropriate column(s) to indicate whether the statement refers to a firewall\nand/or a proxy server.\nStatement\nFirewall\nProxy server\nSpeeds up access of information from a web server by\nusing a cache\nFi",
+    "clean": "The four statements below refer to firewalls and proxy servers. Study each statement. Tick (9) the appropriate column(s) to indicate whether the statement refers to a firewall and/or a proxy server. Statement Firewall Proxy server Speeds up access of information from a web server by using a cache Filters all Internet traffic coming into and out from a user\u2019s computer, intranet or private network Helps to prevent malware, including viruses, from entering a user\u2019s computer Keeps a list of undesira"
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "44b79c6d2c9943d2ad4bdf0b",
+    "number": "c",
+    "marks": 6,
+    "raw": "Explain three ways of preventing accidental loss or corruption of data.\n1  ................................................................................................................................................\n ...............................................................................",
+    "clean": "Explain three ways of preventing accidental loss or corruption of data. 1 2 3 12 10 (a) A manufacturer of aeroplane engines assigns a denary identification number (ID) to each engine. One engine has the ID: 0431"
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "aa51bf9db9a2e7fd86c9dfbc",
+    "number": "c.i",
+    "marks": 2,
+    "raw": "Convert this denary number to a 12-bit binary format.",
+    "clean": "Convert this denary number to a 12-bit binary format."
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "8e7d6d647f73b8aa7b2d3175",
+    "number": "c.i.ii",
+    "marks": 3,
+    "raw": "Show how this number would be represented in hexadecimal.\n ...........................................................................................................................................\n ....................................................................................................",
+    "clean": "Show how this number would be represented in hexadecimal."
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "c01ecd9cbf5bd82577fb4c8c",
+    "number": "b",
+    "marks": 3,
+    "raw": "The current status of the engine is sent to a computer in the aeroplane.\nEach piece of data collected is 8 bytes in size. Data collection occurs every 30 seconds.\nCalculate the number of kilobytes that would be needed to store the data collected during a\n10-hour flight. Show your working.\n .........",
+    "clean": "The current status of the engine is sent to a computer in the aeroplane. Each piece of data collected is 8 bytes in size. Data collection occurs every 30 seconds. Calculate the number of kilobytes that would be needed to store the data collected during a 10-hour flight. Show your working. kilobytes 13"
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "44b79c6d2c9943d2ad4bdf0b",
+    "number": "c",
+    "marks": 2,
+    "raw": "At the end of the flight, all of the data are sent to the aeroplane engine manufacturer using the\nInternet.\nThe computer in the aeroplane has a MAC address and an IP address.\nState what is meant by these two terms.\nMAC address  ........................................................................",
+    "clean": "At the end of the flight, all of the data are sent to the aeroplane engine manufacturer using the Internet. The computer in the aeroplane has a MAC address and an IP address. State what is meant by these two terms. MAC address IP address"
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "3173c7bc108900a30cc38496",
+    "number": "d",
+    "marks": 4,
+    "raw": "When sending this data, security is very important. Data are sent over the Internet using\nTransport Layer Security (TLS) protocol.\nName the two layers that make up TLS.\n1  ................................................................................................................................",
+    "clean": "When sending this data, security is very important. Data are sent over the Internet using Transport Layer Security (TLS) protocol. Name the two layers that make up TLS. 1 2 10 8 Kamil correctly answers an examination question about a number of internet terms. Six different terms have been removed from Kamil\u2019s answer. Complete the sentences in Kamil\u2019s answer, using the list given. Not all terms in the list need to be used. \u2022 browser \u2022 connection \u2022 domain name server (DNS) \u2022 Internet \u2022 Internet Se"
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "c01ecd9cbf5bd82577fb4c8c",
+    "number": "b",
+    "marks": 6,
+    "raw": "Draw a logic circuit corresponding to the logic statement:\nX = 1 if ((A is 1 AND B is 1) AND (A is 1 OR C is NOT 1)) OR (B is 1 AND C is NOT 1)\nA\nB\nX\nC\n[6]\n11 The fetch-execute cycle make use of registers.",
+    "clean": "Draw a logic circuit corresponding to the logic statement: X = 1 if ((A is 1 AND B is 1) AND (A is 1 OR C is NOT 1)) OR (B is 1 AND C is NOT 1) A B X C 11 The fetch-execute cycle make use of registers."
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "23493880591544edf2bd7813",
+    "number": "a",
+    "marks": 2,
+    "raw": "Describe the role of the Program Counter (PC).\n ...................................................................................................................................................\n .......................................................................................................",
+    "clean": "Describe the role of the Program Counter (PC)."
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "c01ecd9cbf5bd82577fb4c8c",
+    "number": "b",
+    "marks": 3,
+    "raw": "Describe the role of the Memory Data Register (MDR).\n ...................................................................................................................................................\n .................................................................................................",
+    "clean": "Describe the role of the Memory Data Register (MDR). 10 5 The contents of three binary registers have been transmitted from one computer to another. Odd parity has been used as an error detection method. The outcome after transmission is: \u2022 Register A and Register B have been transmitted correctly. \u2022 Register C has been transmitted incorrectly. Write the appropriate Parity bit for each register to show the given outcome. Parity bit Register A 0 1 0 0 0 1 1 Register B 0 0 0 0 1 1 1 Register C 0 0"
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "23493880591544edf2bd7813",
+    "number": "a",
+    "marks": 1,
+    "raw": "For the first question, he writes the answer:\n\u201cThis type of software can be copied and shared without the permission of the owner.\u201d\nState what Jesse is describing.\n .......................................................................................................................................",
+    "clean": "For the first question, he writes the answer: \u201cThis type of software can be copied and shared without the permission of the owner.\u201d State what Jesse is describing."
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "c01ecd9cbf5bd82577fb4c8c",
+    "number": "b",
+    "marks": 1,
+    "raw": "For the second question, he writes the answer:\n\u201cWith this type of software, the owner still retains the copyright for the software, but he gives\naway copies of it for free.\u201d\nState what Jesse is describing.\n .............................................................................................",
+    "clean": "For the second question, he writes the answer: \u201cWith this type of software, the owner still retains the copyright for the software, but he gives away copies of it for free.\u201d State what Jesse is describing."
+  },
+  {
+    "paper": "1.1.2-Hexadecimal",
+    "qid": "44b79c6d2c9943d2ad4bdf0b",
+    "number": "c",
+    "marks": 1,
+    "raw": "For the third question, he writes the answer:\n\u201cThis type of software is often a trial version of the full software. To use the full version the\nuser normally needs to pay a fee.\u201d\nState what Jesse is describing.\n ........................................................................................",
+    "clean": "For the third question, he writes the answer: \u201cThis type of software is often a trial version of the full software. To use the full version the user normally needs to pay a fee.\u201d State what Jesse is describing. Call / WhatsApp: (0331-9977798)"
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "3f6eded253c1822f4ce13d70",
+    "number": "a",
+    "marks": 2,
+    "raw": "Identify what time is represented by the following two 8-bit registers.\nA\nB\n128\n64\n32\n16\n8\n4\n2\n1\n128\n64\n32\n16\n8\n4\n2\n1\n0\n0\n0\n1\n0\n0\n1\n0\n:\n0\n0\n1\n1\n0\n1\n0\n1\nHours  ............................................\nMinutes  .........................................",
+    "clean": "Identify what time is represented by the following two 8-bit registers. A B 128 64 32 16 8 4 2 1 128 64 32 16 8 4 2 1 0 0 0 1 0 0 1 0 : 0 0 1 1 0 1 0 1 Hours Minutes"
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "da0f868335b109179218fd1f",
+    "number": "b",
+    "marks": 2,
+    "raw": "An alarm has been set for 07:30. Two 8-bit registers, C and D, are used to represent the\nhours and minutes of the alarm time.\nShow how 07:30 would be represented by these two registers:\nC\nD\n:\nHours\nMinutes",
+    "clean": "An alarm has been set for 07:30. Two 8-bit registers, C and D, are used to represent the hours and minutes of the alarm time. Show how 07:30 would be represented by these two registers: C D : Hours Minutes"
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "a3d5a046f0d00f11b9b9ee4d",
+    "number": "c",
+    "marks": 3,
+    "raw": "Describe how the microprocessor can determine when to sound the clock alarm.\n ...................................................................................................................................................\n .........................................................................",
+    "clean": "Describe how the microprocessor can determine when to sound the clock alarm. 13"
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "bc0b7f2c771bc14fe2ba14d3",
+    "number": "d",
+    "marks": 3,
+    "raw": "The LCD (liquid crystal display) on the clock face is back-lit using blue LEDs (light emitting\ndiodes). The brightness of the clock face is determined by the level of light in the room. The\namount of light given out by the LEDs is controlled by a control circuit.\nDescribe how the sensor, microproces",
+    "clean": "The LCD (liquid crystal display) on the clock face is back-lit using blue LEDs (light emitting diodes). The brightness of the clock face is determined by the level of light in the room. The amount of light given out by the LEDs is controlled by a control circuit. Describe how the sensor, microprocessor and LEDs are used to maintain the correct brightness of the clock face."
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "d1cc884e394f43e2718ff8f4",
+    "number": "e",
+    "marks": 2,
+    "raw": "Modern LCD monitors and televisions use LED back-lit technology.\nGive two advantages of using this new technology compared to the older cold cathode\nfluorescent lamp (CCFL) method.\n1  ....................................................................................................................",
+    "clean": "Modern LCD monitors and televisions use LED back-lit technology. Give two advantages of using this new technology compared to the older cold cathode fluorescent lamp (CCFL) method. 1 2 6 5 Parity checks are often used to check for errors that may occur during data transmission."
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "3f6eded253c1822f4ce13d70",
+    "number": "a",
+    "marks": 3,
+    "raw": "A system uses even parity.\nTick (\u2713) to show whether the following three bytes have been transmitted correctly or\nincorrectly.\nReceived byte\nByte transmitted correctly\nByte transmitted incorrectly\n1 1 0 0 1 0 0 0\n0 1 1 1 1 1 0 0\n0 1 1 0 1 0 0 1",
+    "clean": "A system uses even parity. Tick (\u2713) to show whether the following three bytes have been transmitted correctly or incorrectly. Received byte Byte transmitted correctly Byte transmitted incorrectly 1 1 0 0 1 0 0 0 0 1 1 1 1 1 0 0 0 1 1 0 1 0 0 1"
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "da0f868335b109179218fd1f",
+    "number": "b",
+    "marks": null,
+    "raw": "A parity byte is used to identify which bit has been transmitted incorrectly in a block of data.\nThe word \u201cF L O W C H A R T\u201d was transmitted using nine bytes of data (one byte per\ncharacter). A tenth byte, the parity byte, was also transmitted.\nThe following block of data shows all ten bytes receiv",
+    "clean": "A parity byte is used to identify which bit has been transmitted incorrectly in a block of data. The word \u201cF L O W C H A R T\u201d was transmitted using nine bytes of data (one byte per character). A tenth byte, the parity byte, was also transmitted. The following block of data shows all ten bytes received after transmission. The system uses even parity and column 1 is the parity bit. letter column 1 column 2 column 3 column 4 column 5 column 6 column 7 column 8 byte 1 F 1 0 1 0 0 1 1 0 byte 2 L 1 0 "
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "842739a3f9cd67f922ca53e5",
+    "number": "b.i",
+    "marks": 2,
+    "raw": "One of the bits has been transmitted incorrectly.\nWrite the byte number and column number of this bit:\nByte number  ......................................................................................................................\nColumn number  ..................................................",
+    "clean": "One of the bits has been transmitted incorrectly. Write the byte number and column number of this bit: Byte number Column number 7"
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "c329b58e8681a2ce4d8380a8",
+    "number": "b.i.ii",
+    "marks": 2,
+    "raw": "Explain how you arrived at your answer for part (b)(i).\n ...........................................................................................................................................\n ......................................................................................................",
+    "clean": "Explain how you arrived at your answer for part (b)(i)."
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "a3d5a046f0d00f11b9b9ee4d",
+    "number": "c",
+    "marks": 1,
+    "raw": "Give the denary (base 10) value of the byte: 1 0 1 1 1 1 1 0\n ...................................................................................................................................................\n .........................................................................................",
+    "clean": "Give the denary (base 10) value of the byte: 1 0 1 1 1 1 1 0"
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "bc0b7f2c771bc14fe2ba14d3",
+    "number": "d",
+    "marks": 2,
+    "raw": "A parity check may not identify that a bit has been transmitted incorrectly.\nDescribe one situation in which this could occur.\n ...................................................................................................................................................\n .......................",
+    "clean": "A parity check may not identify that a bit has been transmitted incorrectly. Describe one situation in which this could occur. 11 10 Six security issues and six descriptions are shown below. Draw a line to link each security issue to its correct description. Security issue Description illegal access to a computer system without the owner\u2019s consent or knowledge software that gathers information by monitoring key presses on a user\u2019s keyboard; the data is sent back to the originator of the software"
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "da0f868335b109179218fd1f",
+    "number": "b",
+    "marks": null,
+    "raw": "Two types of compression are lossy and lossless.\nChoose the most suitable type of compression for the following and explain your choice.",
+    "clean": "Two types of compression are lossy and lossless. Choose the most suitable type of compression for the following and explain your choice."
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "842739a3f9cd67f922ca53e5",
+    "number": "b.i",
+    "marks": 3,
+    "raw": "Downloading the code for a computer program:\nType of compression  .........................................................................................................\nExplanation  ...................................................................................................................",
+    "clean": "Downloading the code for a computer program: Type of compression Explanation"
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "c329b58e8681a2ce4d8380a8",
+    "number": "b.i.ii",
+    "marks": 4,
+    "raw": "Streaming a video file:\nType of compression  .........................................................................................................\nExplanation  .......................................................................................................................\n ...............",
+    "clean": "Streaming a video file: Type of compression Explanation 4 4 There are various methods used to detect errors that can occur during data transmission and storage. Describe each of the following error detection methods. Parity check \b\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd \b\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd\ufffd"
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "3f6eded253c1822f4ce13d70",
+    "number": "a",
+    "marks": 4,
+    "raw": "Describe how spyware could be used to find out Clive\u2019s username and password.\n ...................................................................................................................................................\n ........................................................................",
+    "clean": "Describe how spyware could be used to find out Clive\u2019s username and password."
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "da0f868335b109179218fd1f",
+    "number": "b",
+    "marks": 1,
+    "raw": "The threat of spyware makes Clive concerned about typing a password to log in to his laptop.\nGive an example of how Clive could log in securely without typing a password.\n ................................................................................................................................",
+    "clean": "The threat of spyware makes Clive concerned about typing a password to log in to his laptop. Give an example of how Clive could log in securely without typing a password. Call / WhatsApp: (0331-9977798) 11"
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "da0f868335b109179218fd1f",
+    "number": "b",
+    "marks": null,
+    "raw": "When data are transmitted from one device to another, a parity check is often carried out on\neach byte of data. The parity bit is often the leftmost bit in the byte.",
+    "clean": "When data are transmitted from one device to another, a parity check is often carried out on each byte of data. The parity bit is often the leftmost bit in the byte."
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "842739a3f9cd67f922ca53e5",
+    "number": "b.i",
+    "marks": 2,
+    "raw": "If a system uses even parity, give the parity bit for each of the following bytes:\nparity bit\n1\n1\n0\n0\n1\n1\n0\nparity bit\n0\n0\n0\n0\n0\n0\n1",
+    "clean": "If a system uses even parity, give the parity bit for each of the following bytes: parity bit 1 1 0 0 1 1 0 parity bit 0 0 0 0 0 0 1"
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "c329b58e8681a2ce4d8380a8",
+    "number": "b.i.ii",
+    "marks": 4,
+    "raw": "A parity check can often detect corruption of a byte.\n Describe a situation in which it cannot detect corruption of a byte.\n ...........................................................................................................................................\n ..................................",
+    "clean": "A parity check can often detect corruption of a byte. Describe a situation in which it cannot detect corruption of a byte. 8 The steps to print a document using a laser printer are shown in the table below. Put each step in the correct order. The first step has been done for you. Step Order As the printing drum rotates, a laser scans across it; this removes the positive charge in certain areas The printing drum is coated in positively-charged toner; this then sticks to the negatively-charged par"
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "3f6eded253c1822f4ce13d70",
+    "number": "a",
+    "marks": 2,
+    "raw": "Explain what is meant by a denial of service attack.\n ...................................................................................................................................................\n .................................................................................................",
+    "clean": "Explain what is meant by a denial of service attack."
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "da0f868335b109179218fd1f",
+    "number": "b",
+    "marks": 3,
+    "raw": "Name and describe two other potential security threats when using the Internet.\nSecurity threat 1  .......................................................................................................................\nDescription  ....................................................................",
+    "clean": "Name and describe two other potential security threats when using the Internet. Security threat 1 Description Security threat 2 Description 3 2 Data files are stored in different file formats. Complete the table by providing a suitable file format for each file type. The first one has been done for you. File type File format Pictures .JPEG Text Sound Video 3"
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "3f6eded253c1822f4ce13d70",
+    "number": "a",
+    "marks": null,
+    "raw": "An example of a Uniform Resource Locator (URL) is:\nhttp://www.cie.org.uk/index.htm",
+    "clean": "An example of a Uniform Resource Locator (URL) is: http://"
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "da0f868335b109179218fd1f",
+    "number": "b",
+    "marks": 6,
+    "raw": "Describe what is meant by an Internet Protocol (IP) address.\n ...................................................................................................................................................\n .........................................................................................",
+    "clean": "Describe what is meant by an Internet Protocol (IP) address. 10 8 Kamil correctly answers an examination question about a number of internet terms. Six different terms have been removed from Kamil\u2019s answer. Complete the sentences in Kamil\u2019s answer, using the list given. Not all terms in the list need to be used. \u2022 browser \u2022 connection \u2022 domain name server (DNS) \u2022 Internet \u2022 Internet Service Provider (ISP) \u2022 IP address \u2022 MAC address \u2022 network \u2022 protocol \u2022 uniform resource locator (URL) \u2022 webpages"
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "3f6eded253c1822f4ce13d70",
+    "number": "a",
+    "marks": null,
+    "raw": "Computers can transmit data using different methods.\nDescribe the three data transmission methods given.",
+    "clean": "Computers can transmit data using different methods. Describe the three data transmission methods given."
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "da0f868335b109179218fd1f",
+    "number": "b",
+    "marks": 4,
+    "raw": "Data can sometimes be corrupted when it is transmitted from one computer to another,\ncausing errors to be present in the data.\nIdentify and describe three methods of error detection that could be used to see if an error\nhas occurred.\nError detection method 1  ........................................",
+    "clean": "Data can sometimes be corrupted when it is transmitted from one computer to another, causing errors to be present in the data. Identify and describe three methods of error detection that could be used to see if an error has occurred. Error detection method 1 Description Error detection method 2 Description Error detection method 3 Description 11 12 Explain the difference between a Musical Instrument Digital Interface (MIDI) file and a MP3 file. 13 State which types of storage device or media wou"
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "3f6eded253c1822f4ce13d70",
+    "number": "a",
+    "marks": 2,
+    "raw": "Creating a backup of 150 GB of data.\n ...................................................................................................................................................\nJustification  ...................................................................................................",
+    "clean": "Creating a backup of 150 GB of data. Justification"
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "da0f868335b109179218fd1f",
+    "number": "b",
+    "marks": 2,
+    "raw": "Storing applications on a tablet device.\n ...................................................................................................................................................\nJustification  ...............................................................................................",
+    "clean": "Storing applications on a tablet device. Justification"
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "a3d5a046f0d00f11b9b9ee4d",
+    "number": "c",
+    "marks": 2,
+    "raw": "Storing a 1200 MB high-definition promotional movie about a new car. The movie is to be\ngiven to people who are interested in buying a new car.\n ...................................................................................................................................................\nJustifi",
+    "clean": "Storing a 1200 MB high-definition promotional movie about a new car. The movie is to be given to people who are interested in buying a new car. Justification 9 10 Data is valuable to a company."
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "3f6eded253c1822f4ce13d70",
+    "number": "a",
+    "marks": 4,
+    "raw": "Companies use error detection methods to make sure that data is accurate.\nOne error detection method is the use of a check digit.\nExplain what is meant by a check digit and how it is used to detect errors.\n .............................................................................................",
+    "clean": "Companies use error detection methods to make sure that data is accurate. One error detection method is the use of a check digit. Explain what is meant by a check digit and how it is used to detect errors."
+  },
+  {
+    "paper": "1.1.3-Data-storage",
+    "qid": "da0f868335b109179218fd1f",
+    "number": "b",
+    "marks": 3,
+    "raw": "Companies can use a range of security methods to keep their data secure.\nIdentify two security methods that a company can use to keep their data secure and explain\nhow each method can keep the data secure.\nSecurity method 1  ...........................................................................",
+    "clean": "Companies can use a range of security methods to keep their data secure. Identify two security methods that a company can use to keep their data secure and explain how each method can keep the data secure. Security method 1 Security method 2 Call / WhatsApp: (0331-9977798) 10 5 The contents of three binary registers have been transmitted from one computer to another. Odd parity has been used as an error detection method. The outcome after transmission is: \u2022 Register A and Register B have been tr"
+  }
+]
