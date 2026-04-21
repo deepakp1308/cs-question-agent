@@ -33,8 +33,12 @@ jobs:
       - name: Generate sample paper
         run: python scripts/make_sample_paper.py
 
-      - name: Run demo pipeline
+      - name: Run synthetic example pipeline
         run: python -m app.cli run --input example_input --run-id demo --publish
+
+      # Pre-built run artifacts (e.g. igcse-ch4) are checked into site/runs/
+      # via a targeted git-add; the deploy workflow simply ships whatever is
+      # already there along with the fresh example run.
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>cs-question-agent — runs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body { font-family: system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif; max-width: 780px; margin: 2em auto; padding: 0 1em; color: #111; line-height: 1.5; }
+    h1 { border-bottom: 2px solid #444; padding-bottom: 10px; }
+    .meta { color: #666; font-size: 0.9em; }
+    ul { list-style: none; padding: 0; }
+    li { padding: 14px 16px; margin: 12px 0; background: #f6f7f9; border-left: 4px solid #2c5282; border-radius: 4px; }
+    a { color: #2c5282; text-decoration: none; font-weight: 600; }
+    a:hover { text-decoration: underline; }
+    .note { color: #555; font-size: 0.9em; }
+  </style>
+</head>
+<body>
+  <h1>cs-question-agent — published runs</h1>
+  <p class="meta">Automated student-friendly worked-answer PDFs. See the <a href="https://github.com/deepakp1308/cs-question-agent">source on GitHub</a>.</p>
+  <ul>
+    <li>
+      <a href="./runs/igcse-ch4/index.html">IGCSE Chapters 1–4 (Cambridge 0478)</a>
+      <div class="note">Real Cambridge IGCSE topical papers, 4 chapters: Data representation, Data transmission, Hardware, Software. Claude-style answers via the replay adapter for the core 23-question Chapter-4 scope; the rest fall back to the mock adapter.</div>
+    </li>
+    <li>
+      <a href="./runs/demo/index.html">Synthetic demo (self-generated paper)</a>
+      <div class="note">Built by CI on every push: generates a small sample paper, runs the full pipeline with the mock adapter, and publishes.</div>
+    </li>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,69 @@
+{
+  "run_id": "igcse-ch4",
+  "visibility": "public",
+  "generated_at": "2026-04-21T00:16:57.113675+00:00Z",
+  "repo": "deepakp1308/cs-question-agent",
+  "custom_domain": "",
+  "artifacts": [
+    {
+      "name": "audit.html",
+      "size_bytes": 449063,
+      "path": "runs/igcse-ch4/audit.html",
+      "url": "https://deepakp1308.github.io/cs-question-agent/runs/igcse-ch4/audit.html"
+    },
+    {
+      "name": "chapter_ch_data_representation.html",
+      "size_bytes": 234190,
+      "path": "runs/igcse-ch4/chapter_ch_data_representation.html",
+      "url": "https://deepakp1308.github.io/cs-question-agent/runs/igcse-ch4/chapter_ch_data_representation.html"
+    },
+    {
+      "name": "chapter_ch_data_representation.pdf",
+      "size_bytes": 143198,
+      "path": "runs/igcse-ch4/chapter_ch_data_representation.pdf",
+      "url": "https://deepakp1308.github.io/cs-question-agent/runs/igcse-ch4/chapter_ch_data_representation.pdf"
+    },
+    {
+      "name": "chapter_ch_data_transmission.html",
+      "size_bytes": 290155,
+      "path": "runs/igcse-ch4/chapter_ch_data_transmission.html",
+      "url": "https://deepakp1308.github.io/cs-question-agent/runs/igcse-ch4/chapter_ch_data_transmission.html"
+    },
+    {
+      "name": "chapter_ch_data_transmission.pdf",
+      "size_bytes": 168078,
+      "path": "runs/igcse-ch4/chapter_ch_data_transmission.pdf",
+      "url": "https://deepakp1308.github.io/cs-question-agent/runs/igcse-ch4/chapter_ch_data_transmission.pdf"
+    },
+    {
+      "name": "chapter_ch_hardware.html",
+      "size_bytes": 299478,
+      "path": "runs/igcse-ch4/chapter_ch_hardware.html",
+      "url": "https://deepakp1308.github.io/cs-question-agent/runs/igcse-ch4/chapter_ch_hardware.html"
+    },
+    {
+      "name": "chapter_ch_hardware.pdf",
+      "size_bytes": 177834,
+      "path": "runs/igcse-ch4/chapter_ch_hardware.pdf",
+      "url": "https://deepakp1308.github.io/cs-question-agent/runs/igcse-ch4/chapter_ch_hardware.pdf"
+    },
+    {
+      "name": "chapter_ch_software.html",
+      "size_bytes": 109561,
+      "path": "runs/igcse-ch4/chapter_ch_software.html",
+      "url": "https://deepakp1308.github.io/cs-question-agent/runs/igcse-ch4/chapter_ch_software.html"
+    },
+    {
+      "name": "chapter_ch_software.pdf",
+      "size_bytes": 68964,
+      "path": "runs/igcse-ch4/chapter_ch_software.pdf",
+      "url": "https://deepakp1308.github.io/cs-question-agent/runs/igcse-ch4/chapter_ch_software.pdf"
+    },
+    {
+      "name": "index.html",
+      "size_bytes": 1746,
+      "path": "runs/igcse-ch4/index.html",
+      "url": "https://deepakp1308.github.io/cs-question-agent/runs/igcse-ch4/index.html"
+    }
+  ]
+}
