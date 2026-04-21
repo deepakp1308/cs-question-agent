@@ -63,11 +63,18 @@ class ProjectConfig(BaseModel):
     def validate_model_independence(self) -> None:
         if self.models.judge.provider == "mock" or self.models.generator.provider == "mock":
             return
-        if self.models.judge.provider == self.models.generator.provider:
+        same_provider = self.models.judge.provider == self.models.generator.provider
+        same_model = (
+            same_provider and self.models.judge.model == self.models.generator.model
+        )
+        if same_model:
             raise ValueError(
-                "judge.provider must differ from generator.provider "
-                f"(got {self.models.generator.provider!r} for both) — see spec §Model policy"
+                "judge.model must not be identical to generator.model "
+                f"(got {self.models.generator.provider}/{self.models.generator.model} for both) — "
+                "see spec §Model policy"
             )
+        # Same-provider / different-model is allowed (e.g. gemma3:12b vs gemma3:4b) but
+        # is weaker independence than different-family. The orchestrator logs a warning.
 
 
 def load_project(path: str | Path) -> ProjectConfig:

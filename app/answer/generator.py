@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import json
+import re
 from typing import Any
 
 from ..adapters import LLMAdapter
@@ -41,27 +42,107 @@ def _parse_answer_json(text: str) -> dict[str, Any]:
         txt = txt.strip("`")
         if txt.lower().startswith("json\n"):
             txt = txt[5:]
+    # Some models wrap output in a leading language tag.
     try:
-        return json.loads(txt)
+        data = json.loads(txt)
     except Exception:
+        # Try extracting the first {...} block.
+        import re
+
+        m = re.search(r"\{[\s\S]*\}", txt)
+        if not m:
+            return {}
+        try:
+            data = json.loads(m.group(0))
+        except Exception:
+            return {}
+    return _normalize_answer_shape(data)
+
+
+def _normalize_answer_shape(data: dict[str, Any]) -> dict[str, Any]:
+    """Coerce flexible model output into the shape the orchestrator expects."""
+    if not isinstance(data, dict):
         return {}
+    out = dict(data)
+
+    def _as_str(v: Any) -> str:
+        if v is None:
+            return ""
+        if isinstance(v, str):
+            return v
+        if isinstance(v, list):
+            return "\n".join(_as_str(x) for x in v if x is not None)
+        return str(v)
+
+    def _as_list_of_str(v: Any) -> list[str]:
+        if v is None:
+            return []
+        if isinstance(v, list):
+            return [_as_str(x) for x in v if x]
+        if isinstance(v, str):
+            # Split numbered or bulleted strings into a list.
+            import re
+
+            parts = re.split(r"(?:\n+|\s*\d+\.\s+|\s*-\s+|\s*\*\s+)", v)
+            return [p.strip() for p in parts if p and p.strip()]
+        return [str(v)]
+
+    out["direct_answer"] = _as_str(out.get("direct_answer"))
+    out["exam_style_answer"] = _as_str(out.get("exam_style_answer"))
+    out["step_by_step_explanation"] = _as_list_of_str(out.get("step_by_step_explanation"))
+    if "simple_example" in out:
+        out["simple_example"] = _as_str(out.get("simple_example")) or None
+    if "common_mistake" in out:
+        out["common_mistake"] = _as_str(out.get("common_mistake")) or None
+    # evidence_chunk_ids must be a flat list of strings.
+    ec = out.get("evidence_chunk_ids") or []
+    if isinstance(ec, str):
+        ec = [ec]
+    out["evidence_chunk_ids"] = [str(x) for x in ec if x]
+    try:
+        out["answer_confidence"] = float(out.get("answer_confidence") or 0.0)
+    except (TypeError, ValueError):
+        out["answer_confidence"] = 0.0
+    return out
+
+
+_DOT_LEADER = re.compile(r"\.{6,}")
+_BLANK_UNDERSCORE = re.compile(r"_{4,}")
+
+
+def _clean_question(text: str) -> str:
+    """Strip answer-space artefacts that Cambridge papers use (dot leaders, blank lines)."""
+    t = _DOT_LEADER.sub(" ", text)
+    t = _BLANK_UNDERSCORE.sub(" ", t)
+    # Collapse repeated whitespace.
+    t = re.sub(r"\s+", " ", t)
+    return t.strip()
 
 
 def _build_prompt(question: QuestionRecord, context: str, teaching_style: str) -> tuple[str, str]:
     system = (
-        "You are an expert 10th-grade computer science teacher. "
+        "You are an expert 10th-grade computer science teacher preparing Cambridge IGCSE students. "
         f"Teaching style: {teaching_style}. "
         "Your student is 15 and seeing this topic for the first time. "
-        "Answer grounded ONLY in the provided chapter context. "
-        "Return strict JSON with the required fields."
+        "You MUST ground every statement in the provided CHAPTER CONTEXT chunks. "
+        "You MUST return a single JSON object and nothing else — no prose, no markdown fences.\n\n"
+        "JSON schema (every key is required):\n"
+        "{\n"
+        '  "direct_answer": string,              // one sentence or short phrase\n'
+        '  "exam_style_answer": string,          // 1-3 sentences in exam-appropriate language\n'
+        '  "step_by_step_explanation": [string], // 2-4 steps, plain English first\n'
+        '  "simple_example": string,             // concrete everyday example or short number example\n'
+        '  "common_mistake": string,             // one mistake students typically make\n'
+        '  "evidence_chunk_ids": [string],       // ids from the [chunk:...] tags you used, e.g. "ch_hardware_0001"\n'
+        '  "answer_confidence": number           // 0 to 1\n'
+        "}"
     )
+    cleaned_q = _clean_question(question.verbatim_text)
     user = (
-        f"QUESTION: {question.verbatim_text}\n"
+        f"QUESTION: {cleaned_q}\n"
         f"MARKS: {question.marks or 'unspecified'}\n\n"
-        f"CHAPTER CONTEXT:\n{context}\n\n"
-        "Return JSON with keys: direct_answer, exam_style_answer, "
-        "step_by_step_explanation (array of strings), simple_example, common_mistake, "
-        "evidence_chunk_ids (array of the [chunk:...] ids used), answer_confidence (0-1)."
+        f"CHAPTER CONTEXT (cite the [chunk:...] ids you use in evidence_chunk_ids):\n{context}\n\n"
+        "Return the JSON object now."
     )
     return system, user
 

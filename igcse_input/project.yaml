@@ -1,0 +1,51 @@
+subject: computer_science
+grade_level: 10
+student_age: 15
+teaching_style: "clear, patient, first-time learner; Cambridge IGCSE style"
+exam_board: "Cambridge IGCSE 0478"
+selection_mode: "all_questions"
+dedupe_mode: "group_exact_duplicates"
+
+publish:
+  github_pages_repo: "deepakp1308/cs-question-agent"
+  custom_domain: ""
+  visibility: "public"
+
+quality:
+  min_extraction_score: 0.95
+  min_answer_score: 0.85
+  max_repair_loops: 1
+  max_run_cost_usd: 0.01   # ollama is free; cap just triggers if someone swaps in a paid model
+  confidence_weights:
+    ensemble_agreement: 0.40
+    grounding_ratio: 0.35
+    retrieval_strength: 0.25
+  grounding_ratio_floor: 0.55
+
+runtime:
+  concurrency: 1          # ollama is local and single-threaded at reasonable speed
+  enable_ensemble: false  # skip ensemble to keep runtime manageable on a laptop
+
+# Using local Gemma 3 via Ollama. `gemma3:4b` is the fast classifier/judge;
+# `gemma3:12b` is the stronger generator. Embeddings use the deterministic mock
+# store because nomic-embed-text is not pulled locally; BM25 still works.
+models:
+  classifier:
+    # Classifier can be mock for this demo; real-world use a small fast model.
+    provider: "mock"
+    model: "mock-classifier"
+  generator:
+    # `replay` reads pre-generated answers from igcse_input/transcripts/*.yaml.
+    # Answers written by the coding assistant in this conversation. Questions
+    # not matched by the transcript fall back to mock.
+    provider: "replay"
+    model: "claude-via-cursor"
+  judge:
+    provider: "mock"
+    model: "mock-judge"
+  embeddings:
+    provider: "mock"
+    model: "mock-embeddings"
+  reranker:
+    provider: "mock"
+    model: "mock-reranker"

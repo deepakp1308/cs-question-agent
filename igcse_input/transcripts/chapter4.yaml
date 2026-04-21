@@ -1,0 +1,420 @@
+# Pre-generated answers for the Chapter-4 scope (papers 1.3.6 and 1.3.7).
+# Answers are written in the voice of an expert 10th-grade CS teacher for a
+# 15-year-old first-time learner, aligned to Cambridge IGCSE 0478.
+# `match` is a lowercase substring of the rendered user prompt that uniquely
+# identifies the question. `response` is the JSON string the generator returns.
+
+- match: "convert the denary number 107 to binary"
+  role: generator
+  response: |
+    {
+      "direct_answer": "107 in binary is 1101011.",
+      "exam_style_answer": "To convert 107 from denary to binary, subtract the largest powers of 2 that fit: 64 + 32 + 8 + 2 + 1 = 107. Put a 1 in each of those columns (64, 32, 8, 2, 1) and 0 in the others (128, 16, 4), giving 1101011.",
+      "step_by_step_explanation": [
+        "Write the place values of an 8-bit binary number: 128, 64, 32, 16, 8, 4, 2, 1.",
+        "Find the largest value that fits into 107: 64. Put a 1 in the 64 column. 107 - 64 = 43.",
+        "Continue with the remainder: 32 fits into 43. Put a 1 in the 32 column. 43 - 32 = 11.",
+        "11: 16 does not fit, so 0. 8 fits, put 1. 11 - 8 = 3.",
+        "3: 4 does not fit, 0. 2 fits, 1. 3 - 2 = 1. 1 fits, 1.",
+        "Read the columns: 0 1 1 0 1 0 1 1 = 1101011."
+      ],
+      "simple_example": "For 5 the place values 4 and 1 are set, giving 101.",
+      "common_mistake": "Reading the place values in the wrong order. The leftmost bit is the largest (128), not the smallest.",
+      "evidence_chunk_ids": ["ch_data_representation_0002", "ch_data_representation_0003"],
+      "answer_confidence": 0.97
+    }
+
+- match: "represent the denary number 300"
+  role: generator
+  response: |
+    {
+      "direct_answer": "300 in a 12-bit register is 000100101100.",
+      "exam_style_answer": "A 12-bit register has place values 2048, 1024, 512, 256, 128, 64, 32, 16, 8, 4, 2, 1. Subtract the largest powers of 2 that fit into 300: 256 + 32 + 8 + 4 = 300. Putting a 1 in each of those columns and 0 elsewhere gives 000100101100.",
+      "step_by_step_explanation": [
+        "List the 12 place values from 2048 down to 1.",
+        "The largest that fits 300 is 256. Place a 1 in the 256 column. Remainder 44.",
+        "128, 64 do not fit. 32 fits. Place a 1 in the 32 column. Remainder 12.",
+        "16 does not fit. 8 fits. Place 1. Remainder 4. 4 fits. Place 1. Remainder 0.",
+        "All other columns are 0. Read across: 0 0 0 1 0 0 1 0 1 1 0 0."
+      ],
+      "simple_example": "In an 8-bit register 44 would be 00101100 \u2014 the last 8 bits are identical to our 12-bit answer because the leading four bits are 0.",
+      "common_mistake": "Padding on the wrong side. For an N-bit register the value is right-aligned and the LEFT side is padded with zeros.",
+      "evidence_chunk_ids": ["ch_data_representation_0002"],
+      "answer_confidence": 0.96
+    }
+
+- match: "convert the denary number 179 to hexadecimal"
+  role: generator
+  response: |
+    {
+      "direct_answer": "179 in hexadecimal is B3.",
+      "exam_style_answer": "Divide 179 by 16: 179 \u00f7 16 = 11 remainder 3. 11 in hex is B and the remainder is 3, so the answer is B3. You can check by converting the other way: B3 = 11 \u00d7 16 + 3 = 176 + 3 = 179.",
+      "step_by_step_explanation": [
+        "Convert 179 to binary first: 128 + 32 + 16 + 2 + 1 = 179, which gives 10110011.",
+        "Split the binary into nibbles of 4 bits from the right: 1011 and 0011.",
+        "1011 in hex is B (11), 0011 in hex is 3.",
+        "Combine the hex digits in order: B3."
+      ],
+      "simple_example": "255 in hex is FF because 255 \u00f7 16 = 15 remainder 15, and 15 is F.",
+      "common_mistake": "Forgetting that A-F stand for 10-15. Writing 11 instead of B would be wrong in hex.",
+      "evidence_chunk_ids": ["ch_data_representation_0001", "ch_data_representation_0003"],
+      "answer_confidence": 0.97
+    }
+
+- match: "explain the term interrupt"
+  role: generator
+  response: |
+    {
+      "direct_answer": "An interrupt is a signal sent to the CPU that asks it to pause the current task and handle something more important.",
+      "exam_style_answer": "An interrupt is a signal from hardware or software that tells the CPU to temporarily stop what it is doing and run a special routine called an interrupt service routine. Once the routine finishes, the CPU resumes the task it was running before the interrupt arrived.",
+      "step_by_step_explanation": [
+        "A device or program needs the CPU's attention (for example, a key has been pressed).",
+        "It raises an interrupt signal that reaches the CPU.",
+        "The CPU finishes the current instruction, saves its state, and jumps to the interrupt service routine.",
+        "When the routine ends, the CPU restores the saved state and carries on where it left off."
+      ],
+      "simple_example": "You are writing an essay (main task). The doorbell rings (interrupt). You pause, answer the door, come back, and continue writing exactly where you stopped.",
+      "common_mistake": "Saying the CPU 'stops forever' \u2014 an interrupt is temporary. The CPU always returns to the interrupted task unless the task is cancelled.",
+      "evidence_chunk_ids": ["ch_hardware_0003"],
+      "answer_confidence": 0.97
+    }
+
+- match: "identify three devices that make use of interrupts"
+  role: generator
+  response: |
+    {
+      "direct_answer": "Three devices that use interrupts are the keyboard, the mouse, and the printer.",
+      "exam_style_answer": "Accept any three of: keyboard (every keypress raises an interrupt), mouse (clicks and movement), printer (out of paper, paper jam, job complete), disk drive (I/O complete), network card (packet arrived), timer chip (scheduling interrupts).",
+      "step_by_step_explanation": [
+        "An interrupt is raised whenever a device has an event the CPU must respond to quickly.",
+        "Input devices such as the keyboard and mouse cannot wait for the CPU to poll them, so they interrupt.",
+        "Output devices such as the printer interrupt when they need more data or report an error.",
+        "Other devices: network cards, disk drives, and internal timers used for task scheduling."
+      ],
+      "simple_example": "Every time you press a letter on the keyboard, the keyboard chip interrupts the CPU and the character appears on screen.",
+      "common_mistake": "Listing passive parts like RAM or the CPU itself. RAM is not a device that raises interrupts.",
+      "evidence_chunk_ids": ["ch_hardware_0003"],
+      "answer_confidence": 0.96
+    }
+
+- match: "state what jesse is describing"
+  role: generator
+  response: |
+    {
+      "direct_answer": "Jesse is describing plagiarism (copying another person's work and claiming it as your own).",
+      "exam_style_answer": "Copying someone else's computer program and claiming it as your own is plagiarism. Plagiarism is the act of taking another person's work, code, or ideas without permission or attribution and passing them off as original.",
+      "step_by_step_explanation": [
+        "Read what Jesse says: he talks about copying another person's program and claiming it as his own.",
+        "Match this to the correct ethical / legal term: plagiarism.",
+        "Plagiarism is different from software piracy, which is making illegal copies for distribution."
+      ],
+      "simple_example": "Pasting a classmate's Python code into your homework and submitting it as yours is plagiarism.",
+      "common_mistake": "Confusing plagiarism with copyright infringement. Plagiarism is about pretending work is yours; copyright infringement is about unauthorised copying regardless of claim.",
+      "evidence_chunk_ids": ["ch_software_0001"],
+      "answer_confidence": 0.95
+    }
+
+- match: "legal protection that a person can obtain"
+  role: generator
+  response: |
+    {
+      "direct_answer": "Jesse is describing copyright.",
+      "exam_style_answer": "Copyright is the legal right that protects an author's original work, including computer programs, from being copied, distributed, or modified without permission. It exists automatically when the work is created and gives the creator control over how it is used.",
+      "step_by_step_explanation": [
+        "The clue is 'legal protection' and 'against his work being stolen' \u2014 that is copyright.",
+        "Copyright applies automatically to original works, including source code.",
+        "It lets the creator allow, license, or forbid others from copying or adapting the work."
+      ],
+      "simple_example": "When you write an original game, you automatically hold the copyright. No one can sell your game without your permission.",
+      "common_mistake": "Confusing copyright (automatic, covers the expression) with a patent (formal, covers inventions). Software is typically protected by copyright, not patent.",
+      "evidence_chunk_ids": ["ch_software_0001"],
+      "answer_confidence": 0.95
+    }
+
+- match: "describe what is meant by main memory"
+  role: generator
+  response: |
+    {
+      "direct_answer": "Main memory is the fast, directly-addressable storage (RAM) that the CPU reads program instructions and data from during execution.",
+      "exam_style_answer": "In the Von Neumann model, main memory holds both program instructions and data in the same address space. The CPU fetches each instruction from main memory, decodes it, executes it, and may read or write data back to main memory. Main memory is usually RAM: it is fast, random-access, and volatile (contents are lost when power is removed).",
+      "step_by_step_explanation": [
+        "Main memory is organised as numbered storage locations called addresses.",
+        "The CPU places the next instruction's address on the address bus.",
+        "The instruction is copied from main memory into the CPU via the data bus.",
+        "The CPU decodes and executes it, reading or writing data in main memory as needed."
+      ],
+      "simple_example": "When you open a Python program, the operating system loads the program from the hard disk into main memory, and the CPU runs it from there.",
+      "common_mistake": "Confusing main memory with secondary storage. Main memory (RAM) is fast and volatile; secondary storage (HDD/SSD) is slower and keeps data when power is off.",
+      "evidence_chunk_ids": ["ch_hardware_0001", "ch_hardware_0004"],
+      "answer_confidence": 0.96
+    }
+
+- match: "state two other components in the von neumann model"
+  role: generator
+  response: |
+    {
+      "direct_answer": "Two other components are the CPU (which contains the ALU and Control Unit and registers) and the buses (address, data, control) that connect the CPU to main memory.",
+      "exam_style_answer": "Accept any two of: the Central Processing Unit (containing the Arithmetic Logic Unit, Control Unit, and registers such as the PC, MAR, MDR, and accumulator); the buses that carry data, addresses, and control signals between the CPU and main memory; and input/output devices that provide data to and from the computer.",
+      "step_by_step_explanation": [
+        "The Von Neumann model has three main parts: main memory, the CPU, and the I/O system, connected by buses.",
+        "The CPU includes the ALU, Control Unit, and registers.",
+        "The buses are the address bus, data bus, and control bus.",
+        "Input/output devices connect external data sources to the computer."
+      ],
+      "simple_example": "Typing a key sends data across the data bus to main memory, and the CPU fetches it from there on the next cycle.",
+      "common_mistake": "Listing sub-parts of the CPU (like the ALU or registers) twice as if they were separate top-level components.",
+      "evidence_chunk_ids": ["ch_hardware_0002"],
+      "answer_confidence": 0.94
+    }
+
+- match: "interrupts can be hardware based or"
+  role: generator
+  response: |
+    {
+      "direct_answer": "Interrupts can be hardware-based (from devices) or software-based (from programs); they pause the CPU and run a service routine.",
+      "exam_style_answer": "Interrupts may originate from hardware (for example a keypress or a printer signalling it is out of paper) or from software (a program requesting an operating-system service or reporting a divide-by-zero error). When an interrupt is raised, the CPU saves its current state, jumps to an interrupt service routine, and afterwards returns to the interrupted task.",
+      "step_by_step_explanation": [
+        "Hardware interrupts come from devices: keyboards, mice, printers, timers, disks, network cards.",
+        "Software interrupts come from programs: system calls, exceptions (for example divide-by-zero), traps.",
+        "In both cases the CPU pauses the current instruction cycle at a safe point.",
+        "The Control Unit uses an interrupt vector to find the correct interrupt service routine, runs it, then resumes the interrupted task."
+      ],
+      "simple_example": "A hardware interrupt is a keypress; a software interrupt is a program asking the OS to read a file.",
+      "common_mistake": "Believing interrupts cause the CPU to lose the interrupted task permanently. They do not \u2014 the saved state is always restored.",
+      "evidence_chunk_ids": ["ch_hardware_0003", "ch_software_0002"],
+      "answer_confidence": 0.95
+    }
+
+- match: "draw a logic circuit corresponding to this logic statement"
+  role: generator
+  response: |
+    {
+      "direct_answer": "Implement X = (NOT A) OR ((B OR C) AND (NOT B OR NOT A)). Use a NOT gate on A, a NOT gate on B, an OR gate for (B OR C), an OR gate for (NOT B OR NOT A), an AND gate joining those two ORs, and a final OR gate that combines NOT A with the AND output to produce X.",
+      "exam_style_answer": "Feed A into a NOT gate to get NOT A. Feed B and C into an OR gate. Feed A into a NOT gate (reused) and B into a NOT gate, then feed NOT A and NOT B into a second OR gate. Feed the outputs of those two OR gates into an AND gate. Finally feed NOT A and the AND output into a final OR gate. The final OR output is X.",
+      "step_by_step_explanation": [
+        "Break the expression into sub-expressions: P = NOT A, Q = B OR C, R = NOT B OR NOT A, S = Q AND R, X = P OR S.",
+        "P: one NOT gate with input A.",
+        "Q: one OR gate with inputs B and C.",
+        "R: one NOT gate on B, one NOT gate on A (or reuse P), then an OR gate combining NOT B and NOT A.",
+        "S: one AND gate with inputs Q and R.",
+        "X: one OR gate with inputs P and S."
+      ],
+      "simple_example": "If A = 0, B = 0, C = 1: P = 1, so X = 1 immediately (OR short-circuit).",
+      "common_mistake": "Forgetting to invert B in the right-hand OR gate. The expression contains NOT B, not B.",
+      "evidence_chunk_ids": ["ch_hardware_0002"],
+      "answer_confidence": 0.93
+    }
+
+- match: "identify three registers that may be used"
+  role: generator
+  response: |
+    {
+      "direct_answer": "The Program Counter (PC), the Memory Address Register (MAR), and the Memory Data Register (MDR).",
+      "exam_style_answer": "Accept any three of: the Program Counter (holds the address of the next instruction), the Memory Address Register (holds the address being accessed), the Memory Data Register (holds the value read from or written to memory), the Current Instruction Register (holds the instruction being executed), the Accumulator (holds the current result of ALU operations), and status/flag registers.",
+      "step_by_step_explanation": [
+        "Registers are very small, very fast storage inside the CPU used during an instruction.",
+        "The PC tracks where the CPU is in the program.",
+        "The MAR and MDR work together to move data between the CPU and main memory.",
+        "The CIR and Accumulator are used during the decode and execute stages respectively."
+      ],
+      "simple_example": "During fetch, the address in the PC is copied into the MAR; the instruction at that address arrives in the MDR and is then loaded into the CIR.",
+      "common_mistake": "Naming main memory (RAM) as a register. Registers are inside the CPU and are much faster and smaller than RAM.",
+      "evidence_chunk_ids": ["ch_hardware_0002"],
+      "answer_confidence": 0.96
+    }
+
+- match: "identify the two other stages of processing instructions"
+  role: generator
+  response: |
+    {
+      "direct_answer": "Fetch and execute.",
+      "exam_style_answer": "The three stages of the fetch-decode-execute cycle are fetch, decode, and execute. If decode is already named, the two remaining stages are fetch and execute.",
+      "step_by_step_explanation": [
+        "Fetch: copy the next instruction from main memory into the CPU.",
+        "Decode: the Control Unit works out what the instruction means.",
+        "Execute: carry out the operation, usually using the ALU, and write back any result."
+      ],
+      "simple_example": "Reading a recipe step (fetch), understanding what it asks you to do (decode), and actually chopping the onions (execute).",
+      "common_mistake": "Saying 'store' or 'write-back' as one of the stages. Any writing back is part of execute in the basic cycle.",
+      "evidence_chunk_ids": ["ch_hardware_0002"],
+      "answer_confidence": 0.99
+    }
+
+- match: "identify the component of the cpu that is responsible for decoding"
+  role: generator
+  response: |
+    {
+      "direct_answer": "The Control Unit (CU) decodes instructions.",
+      "exam_style_answer": "The Control Unit inside the CPU decodes each fetched instruction and then sends the appropriate control signals to the ALU, registers, and buses so the instruction is executed correctly.",
+      "step_by_step_explanation": [
+        "The instruction to be decoded sits in the Current Instruction Register (CIR).",
+        "The Control Unit reads the CIR and works out the operation and operands.",
+        "It then raises the correct control-bus signals to carry out the operation."
+      ],
+      "simple_example": "When the instruction ADD arrives, the Control Unit signals the ALU to perform an addition and tells the registers which values to supply.",
+      "common_mistake": "Saying the ALU decodes instructions. The ALU performs arithmetic/logic; the Control Unit decodes.",
+      "evidence_chunk_ids": ["ch_hardware_0002"],
+      "answer_confidence": 0.99
+    }
+
+- match: "explain why a programmer would make use of both an interpreter and a compiler"
+  role: generator
+  response: |
+    {
+      "direct_answer": "A programmer uses an interpreter during development because it runs code immediately and makes debugging quick, then switches to a compiler to produce a fast, standalone executable for the finished program.",
+      "exam_style_answer": "During development an interpreter is ideal: it executes each line one at a time, reports errors as soon as they occur, and lets the programmer test small changes straight away without a full rebuild. When the program is ready to release, a compiler translates the entire source into machine code and produces a single executable that runs faster, uses less memory, can be distributed without sharing the source, and does not depend on an interpreter being installed on the user's machine.",
+      "step_by_step_explanation": [
+        "Interpreters execute statements one by one, so feedback is immediate \u2014 good for writing and debugging.",
+        "Interpreters stop at the first error, which makes tracing bugs easier.",
+        "Compilers translate the whole program once to machine code, producing a fast executable.",
+        "A compiled executable can be distributed without the source code, protecting intellectual property."
+      ],
+      "simple_example": "A developer writes a Python game with an interpreter for fast iteration, then converts it to a standalone .exe using a compiler-like tool (for example PyInstaller) before sharing it with players.",
+      "common_mistake": "Claiming a compiler is 'always better'. Interpreters are better for interactive development and debugging.",
+      "evidence_chunk_ids": ["ch_software_0003"],
+      "answer_confidence": 0.97
+    }
+
+- match: "give three reasons why a programmer would choose to write a program in a high-level language"
+  role: generator
+  response: |
+    {
+      "direct_answer": "High-level languages are easier to read and write, portable across different CPUs, and include features (libraries, error checking) that make large programs practical.",
+      "exam_style_answer": "Reason 1: the syntax is close to English, so programs are faster to write and easier to read and maintain. Reason 2: high-level code is portable \u2014 the same source can be compiled or interpreted on different CPUs. Reason 3: high-level languages provide libraries, error checking, and data structures that remove most of the low-level memory and hardware management a programmer would otherwise have to handle.",
+      "step_by_step_explanation": [
+        "Readability: one high-level statement often replaces many machine instructions.",
+        "Portability: a translator exists for each target CPU, so no rewriting is needed.",
+        "Productivity: built-in libraries, safer memory handling, and better debugging tools.",
+        "Community support: most well-known libraries target high-level languages."
+      ],
+      "simple_example": "Writing 'print(total)' in Python is one clear line; the same thing in assembly takes many instructions.",
+      "common_mistake": "Saying high-level languages are faster than low-level \u2014 they are usually not faster at runtime; their advantage is in development speed and maintainability.",
+      "evidence_chunk_ids": ["ch_software_0003"],
+      "answer_confidence": 0.97
+    }
+
+- match: "give two reasons why a programmer would choose to write code in a low-level language"
+  role: generator
+  response: |
+    {
+      "direct_answer": "Low-level languages give direct control over the hardware and produce very fast, small executables \u2014 essential for drivers, firmware, and performance-critical code.",
+      "exam_style_answer": "Reason 1: low-level languages (assembly / machine code) give the programmer direct access to specific CPU registers and hardware features, which is necessary for device drivers, operating-system kernels, and embedded systems. Reason 2: carefully-written low-level code can be faster and use less memory than high-level equivalents, which matters for real-time systems, boot code, and tight loops.",
+      "step_by_step_explanation": [
+        "Direct hardware access: you can read or write specific memory addresses and registers.",
+        "Predictable performance: no hidden runtime overhead, useful for real-time systems.",
+        "Small footprint: essential for microcontrollers with only a few kilobytes of memory.",
+        "Control over timing: instruction-level predictability for interrupts and timing loops."
+      ],
+      "simple_example": "A device driver that must respond to a sensor within microseconds may be written in assembly so the programmer knows exactly which instructions run.",
+      "common_mistake": "Believing low-level languages are portable. Assembly is CPU-specific \u2014 code written for x86 will not run on ARM without rewriting.",
+      "evidence_chunk_ids": ["ch_software_0003"],
+      "answer_confidence": 0.96
+    }
+
+- match: "high-level languages require either an interpreter or a compiler"
+  role: generator
+  response: |
+    {
+      "direct_answer": "Compiler: translates the whole program at once, produces an executable, reports errors at the end. Interpreter: translates and runs one statement at a time, stops at the first error, slower at runtime.",
+      "exam_style_answer": "Statements characteristic of a compiler: translates the entire source in one operation; produces an executable file that can be run without the compiler; reports a full error list at the end of compilation; resulting program typically runs faster. Statements characteristic of an interpreter: translates and executes one line at a time; stops at the first error it meets; does not produce an executable; easier to use for development and debugging; runs more slowly because translation happens during execution.",
+      "step_by_step_explanation": [
+        "Ask for each statement whether it applies to compilers, interpreters, or both.",
+        "One-off full translation \u21d2 compiler only.",
+        "Line-by-line translation and immediate execution \u21d2 interpreter only.",
+        "Produces a standalone executable \u21d2 compiler only.",
+        "Stops at the first error \u21d2 interpreter only.",
+        "Uses a high-level language source file \u21d2 both."
+      ],
+      "simple_example": "C is normally compiled; the CPython runtime interprets Python (technically it compiles to bytecode first, then interprets).",
+      "common_mistake": "Thinking interpreters never produce any intermediate code. Many modern interpreters compile to an internal bytecode first, even though they do not produce a native executable.",
+      "evidence_chunk_ids": ["ch_software_0003"],
+      "answer_confidence": 0.95
+    }
+
+- match: "state two types of translator"
+  role: generator
+  response: |
+    {
+      "direct_answer": "Compiler and interpreter (assembler is also acceptable for assembly source).",
+      "exam_style_answer": "A compiler translates the complete high-level source into machine code as a separate executable. An interpreter translates and executes one statement at a time at runtime. Assemblers are a third type of translator, but they work on assembly language rather than a high-level language.",
+      "step_by_step_explanation": [
+        "A translator converts source code into machine code the CPU can run.",
+        "Compiler: whole program at once, produces an executable, runs fast.",
+        "Interpreter: one line at a time, no executable, slower but easier to debug.",
+        "Assembler: translates assembly (low-level) mnemonics into machine code."
+      ],
+      "simple_example": "GCC is a compiler for C. The CPython binary interprets .py files.",
+      "common_mistake": "Listing IDE or debugger as a translator. An IDE contains a translator but is not itself a translator.",
+      "evidence_chunk_ids": ["ch_software_0003"],
+      "answer_confidence": 0.98
+    }
+
+- match: "explain two reasons why a computer programmer may choose to write a program in a high-level language"
+  role: generator
+  response: |
+    {
+      "direct_answer": "High-level languages are easier to read and write, and are portable across different CPU architectures.",
+      "exam_style_answer": "Reason 1: a high-level language uses English-like keywords and powerful built-in constructs, so the same task takes fewer lines than in assembly and the code is much easier to read, debug, and maintain later. Reason 2: the same high-level source can be translated to machine code for different CPUs (x86, ARM, RISC-V), whereas low-level code is tied to one specific architecture. This portability also makes teamwork and long-term maintenance cheaper.",
+      "step_by_step_explanation": [
+        "Readability: high-level syntax is close to natural language.",
+        "Productivity: libraries and data structures are provided out of the box.",
+        "Portability: one source compiles for many different CPUs.",
+        "Safety: fewer chances to corrupt memory compared with low-level code."
+      ],
+      "simple_example": "A Python program that works on a Mac laptop can be run unchanged on a Raspberry Pi. The same logic written in x86 assembly would need rewriting for the Pi's ARM CPU.",
+      "common_mistake": "Claiming high-level programs always run faster. They usually run a little slower than hand-written low-level code, but the productivity gains make them the default choice.",
+      "evidence_chunk_ids": ["ch_software_0003"],
+      "answer_confidence": 0.96
+    }
+
+- match: "three examples of computer code are given in the table"
+  role: generator
+  response: |
+    {
+      "direct_answer": "Classify each example by its abstraction level: English-like keywords = high-level language; mnemonic opcodes like MOV/ADD/JMP = assembly language; raw binary or hexadecimal bytes = machine code.",
+      "exam_style_answer": "Use these clues. If the code uses statements such as if, while, for, print, or function calls with named variables, it is a high-level language. If the code uses three- or four-letter mnemonics such as MOV, ADD, LDA, JMP followed by register names or addresses, it is assembly language. If the code is a stream of binary bits or hex bytes (for example 1011 0010 0001 or B2 01), it is machine code.",
+      "step_by_step_explanation": [
+        "Look for recognisable words like print, if, while \u2192 high-level.",
+        "Look for short mnemonics like MOV, ADD, JMP, plus register names like AX, R1 \u2192 assembly.",
+        "Look for pure binary or hex digits with no words \u2192 machine code.",
+        "Tick exactly one column for each row."
+      ],
+      "simple_example": "print('hello') is high-level; MOV AX, 5 is assembly; 10110000 00000101 is machine code.",
+      "common_mistake": "Ticking more than one column for the same code. Each row should be only one type.",
+      "evidence_chunk_ids": ["ch_software_0003"],
+      "answer_confidence": 0.96
+    }
+
+- match: "for the fourth question"
+  role: generator
+  response: |
+    {
+      "direct_answer": "Jesse is describing plagiarism.",
+      "exam_style_answer": "Plagiarism is copying another person's work, code, or ideas and presenting them as your own. Jesse's answer describes exactly this: someone copies another person's computer program and tries to pass it off as their own.",
+      "step_by_step_explanation": [
+        "Read the description carefully: 'copies another person's computer program' and 'tries to claim it as his own'.",
+        "Match the key words to the correct term: plagiarism.",
+        "Plagiarism is not the same as software piracy (illegal copying for distribution) or copyright infringement (unauthorised use)."
+      ],
+      "simple_example": "Submitting a classmate's game as your own project is plagiarism.",
+      "common_mistake": "Confusing plagiarism with piracy. Piracy focuses on illegal copies; plagiarism is about falsely claiming authorship.",
+      "evidence_chunk_ids": ["ch_software_0001"],
+      "answer_confidence": 0.95
+    }
+
+- match: "for the fifth question"
+  role: generator
+  response: |
+    {
+      "direct_answer": "Jesse is describing copyright.",
+      "exam_style_answer": "Copyright is the automatic legal right an author has over original work, including computer programs. It protects the work from being copied, changed, or distributed without the author's permission.",
+      "step_by_step_explanation": [
+        "Locate the key phrases: 'legal protection' and 'against his work being stolen'.",
+        "These describe copyright, which is granted automatically when a work is created.",
+        "Copyright differs from patents (which protect inventions) and trademarks (which protect brand names)."
+      ],
+      "simple_example": "When you finish writing a game, you automatically own the copyright. A classmate cannot legally publish it under their own name.",
+      "common_mistake": "Mixing up copyright (automatic) with patents (a formal application and fee).",
+      "evidence_chunk_ids": ["ch_software_0001"],
+      "answer_confidence": 0.95
+    }

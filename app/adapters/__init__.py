@@ -10,6 +10,10 @@ def build_adapter(provider: str, model: str) -> LLMAdapter:
         from .mock_adapter import MockAdapter
 
         return MockAdapter(model=model)
+    if provider == "replay":
+        from .replay_adapter import ReplayAdapter
+
+        return ReplayAdapter(model=model)
     if provider == "ollama":
         from .ollama_adapter import OllamaAdapter
 

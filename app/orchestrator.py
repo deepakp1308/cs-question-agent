@@ -33,6 +33,33 @@ from .telemetry import RunTelemetry
 log = setup_logging()
 
 
+class _TelemetryWrapper:
+    """Records every LLM call into the run telemetry."""
+
+    def __init__(self, inner, telemetry: RunTelemetry, stage: str) -> None:
+        self._inner = inner
+        self._telemetry = telemetry
+        self._stage = stage
+        self.model = getattr(inner, "model", "unknown")
+        self.provider = getattr(inner, "provider", "unknown")
+
+    def complete(self, **kwargs):
+        resp = self._inner.complete(**kwargs)
+        model_id = f"{self.provider}/{self.model}"
+        self._telemetry.record_llm(
+            stage=self._stage,
+            model_id=model_id,
+            input_tokens=resp.input_tokens,
+            output_tokens=resp.output_tokens,
+            cost_usd=resp.cost_usd,
+        )
+        return resp
+
+
+def _wrap_with_telemetry(adapter, telemetry: RunTelemetry, stage: str):
+    return _TelemetryWrapper(adapter, telemetry, stage)
+
+
 def _read_prompt_manifest(prompts_dir: Path) -> dict[str, str]:
     manifest = prompts_dir / "manifest.yaml"
     if not manifest.exists():
@@ -130,9 +157,21 @@ def run_pipeline(
     log.info("extracted %d questions", len(questions))
 
     # 5) Chapter match (+ match judge)
-    classifier = build_adapter(cfg.models.classifier.provider, cfg.models.classifier.model)
-    judge_llm = build_adapter(cfg.models.judge.provider, cfg.models.judge.model)
-    generator = build_adapter(cfg.models.generator.provider, cfg.models.generator.model)
+    classifier = _wrap_with_telemetry(
+        build_adapter(cfg.models.classifier.provider, cfg.models.classifier.model),
+        telemetry,
+        stage="classifier",
+    )
+    judge_llm = _wrap_with_telemetry(
+        build_adapter(cfg.models.judge.provider, cfg.models.judge.model),
+        telemetry,
+        stage="judge",
+    )
+    generator = _wrap_with_telemetry(
+        build_adapter(cfg.models.generator.provider, cfg.models.generator.model),
+        telemetry,
+        stage="generator",
+    )
 
     matches: dict[str, ChapterMatch] = {}
     match_judges: dict[str, JudgeResult] = {}

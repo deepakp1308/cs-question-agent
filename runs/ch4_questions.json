@@ -1,0 +1,163 @@
+[
+  {
+    "paper": "1.3.6-Operating-systems",
+    "qid": "227e0c7130bfc7f7586e5dd1",
+    "number": "a",
+    "marks": 1,
+    "text": "Convert the denary number 107 to binary."
+  },
+  {
+    "paper": "1.3.6-Operating-systems",
+    "qid": "1b1bb60b31fe30daa16d3228",
+    "number": "b",
+    "marks": 2,
+    "text": "Represent the denary number 300 as it would be stored in a 12-bit binary register."
+  },
+  {
+    "paper": "1.3.6-Operating-systems",
+    "qid": "62a7e92ec6f421d39e7a43a4",
+    "number": "c",
+    "marks": 2,
+    "text": "Convert the denary number 179 to hexadecimal. [2] 6 One of the roles of an operating system is to deal with interrupts."
+  },
+  {
+    "paper": "1.3.6-Operating-systems",
+    "qid": "227e0c7130bfc7f7586e5dd1",
+    "number": "a",
+    "marks": 2,
+    "text": "Explain the term interrupt."
+  },
+  {
+    "paper": "1.3.6-Operating-systems",
+    "qid": "1b1bb60b31fe30daa16d3228",
+    "number": "b",
+    "marks": 3,
+    "text": "Identify three devices that make use of interrupts. Device 1 Device 2 Device 3 [3] QUESTION 1. 11 0478/13/O/N/19 \u00a9 UCLES 2019"
+  },
+  {
+    "paper": "1.3.6-Operating-systems",
+    "qid": "b93f6019fe9650f1e11f43b2",
+    "number": "d",
+    "marks": 1,
+    "text": "For the fourth question, he writes the answer: \u201cThis is when a person copies another person\u2019s computer program and tries to claim it as his own.\u201d State what Jesse is describing."
+  },
+  {
+    "paper": "1.3.6-Operating-systems",
+    "qid": "8f9f4f6cfccebdaa8d3c9e2f",
+    "number": "e",
+    "marks": 1,
+    "text": "For the fifth question, he writes the answer: \u201cThis is the legal protection that a person can obtain, to provide protection against his work being stolen.\u201d State what Jesse is describing. [1] 7 The Von Neumann model for a computer system has several components that are used in the fetch-execute cycle."
+  },
+  {
+    "paper": "1.3.6-Operating-systems",
+    "qid": "227e0c7130bfc7f7586e5dd1",
+    "number": "a",
+    "marks": null,
+    "text": "One component is main memory."
+  },
+  {
+    "paper": "1.3.6-Operating-systems",
+    "qid": "583a0e1e97a96aad844a495e",
+    "number": "a.i",
+    "marks": 3,
+    "text": "Describe what is meant by main memory and how it is used in the Von Neumann model for a computer system."
+  },
+  {
+    "paper": "1.3.6-Operating-systems",
+    "qid": "9db82bbe75a0d853370d61ba",
+    "number": "a.i.ii",
+    "marks": 2,
+    "text": "State two other components in the Von Neumann model for a computer system. 1 2 [2] [Turn over Buy IGCSE, O / A Level Books, Past Papers & Revision Notes Online at Discounted Prices across Pakistan Visit: www.TeachifyMe.com / Shop Call / WhatsApp: (0331-9977798) QUESTION 2. 12"
+  },
+  {
+    "paper": "1.3.6-Operating-systems",
+    "qid": "1b1bb60b31fe30daa16d3228",
+    "number": "b",
+    "marks": 5,
+    "text": "Computer systems often use interrupts. Five statements are given about interrupts. Tick (3) to show if each statement is True or False. Statement True (3) False (3) Interrupts can be hardware based or software based Interrupts are handled by the operating system Interrupts allow a computer to multitask Interrupts work out which program to give priority to Interrupts are vital to a computer and it "
+  },
+  {
+    "paper": "1.3.7-High-and-low-level-languages-and-their-translators",
+    "qid": "b3d1dd58efb7359c55969691",
+    "number": "b",
+    "marks": 3,
+    "text": "Draw a logic circuit corresponding to this logic statement: X = 1 if (A is NOT 1) OR ((B is 1 OR C is 1) AND (B is NOT 1 OR A is NOT 1)) A B C X [6] 9 Three types of translators are assemblers, compilers and interpreters. Tick (\u2713) the appropriate boxes to show which statements apply to each type of translator. Statement Assembler (\u2713) Compiler (\u2713) Interpreter (\u2713) Translates high- level language int"
+  },
+  {
+    "paper": "1.3.7-High-and-low-level-languages-and-their-translators",
+    "qid": "4bd3aa3a7478fd0c20606695",
+    "number": "a",
+    "marks": 3,
+    "text": "Identify three registers that may be used. Register 1 Register 2 Register 3"
+  },
+  {
+    "paper": "1.3.7-High-and-low-level-languages-and-their-translators",
+    "qid": "b3d1dd58efb7359c55969691",
+    "number": "b",
+    "marks": null,
+    "text": "The CPU is responsible for processing instructions. One stage of processing instructions is the decode stage."
+  },
+  {
+    "paper": "1.3.7-High-and-low-level-languages-and-their-translators",
+    "qid": "e42f54eceda48ffc468da656",
+    "number": "b.i",
+    "marks": 2,
+    "text": "Identify the two other stages of processing instructions. Stage 1 Stage 2"
+  },
+  {
+    "paper": "1.3.7-High-and-low-level-languages-and-their-translators",
+    "qid": "56922bd8d492f086fcfe52d9",
+    "number": "b.i.ii",
+    "marks": 1,
+    "text": "Identify the component of the CPU that is responsible for decoding instructions. [1] 2 Both an interpreter and a compiler can be used when writing a program in a high-level language."
+  },
+  {
+    "paper": "1.3.7-High-and-low-level-languages-and-their-translators",
+    "qid": "4bd3aa3a7478fd0c20606695",
+    "number": "a",
+    "marks": 4,
+    "text": "Explain why a programmer would make use of both an interpreter and a compiler. [4] Buy O / A Level & IGCSE Original Books, Solved Past Papers & Notes Online at Discounted Prices. Home Delivery all over Pakistan Call / WhatsApp: (0331-9977798) Visit: www.TeachifyMe.com/Shop QUESTION 3. 3"
+  },
+  {
+    "paper": "1.3.7-High-and-low-level-languages-and-their-translators",
+    "qid": "b3d1dd58efb7359c55969691",
+    "number": "b",
+    "marks": 4,
+    "text": "Give three reasons why a programmer would choose to write a program in a high-level language, instead of a low-level language. Reason 1 Reason 2 Reason 3 [3] 10 0478/11/O/N/16 \u00a9 UCLES 2016 8 Four descriptions about compilers and interpreters are shown below. Draw lines to indicate which descriptions refer to a compiler and which descriptions refer to an interpreter. It is more difficult to debug t"
+  },
+  {
+    "paper": "1.3.7-High-and-low-level-languages-and-their-translators",
+    "qid": "4bd3aa3a7478fd0c20606695",
+    "number": "a",
+    "marks": 2,
+    "text": "Give two reasons why a programmer would choose to write code in a low-level language. 1 2"
+  },
+  {
+    "paper": "1.3.7-High-and-low-level-languages-and-their-translators",
+    "qid": "b3d1dd58efb7359c55969691",
+    "number": "b",
+    "marks": 6,
+    "text": "High-level languages require either an interpreter or a compiler to translate the program. The table below lists a number of statements about language translators. Tick (3) to show which statements refer to interpreters and which refer to compilers. Statements Interpreter (3) Compiler (3) Translates the source code into machine code all at once Produces an executable file in machine code Executes "
+  },
+  {
+    "paper": "1.3.7-High-and-low-level-languages-and-their-translators",
+    "qid": "4bd3aa3a7478fd0c20606695",
+    "number": "a",
+    "marks": 2,
+    "text": "Many programmers write computer programs in high-level languages. The programs need to be translated into machine code to be read by the computer. State two types of translator that can be used. Translator 1 Translator 2"
+  },
+  {
+    "paper": "1.3.7-High-and-low-level-languages-and-their-translators",
+    "qid": "b3d1dd58efb7359c55969691",
+    "number": "b",
+    "marks": 4,
+    "text": "Explain two reasons why a computer programmer may choose to write a program in a high- level language, rather than a low-level language. Reason 1 Reason 2"
+  },
+  {
+    "paper": "1.3.7-High-and-low-level-languages-and-their-translators",
+    "qid": "ea59aa1d80924e2bea1422df",
+    "number": "c",
+    "marks": 3,
+    "text": "Three examples of computer code are given in the table. Tick (\u2713) to show whether each example of computer code is High-level language, Assembly language or Machine code. Computer code High-level language (\u2713) Assembly language (\u2713) Machine code (\u2713) 10110111 11001100 01011100 FOR X = 1 TO 10 PRINT X NEXT X INP X STA X LDA Y [3] QUESTION 7."
+  }
+]

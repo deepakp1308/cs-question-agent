@@ -32,6 +32,11 @@ class OllamaAdapter:
         temperature: float = 0.2,
         max_tokens: int = 2048,
     ) -> LLMResponse:
+        # NOTE: Ollama's `format: "json"` is unreliable with some Gemma builds
+        # (it returns empty `{}`). We ignore the flag and rely on the system
+        # prompt telling the model to emit JSON, then the parser strips
+        # ```json fences if present.
+        _ = json_mode
         payload: dict = {
             "model": self.model,
             "messages": [
@@ -41,8 +46,6 @@ class OllamaAdapter:
             "options": {"temperature": temperature, "num_predict": max_tokens},
             "stream": False,
         }
-        if json_mode:
-            payload["format"] = "json"
         with httpx.Client(timeout=self.timeout) as client:
             r = client.post(f"{_host()}/api/chat", json=payload)
             r.raise_for_status()
